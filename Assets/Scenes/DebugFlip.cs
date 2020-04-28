@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,15 +12,19 @@ public class DebugFlip : MonoBehaviour
     Text rayPoint1Text, rayPoint2Text, rayPoint3Text, rayPoint4Text;
 
     [SerializeField]
-    Transform rayPoint1, rayPoint2, rayPoint3, rayPoint4;
+    Transform rayPoint1, rayPoint2, rayPoint3, rayPoint4, groundCheck;
 
     float dis, actualDistance;
 
     float compressionRatio;
 
-    public float suspensionAmount;
+    public float suspensionAmount, acceleration, deceleration, speed, maxSpeed;
+
+    public bool onGround;
 
     Vector3 surfaceImpactPoint, surfaceImpactNormal;
+
+    public LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +33,19 @@ public class DebugFlip : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(transform.forward * 20);
+            rb.AddForce(transform.forward * acceleration, ForceMode.Acceleration);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(-transform.forward * 20);
+            rb.AddForce(-transform.forward * acceleration, ForceMode.Acceleration);
         }
+
+        ResetRigidBody();
 
         float turn = Input.GetAxis("Horizontal");
 
@@ -57,9 +64,11 @@ public class DebugFlip : MonoBehaviour
 
         Debug.DrawRay(rayPoint4.position, rayPoint4.forward * 0.5f, Color.red);
 
+        Debug.DrawRay(groundCheck.position, groundCheck.up * 1f, Color.blue);
+
         RaycastHit hit;
 
-        // Does the ray intersect any objects excluding the player layer
+        // Does the ray intersect any objects
         if (Physics.Raycast(rayPoint1.position, rayPoint1.forward * 0.6f, out hit))
         {
             CalculateCompression(hit, rayPoint1);
@@ -76,6 +85,27 @@ public class DebugFlip : MonoBehaviour
         {
             CalculateCompression(hit, rayPoint4);
         }
+        if (compressionRatio == 0)
+        {
+            acceleration = 10;
+            rb.mass = 1f;
+            rb.drag = 0;
+            rb.angularDrag = 0;
+        }
+        else
+        {
+            acceleration = 40;
+            rb.mass = 1.28f;
+            rb.drag = 4;
+            rb.angularDrag = 10;
+        }
+    }
+
+    private void ResetRigidBody()
+    {
+        rb.mass = 1;
+        rb.drag = 0;
+        rb.angularDrag = 0;
     }
 
     void CalculateCompression(RaycastHit hitPoint, Transform originPoint)
@@ -87,7 +117,7 @@ public class DebugFlip : MonoBehaviour
 
         Debug.Log(compressionRatio);
 
-        rb.AddForceAtPosition(transform.up * compressionRatio * suspensionAmount, originPoint.transform.position);
-        rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position);
+        rb.AddForceAtPosition(transform.up * compressionRatio * suspensionAmount, originPoint.transform.position, ForceMode.Force);
+        rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);
     }
 }
