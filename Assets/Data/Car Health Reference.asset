@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Car Health Reference
   m_EditorClassIdentifier: 
   UseConstant: 1
-  ConstantValue: 20
+  ConstantValue: 0
   Variable: {fileID: 11400000, guid: a4ef901d2d80a9b418ede34f5857be3d, type: 2}
