@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 public class DebugFlip : MonoBehaviour
 {
+    public enum PlayerNumber { p1, p2 };
+    public PlayerNumber thisNumber;
+
     public UnityEvent triggerCamShake;
 
     Rigidbody rb;
@@ -36,31 +39,35 @@ public class DebugFlip : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float forward = Input.GetAxis("Vertical");
-
-        speed = Mathf.Lerp(speed, maxSpeed, forward * Time.deltaTime / 1f);
-
-        if (forward > 0)
+        //player 1 movement controls
+        if (thisNumber == PlayerNumber.p1)
         {
-            rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
-        }
+            float forward = Input.GetAxis("Vertical");
 
-        if (forward == 0)
-        {
-            if (speed > 0)
+            speed = Mathf.Lerp(speed, maxSpeed, forward * Time.deltaTime / 1f);
+
+            if (forward > 0)
             {
-                speed -= 0.5f;
+                rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
             }
+
+            if (forward == 0)
+            {
+                if (speed > 0)
+                {
+                    speed -= 0.5f;
+                }
+            }
+
+            if (forward < 0)
+            {
+                rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+            }
+
+            float turn = Input.GetAxis("Horizontal");
+
+            rb.AddTorque(transform.up * turnSpeed * turn);
         }
-
-        if (forward < 0)
-        {
-            rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
-        }
-
-        float turn = Input.GetAxis("Horizontal");
-
-        rb.AddTorque(transform.up * turnSpeed * turn);
 
         rayPoint1Text.text = "" + compressionRatio;
         rayPoint2Text.text = "" + compressionRatio;
