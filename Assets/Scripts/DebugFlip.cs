@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 public class DebugFlip : MonoBehaviour
 {
     public AbilityCoolDown ability;
+    public GameObject abilityUIImage;
+
+    public TMP_Text speedText;
 
     public enum PlayerNumber { p1, p2 };
     public PlayerNumber thisNumber;
@@ -15,7 +19,8 @@ public class DebugFlip : MonoBehaviour
     public UnityEvent triggerCamShake;
 
     //Creating a list of possible abilites/powerups
-    //public List<> abilityList;
+    public List<ProjectileAbility> abilityList;
+    public ProjectileAbility selectedAbility;
 
     Rigidbody rb;
 
@@ -39,6 +44,13 @@ public class DebugFlip : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        abilityUIImage.SetActive(false);
+    }
+
+    private void Update()
+    {
+        float clampedSpeed = Mathf.Clamp(speed, 0, maxSpeed);
+        speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
     }
 
     // Update is called once per frame
@@ -72,20 +84,22 @@ public class DebugFlip : MonoBehaviour
             float turn = Input.GetAxis("Horizontal");
 
             rb.AddTorque(transform.up * turnSpeed * turn);
-        }
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (ability.canTriggerAbility)
+            if (Input.GetKey(KeyCode.Space))
             {
-                ability.ButtonTriggered();
+                if (ability.canTriggerAbility && abilityUIImage.activeSelf)
+                {
+                    ability.ButtonTriggered();
+                }
             }
+
         }
 
-        rayPoint1Text.text = "" + compressionRatio;
-        rayPoint2Text.text = "" + compressionRatio;
-        rayPoint3Text.text = "" + compressionRatio;
-        rayPoint4Text.text = "" + compressionRatio;
+        //DEBUG SETUP TO SEE COMPRESSION AMOUNTS IN EDITOR
+        //rayPoint1Text.text = "" + compressionRatio;
+        //rayPoint2Text.text = "" + compressionRatio;
+        //rayPoint3Text.text = "" + compressionRatio;
+        //rayPoint4Text.text = "" + compressionRatio;
 
         Debug.DrawRay(rayPoint1.position, rayPoint1.forward * 0.5f, Color.red);
 
@@ -145,7 +159,7 @@ public class DebugFlip : MonoBehaviour
         actualDistance = (float)System.Math.Round(clampedDistance, 1);
         compressionRatio = 1.0f - actualDistance;
 
-        Debug.Log(compressionRatio);
+        //Debug.Log(compressionRatio);
 
         rb.AddForceAtPosition(transform.up * compressionRatio * suspensionAmount, originPoint.transform.position, ForceMode.Force);
         rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);
@@ -153,6 +167,7 @@ public class DebugFlip : MonoBehaviour
 
     public void RandomPickupGenerator()
     {
-
+        abilityUIImage.SetActive(true);
+        selectedAbility = abilityList[UnityEngine.Random.Range(0, abilityList.Count)];
     }
 }

@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597511537}
-  m_LocalRotation: {x: 0.020506471, y: -0.02503869, z: -0.60782796, w: 0.793409}
-  m_LocalPosition: {x: -0.11376032, y: -0.058414612, z: 2.3071518}
+  m_LocalRotation: {x: -0.043879386, y: -0.0019581912, z: -0.6159199, w: 0.78658336}
+  m_LocalPosition: {x: -0.11376032, y: 0.341, z: 2.3071518}
   m_LocalScale: {x: 1.7598413, y: 1.0552033, z: 1}
   m_Children: []
   m_Father: {fileID: 433627671048771090}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.097, y: 2.9290001, z: -76.229004}
 --- !u!1 &2091195549
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433627670253950879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -539,6 +539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3807d20e2400ad4885a3f85ffec7667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  abilityUIImage: {fileID: 0}
+  speedText: {fileID: 0}
   thisNumber: 0
   triggerCamShake:
     m_PersistentCalls:
@@ -556,6 +559,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  abilityList:
+  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  selectedAbility: {fileID: 0}
   rayPoint1Text: {fileID: 433627670456775179}
   rayPoint2Text: {fileID: 433627670460700819}
   rayPoint3Text: {fileID: 433627672010658866}
@@ -661,7 +667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433627671092988972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -826,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433627671965285449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1004,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &433627672022353807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1042,7 +1048,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
