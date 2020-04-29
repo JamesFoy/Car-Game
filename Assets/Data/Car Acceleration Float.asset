@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4398d23a537efc14c9f83a0c40cd8179, type: 3}
-  m_Name: Car Force Float
+  m_Name: Car Acceleration Float
   m_EditorClassIdentifier: 
   Value: 0

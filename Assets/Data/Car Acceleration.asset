@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3505e3218ba487b4b8c4f44875651ed1, type: 3}
-  m_Name: Car Force Reference
+  m_Name: Car Acceleration
   m_EditorClassIdentifier: 
   UseConstant: 1
   ConstantValue: 0
-  Variable: {fileID: 0}
+  Variable: {fileID: 11400000, guid: 4df1aab96e2d7a348939f145e673669c, type: 2}

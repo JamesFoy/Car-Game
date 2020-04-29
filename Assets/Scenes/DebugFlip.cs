@@ -18,13 +18,9 @@ public class DebugFlip : MonoBehaviour
 
     float compressionRatio;
 
-    public float suspensionAmount, acceleration, deceleration, speed, maxSpeed;
+    public float suspensionAmount, turnSpeed, speed, maxSpeed;
 
-    public bool onGround;
-
-    Vector3 surfaceImpactPoint, surfaceImpactNormal;
-
-    public LayerMask layerMask;
+    public Vector3 surfaceImpactNormal;
 
     // Start is called before the first frame update
     void Start()
@@ -35,21 +31,31 @@ public class DebugFlip : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        float forward = Input.GetAxis("Vertical");
+
+        speed = Mathf.Lerp(speed, maxSpeed, forward * Time.deltaTime / 1f);
+
+        if (forward > 0)
         {
-            rb.AddForce(transform.forward * acceleration, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (forward == 0)
         {
-            rb.AddForce(-transform.forward * acceleration, ForceMode.Acceleration);
+            if (speed > 0)
+            {
+                speed -= 0.5f;
+            }
         }
 
-        ResetRigidBody();
+        if (forward < 0)
+        {
+            rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+        }
 
         float turn = Input.GetAxis("Horizontal");
 
-        rb.AddTorque(transform.up * 3 * turn);
+        rb.AddTorque(transform.up * turnSpeed * turn);
 
         rayPoint1Text.text = "" + compressionRatio;
         rayPoint2Text.text = "" + compressionRatio;
@@ -87,25 +93,17 @@ public class DebugFlip : MonoBehaviour
         }
         if (compressionRatio == 0)
         {
-            acceleration = 10;
+            speed = 10;
             rb.mass = 1f;
             rb.drag = 0;
-            rb.angularDrag = 0;
+            rb.angularDrag = 5;
         }
         else
         {
-            acceleration = 40;
             rb.mass = 1.28f;
             rb.drag = 4;
             rb.angularDrag = 10;
         }
-    }
-
-    private void ResetRigidBody()
-    {
-        rb.mass = 1;
-        rb.drag = 0;
-        rb.angularDrag = 0;
     }
 
     void CalculateCompression(RaycastHit hitPoint, Transform originPoint)
