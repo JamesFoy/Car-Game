@@ -94,8 +94,8 @@ public class DebugFlip : MonoBehaviour
         if (compressionRatio == 0)
         {
             speed = 10;
-            rb.mass = 1f;
-            rb.drag = 0;
+            rb.mass = 4f;
+            rb.drag = 1;
             rb.angularDrag = 5;
         }
         else
