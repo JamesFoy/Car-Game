@@ -7,10 +7,15 @@ using UnityEngine.Events;
 
 public class DebugFlip : MonoBehaviour
 {
+    public AbilityCoolDown ability;
+
     public enum PlayerNumber { p1, p2 };
     public PlayerNumber thisNumber;
 
     public UnityEvent triggerCamShake;
+
+    //Creating a list of possible abilites/powerups
+    //public List<> abilityList;
 
     Rigidbody rb;
 
@@ -67,6 +72,14 @@ public class DebugFlip : MonoBehaviour
             float turn = Input.GetAxis("Horizontal");
 
             rb.AddTorque(transform.up * turnSpeed * turn);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (ability.canTriggerAbility)
+            {
+                ability.ButtonTriggered();
+            }
         }
 
         rayPoint1Text.text = "" + compressionRatio;
@@ -136,5 +149,10 @@ public class DebugFlip : MonoBehaviour
 
         rb.AddForceAtPosition(transform.up * compressionRatio * suspensionAmount, originPoint.transform.position, ForceMode.Force);
         rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);
+    }
+
+    public void RandomPickupGenerator()
+    {
+
     }
 }
