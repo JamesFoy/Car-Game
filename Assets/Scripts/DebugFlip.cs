@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DebugFlip : MonoBehaviour
 {
+    public UnityEvent triggerCamShake;
+
     Rigidbody rb;
 
     [SerializeField]
@@ -21,6 +24,8 @@ public class DebugFlip : MonoBehaviour
     public float suspensionAmount, turnSpeed, speed, maxSpeed;
 
     public Vector3 surfaceImpactNormal;
+
+    bool onLand;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +98,7 @@ public class DebugFlip : MonoBehaviour
         }
         if (compressionRatio == 0)
         {
+            onLand = false;
             speed = 10;
             rb.mass = 4f;
             rb.drag = 1;
@@ -100,6 +106,12 @@ public class DebugFlip : MonoBehaviour
         }
         else
         {
+            if (!onLand)
+            {
+                onLand = true;
+                triggerCamShake.Invoke();
+            }
+
             rb.mass = 1.28f;
             rb.drag = 4;
             rb.angularDrag = 10;
