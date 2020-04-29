@@ -26,7 +26,7 @@ public class AddForceBasedOnHealth : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
-        Vector3 healthScaledForce = originalForce * car.health.Value;
+        Vector3 healthScaledForce = originalForce * car.health;
         rb.AddForce(healthScaledForce);
         DebugLogForces(collision, originalForce);
     }
