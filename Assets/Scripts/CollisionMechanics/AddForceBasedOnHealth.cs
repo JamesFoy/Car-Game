@@ -5,13 +5,20 @@ using UnityEngine;
 public class AddForceBasedOnHealth : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] CarData car;
+    CarData car;
     Vector3 velocityOnLastFrame;
     int frames;
     float lastFrameTimeDeltaTime;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+    private void Update()
+    {
+        if (car == null)
+        {
+            car = GetComponent<CarController>().carData;
+        }
     }
     void FixedUpdate()
     {
