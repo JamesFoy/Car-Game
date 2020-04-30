@@ -14,9 +14,12 @@ public class CarController : MonoBehaviour
 
     public TMP_Text speedText; //Reference to the HUD text field for the speed 
 
+    public Transform centerMass; //Used as the transform position for the center of mass
+
     public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
     public PlayerNumber thisNumber;
 
+    [SerializeField, Space(10)]
     public UnityEvent triggerCamShake; //UnityEvent that is setup in editor to raise the camera shake event
 
     //Creating a list of possible abilites/powerups
@@ -52,6 +55,9 @@ public class CarController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         abilityUIImage.SetActive(false);
         carData = Instantiate(baseCarData);
+
+        //Setting a center mass removes colliders from calulation of mass (MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
+        rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
     }
 
     #region Update Calls

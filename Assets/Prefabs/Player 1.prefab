@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1441022323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441022324}
+  m_Layer: 10
+  m_Name: COM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441022324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441022323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 433627671048771090}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597511537
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +524,7 @@ Transform:
   - {fileID: 433627671811584303}
   - {fileID: 2559214993325613962}
   - {fileID: 1597511538}
+  - {fileID: 1441022324}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -512,6 +543,7 @@ MonoBehaviour:
   ability: {fileID: 0}
   abilityUIImage: {fileID: 0}
   speedText: {fileID: 0}
+  centerMass: {fileID: 1441022324}
   thisNumber: 0
   triggerCamShake:
     m_PersistentCalls:
@@ -536,7 +568,7 @@ MonoBehaviour:
   rayPoint2: {fileID: 433627670362107109}
   rayPoint3: {fileID: 433627670984697817}
   rayPoint4: {fileID: 433627671217401504}
-  baseCarData: {fileID: 0}
+  baseCarData: {fileID: 11400000, guid: f89ac7622f3105546af5d3d4f892645e, type: 2}
   carData: {fileID: 0}
 --- !u!114 &1498597733
 MonoBehaviour:
