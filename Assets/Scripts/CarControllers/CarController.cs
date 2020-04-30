@@ -40,6 +40,7 @@ public class CarController : MonoBehaviour
 
     [SerializeField] CarData baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
 
+    [Header("Car Data Object"), SerializeField]
     CarData carData;
     #endregion
 
