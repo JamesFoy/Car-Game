@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddForceBasedOnHealth : MonoBehaviour
 {
     private Rigidbody rb;
-    CarData car;
+    [SerializeField] CarData car;
     Vector3 velocityOnLastFrame;
     int frames;
     float lastFrameTimeDeltaTime;
@@ -36,8 +36,15 @@ public class AddForceBasedOnHealth : MonoBehaviour
         {
             Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
             Vector3 healthScaledForce = originalForce * car.health;
-            rb.AddForce(healthScaledForce);
-            //DebugLogForces(collision, originalForce);
+            if (velocityOnLastFrame.sqrMagnitude >= GetVelocity().sqrMagnitude)
+            {
+                rb.AddForce(healthScaledForce);
+            }
+            else
+            {
+                rb.AddForce(-healthScaledForce);
+            }
+            DebugLogForces(collision, originalForce);
         }
     }
     Vector3 GetVelocity()
@@ -46,8 +53,16 @@ public class AddForceBasedOnHealth : MonoBehaviour
     }
     void DebugLogForces(Collision collision, Vector3 originalForce)
     {
-        Debug.DrawRay(transform.position, collision.impulse, Color.green, 4);
-        Debug.DrawRay(transform.position, Vector3.forward, Color.blue, 4);
+        if (velocityOnLastFrame.sqrMagnitude >= GetVelocity().sqrMagnitude)
+        {
+            Debug.DrawRay(transform.position, collision.impulse * 2, Color.green, 4);
+            Debug.DrawRay(transform.position, collision.impulse, Color.blue, 4);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, -collision.impulse * 2, Color.green, 4);
+            Debug.DrawRay(transform.position, -collision.impulse, Color.blue, 4);
+        }
         Debug.Log(collision.impulse);
         Debug.Log(velocityOnLastFrame);
         Debug.Log(GetVelocity());

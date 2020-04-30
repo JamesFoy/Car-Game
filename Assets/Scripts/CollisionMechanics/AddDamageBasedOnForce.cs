@@ -34,7 +34,7 @@ public class AddDamageBasedOnForce : MonoBehaviour
         {
             Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
             float forceMagnitude = originalForce.magnitude;
-            float damageApplied = forceMagnitude * 0.1f;
+            float damageApplied = forceMagnitude * 0.01f;
             car.health += damageApplied;
             Debug.Log(damageApplied);
         }
