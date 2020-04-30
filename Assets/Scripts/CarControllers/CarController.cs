@@ -36,9 +36,11 @@ public class CarController : MonoBehaviour
 
     float compressionRatio; //Varibale that contains the exact amount of compression being applied (is clamped between 0 and 1 later in script)
 
-    public float suspensionAmount, turnSpeed, speed, maxSpeed; //Varibles that are used for car setup (suspension amount is how high the car is off the ground.... been setup for hight of 6 so DONT TOUCH!!)
-
     bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
+
+    [SerializeField] CarData baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
+
+    CarData carData;
     #endregion
 
     // Start is called before the first frame update
@@ -46,13 +48,14 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         abilityUIImage.SetActive(false);
+        carData = Instantiate(baseCarData);
     }
 
     #region Update Calls
     //Setting up the HUD speed text to a clamped speed varibale (this is based of the speed).
     private void Update()
     {
-        float clampedSpeed = Mathf.Clamp(speed, 0, maxSpeed);
+        float clampedSpeed = Mathf.Clamp(carData.speed, 0, carData.maxSpeed);
         speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
     }
 
@@ -65,12 +68,12 @@ public class CarController : MonoBehaviour
         {
             float forward = Input.GetAxis("Vertical"); //Setting forward float to be equal to the vertical input (W and S)
 
-            speed = Mathf.Lerp(speed, maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+            carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
             //Applies a force forward if the W key is pressed (based on speed)
             if (forward > 0)
             {
-                rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
+                rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
             }
 
             //Applies a force backwards if the S key is pressed (based on speed)
@@ -82,15 +85,15 @@ public class CarController : MonoBehaviour
             //If the player provides no input on the vertical input, the current speed gradually reduces
             if (forward == 0)
             {
-                if (speed > 0)
+                if (carData.speed > 0)
                 {
-                    speed -= 0.5f;
+                    carData.speed -= 0.5f;
                 }
             }
 
             float turn = Input.GetAxis("Horizontal"); //Setting turn float to be equal to the horizontal input (A and D)
 
-            rb.AddTorque(transform.up * turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+            rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
             //Activates the ability
             if (Input.GetKey(KeyCode.Space))
@@ -147,7 +150,7 @@ public class CarController : MonoBehaviour
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
-            speed = 10;
+            carData.speed = 10;
 
             //Setting the correct rigidbody settings for when the car is in the air, makes sure gravity has more effect etc (can be tweaked to get different resultss)
             rb.mass = 4f;
@@ -184,7 +187,7 @@ public class CarController : MonoBehaviour
         //Debug.Log(compressionRatio);
 
         //This applies the force at the exact position of the raycasts
-        rb.AddForceAtPosition(transform.up * compressionRatio * suspensionAmount, originPoint.transform.position, ForceMode.Force);
+        rb.AddForceAtPosition(transform.up * compressionRatio * carData.suspensionAmount, originPoint.transform.position, ForceMode.Force);
 
         //Applies a counter force that is slightly lower compression to each point to reduce the effect of compression (HELPS TO MAKE SURE THE CAR DOESN'T BOUCNCE OR PING OFF INTO SPACE)
         rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);

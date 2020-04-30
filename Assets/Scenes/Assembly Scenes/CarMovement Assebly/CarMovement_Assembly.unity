@@ -1315,6 +1315,12 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 366735239}
+    - target: {fileID: 433627671048771113, guid: 12183ee53eed4924caeeb240f43be28d,
+        type: 3}
+      propertyPath: baseCarData
+      value: 
+      objectReference: {fileID: 11400000, guid: f89ac7622f3105546af5d3d4f892645e,
+        type: 2}
     - target: {fileID: 528069088, guid: 12183ee53eed4924caeeb240f43be28d, type: 3}
       propertyPath: m_Enabled
       value: 1

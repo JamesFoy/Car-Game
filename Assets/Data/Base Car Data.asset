@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Base Car Data
   m_EditorClassIdentifier: 
   health: 0
-  accelerationForce: 0
+  speed: 0
+  suspensionAmount: 6
+  turnSpeed: 6
+  maxSpeed: 70
