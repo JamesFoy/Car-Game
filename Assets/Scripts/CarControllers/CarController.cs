@@ -29,8 +29,10 @@ public class CarController : MonoBehaviour
     //[SerializeField]
     //Text rayPoint1Text, rayPoint2Text, rayPoint3Text, rayPoint4Text;
 
-    [SerializeField]
-    Transform rayPoint1, rayPoint2, rayPoint3, rayPoint4; //References to each transform to cast each ray from
+    [SerializeField, Header("Ray Points")] Transform rayPoint1;
+    [SerializeField] Transform rayPoint2;
+    [SerializeField] Transform rayPoint3;
+    [SerializeField] Transform rayPoint4; //References to each transform to cast each ray from
 
     float dis, actualDistance; //Variables used in compression calculation
 
@@ -38,7 +40,7 @@ public class CarController : MonoBehaviour
 
     bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
 
-    [SerializeField] CarData baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
+    [SerializeField, Space(10)] CarData baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
 
     [Header("Car Data Object"), SerializeField]
     CarData carData;
