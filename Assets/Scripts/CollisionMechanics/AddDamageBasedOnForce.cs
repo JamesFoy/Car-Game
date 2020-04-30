@@ -36,7 +36,7 @@ public class AddDamageBasedOnForce : MonoBehaviour
             float forceMagnitude = originalForce.magnitude;
             float damageApplied = forceMagnitude * 0.01f;
             car.health += damageApplied;
-            Debug.Log(damageApplied);
+            Debug.Log("damage applied: " + damageApplied);
         }
     }
 }
