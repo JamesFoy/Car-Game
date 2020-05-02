@@ -65,14 +65,14 @@ public class ControllerSetup : MonoBehaviour
         prevState2 = state2;
         state2 = GamePad.GetState(player2Index);
 
-        if (state1.Buttons.A == ButtonState.Pressed)
-        {
-            Debug.Log("Controller 1 Press A");
-        }
+        //if (state1.Buttons.A == ButtonState.Pressed)
+        //{
+        //    Debug.Log("Controller 1 Press A");
+        //}
 
-        if (state2.Buttons.A == ButtonState.Pressed)
-        {
-            Debug.Log("Controller 2 Press A");
-        }
+        //if (state2.Buttons.A == ButtonState.Pressed)
+        //{
+        //    Debug.Log("Controller 2 Press A");
+        //}
     }
 }

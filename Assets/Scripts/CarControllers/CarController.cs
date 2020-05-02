@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using XInputDotNetPure;
 
 public class CarController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CarController : MonoBehaviour
     public ControllerSetup controllerSetup;
 
     public TMP_Text speedText; //Reference to the HUD text field for the speed 
+    public TMP_Text damageText; //Reference to the HUD text field for the damage 
 
     public Transform centerMass; //Used as the transform position for the center of mass
 
@@ -72,6 +74,8 @@ public class CarController : MonoBehaviour
         float clampedSpeed = Mathf.Clamp(carData.speed, 0, carData.maxSpeed);
         speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
 
+        damageText.text = System.Math.Round(carData.health).ToString();
+
         if (clampedSpeed >= 100f)
         {
             speedEffect.SetActive(true);
@@ -90,13 +94,15 @@ public class CarController : MonoBehaviour
         #region Player 1 Controls
         if (thisNumber == PlayerNumber.p1) //This is setup in the editor to be p1
         {
-
             #region Controller
             if (controllerSetup.state1.IsConnected)
             {
-                float forward = controllerSetup.state1.ThumbSticks.Left.Y;
+
+                float forward = controllerSetup.state1.Triggers.Right;
+                float backward = controllerSetup.state1.Triggers.Left;
 
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
                 if (forward > 0)
@@ -105,9 +111,9 @@ public class CarController : MonoBehaviour
                 }
 
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (forward < 0)
+                if (backward > 0)
                 {
-                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                    rb.AddForce(-transform.forward * carData.speed / 2, ForceMode.Acceleration);
                 }
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
@@ -121,9 +127,16 @@ public class CarController : MonoBehaviour
 
                 float turn = controllerSetup.state1.ThumbSticks.Left.X;
 
-                //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
-
                 rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+
+                //Activates the ability
+                if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
+                {
+                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+                    {
+                        ability.ButtonTriggered(); //Trigger ability
+                    }
+                }
             }
             #endregion
             #region Keyboard
@@ -176,9 +189,11 @@ public class CarController : MonoBehaviour
             #region Controller
             if (controllerSetup.state2.IsConnected)
             {
-                float forward = controllerSetup.state2.ThumbSticks.Left.Y;
+                float forward = controllerSetup.state2.Triggers.Right;
+                float backward = controllerSetup.state2.Triggers.Left;
 
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
                 if (forward > 0)
@@ -187,9 +202,9 @@ public class CarController : MonoBehaviour
                 }
 
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (forward < 0)
+                if (backward > 0)
                 {
-                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                    rb.AddForce(-transform.forward * carData.speed / 2, ForceMode.Acceleration);
                 }
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
@@ -206,6 +221,15 @@ public class CarController : MonoBehaviour
                 //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
 
                 rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+
+                //Activates the ability
+                if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
+                {
+                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+                    {
+                        ability.ButtonTriggered(); //Trigger ability
+                    }
+                }
             }
             #endregion
             #region Keyboard

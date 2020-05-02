@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 1120391737}
   - component: {fileID: 1120391738}
   - component: {fileID: 7829020679547439853}
+  - component: {fileID: 5867680202168515171}
   m_Layer: 10
   m_Name: Player1
   m_TagString: Player
@@ -546,7 +547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 0}
   abilityUIImage: {fileID: 0}
+  controllerSetup: {fileID: 0}
   speedText: {fileID: 0}
+  damageText: {fileID: 0}
   centerMass: {fileID: 1441022324}
   thisNumber: 0
   triggerCamShake:
@@ -568,6 +571,7 @@ MonoBehaviour:
   abilityList:
   - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
   selectedAbility: {fileID: 0}
+  speedEffect: {fileID: 0}
   rayPoint1: {fileID: 433627670623397752}
   rayPoint2: {fileID: 433627670362107109}
   rayPoint3: {fileID: 433627670984697817}
@@ -691,6 +695,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5867680202168515171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433627671048771091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe79735a7701914aa85e83766c7d5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndexSet: 0
+  player1Index: 0
+  player2Index: 1
 --- !u!1 &433627671092988973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575511260320902, guid: a040b23558fd6b442819f2618ade38b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5200002
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 4575511260320902, guid: a040b23558fd6b442819f2618ade38b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1444,22 +1463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
         type: 3}
-      propertyPath: m_Parameters.alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
@@ -1469,12 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
         type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
+      propertyPath: m_Parameters.alignment
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1662,7 +1661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575511260320902, guid: a040b23558fd6b442819f2618ade38b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5230002
+      value: 3.223
       objectReference: {fileID: 0}
     - target: {fileID: 4575511260320902, guid: a040b23558fd6b442819f2618ade38b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1706,22 +1705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
         type: 3}
-      propertyPath: m_Parameters.alignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
@@ -1731,12 +1715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
         type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96456390459361950, guid: a040b23558fd6b442819f2618ade38b7,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
+      propertyPath: m_Parameters.alignment
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
