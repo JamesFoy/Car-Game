@@ -28,6 +28,8 @@ public class CarController : MonoBehaviour
 
     Rigidbody rb; //Reference to the rigidbody
 
+    public GameObject speedEffect;
+
     //TEXT VARIABLES USED FOR DEBUGING THE COMPRESSION AMOUNTS FOR EACH RAY
     //[SerializeField]
     //Text rayPoint1Text, rayPoint2Text, rayPoint3Text, rayPoint4Text;
@@ -66,6 +68,15 @@ public class CarController : MonoBehaviour
     {
         float clampedSpeed = Mathf.Clamp(carData.speed, 0, carData.maxSpeed);
         speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
+
+        if (clampedSpeed >= 100f)
+        {
+            speedEffect.SetActive(true);
+        }
+        else
+        {
+            speedEffect.SetActive(false);
+        }
     }
 
     // Fixed Update is needed for all following code due to it being physics based (helps to keep everything smooth)
@@ -96,7 +107,7 @@ public class CarController : MonoBehaviour
             {
                 if (carData.speed > 0)
                 {
-                    carData.speed -= 0.5f;
+                    carData.speed -= 2f;
                 }
             }
 
