@@ -12,6 +12,8 @@ public class CarController : MonoBehaviour
     public AbilityCoolDown ability; //Reference to the UI ability (needs to be called when a button is pressed)
     public GameObject abilityUIImage; //Reference to the game object that contains the ability UI (makes sure that it only works when activated, activation when picking up powerup occurs etc)
 
+    public ControllerSetup controllerSetup;
+
     public TMP_Text speedText; //Reference to the HUD text field for the speed 
 
     public Transform centerMass; //Used as the transform position for the center of mass
@@ -54,6 +56,7 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controllerSetup = GetComponent<ControllerSetup>();
         rb = GetComponent<Rigidbody>();
         abilityUIImage.SetActive(false);
         carData = Instantiate(baseCarData);
@@ -84,87 +87,171 @@ public class CarController : MonoBehaviour
     {
         #region Player controls
         //player movement controls
+        #region Player 1 Controls
         if (thisNumber == PlayerNumber.p1) //This is setup in the editor to be p1
         {
-            float forward = Input.GetAxis("Vertical"); //Setting forward float to be equal to the vertical input (W and S)
 
-            carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
-
-            //Applies a force forward if the W key is pressed (based on speed)
-            if (forward > 0)
+            #region Controller
+            if (controllerSetup.state1.IsConnected)
             {
-                rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
-            }
+                float forward = controllerSetup.state1.ThumbSticks.Left.Y;
 
-            //Applies a force backwards if the S key is pressed (based on speed)
-            if (forward < 0)
-            {
-                rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
-            }
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
-            //If the player provides no input on the vertical input, the current speed gradually reduces
-            if (forward == 0)
-            {
-                if (carData.speed > 0)
+                //Applies a force forward if the W key is pressed (based on speed)
+                if (forward > 0)
                 {
-                    carData.speed -= 2f;
+                    rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
+                }
+
+                //Applies a force backwards if the S key is pressed (based on speed)
+                if (forward < 0)
+                {
+                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                }
+
+                //If the player provides no input on the vertical input, the current speed gradually reduces
+                if (forward == 0)
+                {
+                    if (carData.speed > 0)
+                    {
+                        carData.speed -= 0.5f;
+                    }
+                }
+
+                float turn = controllerSetup.state1.ThumbSticks.Left.X;
+
+                //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
+
+                rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+            }
+            #endregion
+            #region Keyboard
+            else
+            {
+                float forward = Input.GetAxis("Vertical1"); //Setting forward float to be equal to the vertical input (W and S)
+
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+
+                //Applies a force forward if the W key is pressed (based on speed)
+                if (forward > 0)
+                {
+                    rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
+                }
+
+                //Applies a force backwards if the S key is pressed (based on speed)
+                if (forward < 0)
+                {
+                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                }
+
+                //If the player provides no input on the vertical input, the current speed gradually reduces
+                if (forward == 0)
+                {
+                    if (carData.speed > 0)
+                    {
+                        carData.speed -= 0.5f;
+                    }
+                }
+
+                float turn = Input.GetAxis("Horizontal1"); //Setting turn float to be equal to the horizontal input (A and D)
+
+                rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+
+                //Activates the ability
+                if (Input.GetKey(KeyCode.KeypadEnter))
+                {
+                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+                    {
+                        ability.ButtonTriggered(); //Trigger ability
+                    }
                 }
             }
-
-            float turn = Input.GetAxis("Horizontal"); //Setting turn float to be equal to the horizontal input (A and D)
-
-            rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
-
-            //Activates the ability
-            if (Input.GetKey(KeyCode.Space))
-            {
-                if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                {
-                    ability.ButtonTriggered(); //Trigger ability
-                }
-            }
-        }
-        else if (thisNumber == PlayerNumber.p2)
-        {
-            float forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
-
-            carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
-
-            //Applies a force forward if the W key is pressed (based on speed)
-            if (forward > 0)
-            {
-                rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
-            }
-
-            //Applies a force backwards if the S key is pressed (based on speed)
-            if (forward < 0)
-            {
-                rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
-            }
-
-            //If the player provides no input on the vertical input, the current speed gradually reduces
-            if (forward == 0)
-            {
-                if (carData.speed > 0)
-                {
-                    carData.speed -= 0.5f;
-                }
-            }
-
-            float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
-
-            rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
-
-            //Activates the ability
-            if (Input.GetKey(KeyCode.KeypadEnter))
-            {
-                if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                {
-                    ability.ButtonTriggered(); //Trigger ability
-                }
-            }
+            #endregion
         }
         #endregion
+        #region Player 2 Controls
+        else if (thisNumber == PlayerNumber.p2)
+        {
+            #region Controller
+            if (controllerSetup.state2.IsConnected)
+            {
+                float forward = controllerSetup.state2.ThumbSticks.Left.Y;
+
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+
+                //Applies a force forward if the W key is pressed (based on speed)
+                if (forward > 0)
+                {
+                    rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
+                }
+
+                //Applies a force backwards if the S key is pressed (based on speed)
+                if (forward < 0)
+                {
+                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                }
+
+                //If the player provides no input on the vertical input, the current speed gradually reduces
+                if (forward == 0)
+                {
+                    if (carData.speed > 0)
+                    {
+                        carData.speed -= 0.5f;
+                    }
+                }
+
+                float turn = controllerSetup.state2.ThumbSticks.Left.X;
+
+                //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
+
+                rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+            }
+            #endregion
+            #region Keyboard
+            else
+            {
+                float forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
+
+                carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
+
+                //Applies a force forward if the W key is pressed (based on speed)
+                if (forward > 0)
+                {
+                    rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
+                }
+
+                //Applies a force backwards if the S key is pressed (based on speed)
+                if (forward < 0)
+                {
+                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
+                }
+
+                //If the player provides no input on the vertical input, the current speed gradually reduces
+                if (forward == 0)
+                {
+                    if (carData.speed > 0)
+                    {
+                        carData.speed -= 0.5f;
+                    }
+                }
+
+                float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
+
+                rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+
+                //Activates the ability
+                if (Input.GetKey(KeyCode.KeypadEnter))
+                {
+                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+                    {
+                        ability.ButtonTriggered(); //Trigger ability
+                    }
+                }
+            }
+            #endregion
+        }
+        #endregion 
 
         #region Debug Text Setup For Compression (Currently not being used)
         //DEBUG SETUP TO SEE COMPRESSION AMOUNTS IN EDITOR
@@ -231,6 +318,7 @@ public class CarController : MonoBehaviour
             rb.drag = 4;
             rb.angularDrag = 10;
         }
+        #endregion
         #endregion
     }
     #endregion

@@ -3,15 +3,15 @@ using XInputDotNetPure; // Required in C#
 
 public class XInputTestCS : MonoBehaviour
 {
-    bool playerIndexSet = false;
-    PlayerIndex playerIndex;
-    GamePadState state;
-    GamePadState prevState;
+    public bool playerIndexSet = false;
+    public PlayerIndex playerIndex;
+    public GamePadState state;
+    public GamePadState prevState;
 
     // Use this for initialization
     void Start()
     {
-        // No need to initialize anything for the plugin
+        // No need to initialize anything for the plugins
     }
 
     void FixedUpdate()

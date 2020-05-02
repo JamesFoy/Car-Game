@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Horizontal1
+  m_VerticalAxis: Vertical1
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -795,6 +795,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 393560463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120391737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120391736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe79735a7701914aa85e83766c7d5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndexSet: 0
+  player1Index: 0
+  player2Index: 1
 --- !u!114 &1153229212 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3624470828792350854, guid: 2550d87d42836c744be7b41d56fa50ea,
@@ -1258,7 +1273,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &433627671882064212
+--- !u!114 &433627671882064205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1270,6 +1285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe79735a7701914aa85e83766c7d5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndexSet: 0
+  player1Index: 0
+  player2Index: 0
 --- !u!1001 &507636187844687566
 PrefabInstance:
   m_ObjectHideFlags: 0
