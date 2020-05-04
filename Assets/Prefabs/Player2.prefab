@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6384624728486375802
+--- !u!1 &2409834532975660573
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6384624728486375801}
+  - component: {fileID: 3111484833838203252}
   m_Layer: 0
-  m_Name: FirePointP2
+  m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6384624728486375801
+--- !u!4 &3111484833838203252
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384624728486375802}
-  m_LocalRotation: {x: -0.043879386, y: -0.0019581912, z: -0.6159199, w: 0.78658336}
-  m_LocalPosition: {x: -0.11376032, y: 1.39, z: 3.36}
-  m_LocalScale: {x: 1.7598413, y: 1.0552033, z: 1}
+  m_GameObject: {fileID: 2409834532975660573}
+  m_LocalRotation: {x: -0.031671103, y: -0.011513262, z: -0.6158154, w: 0.78716946}
+  m_LocalPosition: {x: -0.010000378, y: 1.3900003, z: 3.3599966}
+  m_LocalScale: {x: 1.7598412, y: 1.0552032, z: 1}
   m_Children: []
-  m_Father: {fileID: 6817939991462064153}
+  m_Father: {fileID: 6017410160076626475}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -3.6720002, y: 1.199, z: -76.11201}
+--- !u!1 &4519191580724907553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6001099341495689650}
+  m_Layer: 0
+  m_Name: FirePoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6001099341495689650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519191580724907553}
+  m_LocalRotation: {x: -0.7243902, y: 0.6879388, z: -0.006500662, w: -0.044236008}
+  m_LocalPosition: {x: 0.0000022649765, y: 1.810003, z: -3.5499258}
+  m_LocalScale: {x: 1.7598417, y: 1.0552034, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6017410160076626475}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -4.097, y: 2.9290001, z: -76.229004}
+  m_LocalEulerAnglesHint: {x: 4.188, y: 182.95699, z: -92.84901}
 --- !u!1 &6384624728648623992
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6817939991462064153}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6817939991295133866
 GameObject:
@@ -128,10 +158,10 @@ Transform:
   m_LocalScale: {x: 1, y: 0.55095, z: 1.0000002}
   m_Children:
   - {fileID: 6817939991909963556}
-  - {fileID: 6384624728486375801}
   - {fileID: 6384624728648623999}
   - {fileID: 6380132964488842665}
   - {fileID: 6380020974317575155}
+  - {fileID: 6017410160076626475}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 84.51, z: 0}
@@ -151,6 +181,7 @@ MonoBehaviour:
   abilityUIImage: {fileID: 0}
   controllerSetup: {fileID: 0}
   speedText: {fileID: 0}
+  damageText: {fileID: 0}
   centerMass: {fileID: 6384624728648623999}
   thisNumber: 1
   triggerCamShake:
@@ -170,7 +201,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   abilityList:
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  - {fileID: 11400000, guid: d926abf18b28bd947b74b3b19496425b, type: 2}
+  - {fileID: 11400000, guid: 2f61ea23d3c7bfd47bb0c8fcdda39cd8, type: 2}
   selectedAbility: {fileID: 0}
   speedEffect: {fileID: 0}
   rayPoint1: {fileID: 6817939992936661363}
@@ -191,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec43c31b69734044fbbac6519350eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265, type: 2}
+  Event: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
@@ -221,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  projectileSpawn: {fileID: 6384624728486375801}
+  projectileSpawn: {fileID: 0}
   projectileForce: 250
 --- !u!54 &6817939991462064165
 Rigidbody:
@@ -1150,6 +1182,38 @@ Transform:
   m_Father: {fileID: 6817939991909963556}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &8429830157704450933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6017410160076626475}
+  m_Layer: 10
+  m_Name: FirePoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6017410160076626475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429830157704450933}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3111484833838203252}
+  - {fileID: 6001099341495689650}
+  m_Father: {fileID: 6817939991462064153}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6384624729181685151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,7 +1255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634980916561974, guid: 7a3ef98fe4aee4047a8c214d0c33f19b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4634980916561974, guid: 7a3ef98fe4aee4047a8c214d0c33f19b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1258,7 +1322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
