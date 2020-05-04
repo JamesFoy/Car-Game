@@ -1329,5 +1329,16 @@ PrefabInstance:
       propertyPath: speedEffect
       value: 
       objectReference: {fileID: 1723141705}
+    - target: {fileID: 2357496975388094478, guid: 5b132a8f9a918a84d8db15106f97490c,
+        type: 3}
+      propertyPath: projectileSpawn
+      value: 
+      objectReference: {fileID: 6384624730142003540}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b132a8f9a918a84d8db15106f97490c, type: 3}
+--- !u!4 &6384624730142003540 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3111484833838203252, guid: 5b132a8f9a918a84d8db15106f97490c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6384624730142003539}
+  m_PrefabAsset: {fileID: 0}
