@@ -371,6 +371,7 @@ public class CarController : MonoBehaviour
     {
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
         selectedAbility = abilityList[UnityEngine.Random.Range(0, abilityList.Count)];
+        abilityUIImage.GetComponent<AbilityCoolDown>().Initialize(selectedAbility, this.gameObject);
     }
     #endregion
 }

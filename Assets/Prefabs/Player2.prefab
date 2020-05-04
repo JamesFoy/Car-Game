@@ -151,6 +151,7 @@ MonoBehaviour:
   abilityUIImage: {fileID: 0}
   controllerSetup: {fileID: 0}
   speedText: {fileID: 0}
+  damageText: {fileID: 0}
   centerMass: {fileID: 6384624728648623999}
   thisNumber: 1
   triggerCamShake:
@@ -170,7 +171,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   abilityList:
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  - {fileID: 11400000, guid: d926abf18b28bd947b74b3b19496425b, type: 2}
+  - {fileID: 11400000, guid: 2f61ea23d3c7bfd47bb0c8fcdda39cd8, type: 2}
   selectedAbility: {fileID: 0}
   speedEffect: {fileID: 0}
   rayPoint1: {fileID: 6817939992936661363}
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec43c31b69734044fbbac6519350eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265, type: 2}
+  Event: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

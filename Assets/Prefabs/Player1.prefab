@@ -570,6 +570,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   abilityList:
   - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  - {fileID: 11400000, guid: 30bef5f702eb69344a36f4d758d14997, type: 2}
   selectedAbility: {fileID: 0}
   speedEffect: {fileID: 0}
   rayPoint1: {fileID: 433627670623397752}
@@ -1201,15 +1202,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13122927
+      value: -0.015
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8603325
+      value: 0.602
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6927965
+      value: -2.708
       objectReference: {fileID: 0}
     - target: {fileID: 4746696964045042, guid: d7786caaf9ad4b44988ff1c5ac5c10c0, type: 3}
       propertyPath: m_LocalRotation.x
