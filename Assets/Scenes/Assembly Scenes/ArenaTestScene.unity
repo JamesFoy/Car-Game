@@ -1450,17 +1450,17 @@ PrefabInstance:
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08428855
+      value: 0.08428853
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.019217508
+      value: 0.01921751
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0015918097
+      value: -0.0015918195
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -1495,17 +1495,17 @@ PrefabInstance:
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08428855
+      value: 0.08428853
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.019217508
+      value: 0.01921751
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0015918097
+      value: -0.0015918195
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -2179,7 +2179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528249738}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ArenaTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
