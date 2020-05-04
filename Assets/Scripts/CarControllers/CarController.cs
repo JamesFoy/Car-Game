@@ -105,7 +105,7 @@ public class CarController : MonoBehaviour
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0)
+                if (forward > 0 || carData.speed > 0)
                 {
                     rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
                 }
@@ -121,7 +121,7 @@ public class CarController : MonoBehaviour
                 {
                     if (carData.speed > 0)
                     {
-                        carData.speed -= 0.5f;
+                        carData.speed -= 2f;
                     }
                 }
 
@@ -147,7 +147,7 @@ public class CarController : MonoBehaviour
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0)
+                if (forward > 0 || carData.speed > 0)
                 {
                     rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
                 }
@@ -163,16 +163,17 @@ public class CarController : MonoBehaviour
                 {
                     if (carData.speed > 0)
                     {
-                        carData.speed -= 0.5f;
+                        carData.speed -= 2f;
                     }
                 }
+
 
                 float turn = Input.GetAxis("Horizontal1"); //Setting turn float to be equal to the horizontal input (A and D)
 
                 rb.AddTorque(transform.up * carData.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
                 //Activates the ability
-                if (Input.GetKey(KeyCode.KeypadEnter))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
                     {
@@ -196,7 +197,7 @@ public class CarController : MonoBehaviour
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0)
+                if (forward > 0 || carData.speed > 0)
                 {
                     rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
                 }
@@ -212,9 +213,10 @@ public class CarController : MonoBehaviour
                 {
                     if (carData.speed > 0)
                     {
-                        carData.speed -= 0.5f;
+                        carData.speed -= 2f;
                     }
                 }
+
 
                 float turn = controllerSetup.state2.ThumbSticks.Left.X;
 
@@ -240,7 +242,7 @@ public class CarController : MonoBehaviour
                 carData.speed = Mathf.Lerp(carData.speed, carData.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0)
+                if (forward > 0 || carData.speed > 0)
                 {
                     rb.AddForce(transform.forward * carData.speed, ForceMode.Acceleration);
                 }
@@ -256,7 +258,7 @@ public class CarController : MonoBehaviour
                 {
                     if (carData.speed > 0)
                     {
-                        carData.speed -= 0.5f;
+                        carData.speed -= 2f;
                     }
                 }
 

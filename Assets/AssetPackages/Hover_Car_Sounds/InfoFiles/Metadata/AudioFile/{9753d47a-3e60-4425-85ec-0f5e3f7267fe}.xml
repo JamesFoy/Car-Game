@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{9753d47a-3e60-4425-85ec-0f5e3f7267fe}">
+        <property name="assetPath">
+            <value>Wav_med_off.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>3.755238095238095</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{4ed18d0c-9c0d-466c-97a7-c295230a8e6c}</destination>
+        </relationship>
+    </object>
+</objects>
