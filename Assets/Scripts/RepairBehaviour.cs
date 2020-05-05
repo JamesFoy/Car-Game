@@ -7,7 +7,7 @@ public class RepairBehaviour : MonoBehaviour
     CarInfo carInfo;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         carInfo = GetComponentInParent<CarInfo>();
     }
