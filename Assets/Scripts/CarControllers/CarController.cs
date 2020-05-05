@@ -98,10 +98,7 @@ public class CarController: MonoBehaviour
                 ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (backward > 0)
-                {
-                    rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
-                }
+                BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
                 if (forward == 0)
@@ -130,6 +127,7 @@ public class CarController: MonoBehaviour
             else
             {
                 float forward = Input.GetAxis("Vertical1"); //Setting forward float to be equal to the vertical input (W and S)
+                float backward = -Input.GetAxis("Vertical1");
 
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
@@ -137,10 +135,7 @@ public class CarController: MonoBehaviour
                 ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (forward < 0)
-                {
-                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
-                }
+                BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
                 if (forward == 0)
@@ -184,10 +179,7 @@ public class CarController: MonoBehaviour
                 ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (backward > 0)
-                {
-                    rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
-                }
+                BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
                 if (forward == 0)
@@ -219,18 +211,15 @@ public class CarController: MonoBehaviour
             else
             {
                 float forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
+                float backward = -Input.GetAxis("Vertical1");
 
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
                 ForwardMovement(forward);
 
-
                 //Applies a force backwards if the S key is pressed (based on speed)
-                if (forward < 0)
-                {
-                    rb.AddForce(-transform.forward * 10, ForceMode.Acceleration);
-                }
+                BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
                 if (forward == 0)
@@ -360,6 +349,13 @@ public class CarController: MonoBehaviour
         if (forward > 0 || carInfo.carStats.speed > 0)
         {
             rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
+        }
+    }
+    void BackwardMovement(float backward)
+    {
+        if (backward > 0)
+        {
+            rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
         }
     }
     #endregion
