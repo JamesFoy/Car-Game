@@ -1505,6 +1505,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: weaponHolder
+      value: 
+      objectReference: {fileID: 433627671882064203}
+    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3624470827452142623, guid: 2550d87d42836c744be7b41d56fa50ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1618,14 +1626,6 @@ PrefabInstance:
       propertyPath: ability
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 433627671882064203}
-    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 79339729, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 59
@@ -1647,6 +1647,11 @@ PrefabInstance:
     - target: {fileID: 1663917248, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624470827880247340, guid: 2550d87d42836c744be7b41d56fa50ea,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 333
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
@@ -2575,6 +2580,7 @@ GameObject:
   - component: {fileID: 433627671404025758}
   - component: {fileID: 433627671404025766}
   - component: {fileID: 1311213802}
+  - component: {fileID: 433627671404025760}
   - component: {fileID: 4484889479452530818}
   - component: {fileID: 433627671404025761}
   - component: {fileID: 135065711}
@@ -2639,6 +2645,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedText: {fileID: 1153229212}
   damageText: {fileID: 649261362}
+--- !u!114 &433627671404025760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433627671404025756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027c057ffe404d14ebe78d56ef7f66f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 0}
+  powerupAmount: 0
 --- !u!54 &433627671404025761
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2688,10 +2708,14 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  abilityList:
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  isProjecticleAbility: 0
+  projectileAbilities:
   - {fileID: 11400000, guid: 30bef5f702eb69344a36f4d758d14997, type: 2}
-  selectedAbility: {fileID: 0}
+  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
+  powerupAbilities:
+  - {fileID: 11400000, guid: 6adba373549d54248825709d2fa600df, type: 2}
+  selectedProjectile: {fileID: 0}
+  selectedPowerUp: {fileID: 0}
   speedEffect: {fileID: 1537282195}
   rayPoint1: {fileID: 433627671008438007}
   rayPoint2: {fileID: 433627670211980650}
