@@ -95,10 +95,7 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                    {
-                        ability.ButtonTriggered(); //Trigger ability
-                    }
+                    AbilityTrigger();
                 }
             }
             #endregion
@@ -111,10 +108,7 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                    {
-                        ability.ButtonTriggered(); //Trigger ability
-                    }
+                    AbilityTrigger();
                 }
             }
             #endregion
@@ -132,10 +126,7 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                    {
-                        ability.ButtonTriggered(); //Trigger ability
-                    }
+                    AbilityTrigger();
                 }
             }
             #endregion
@@ -148,10 +139,7 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
                 {
-                    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
-                    {
-                        ability.ButtonTriggered(); //Trigger ability
-                    }
+                    AbilityTrigger();
                 }
             }
             #endregion
@@ -292,5 +280,12 @@ public class CarController: MonoBehaviour
     }
     #endregion
 
+    void AbilityTrigger()
+    {
+        if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+        {
+            ability.ButtonTriggered(); //Trigger ability
+        }
+    }
     #endregion
 }
