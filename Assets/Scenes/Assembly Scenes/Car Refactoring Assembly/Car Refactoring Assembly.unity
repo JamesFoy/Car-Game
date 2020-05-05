@@ -1626,6 +1626,10 @@ PrefabInstance:
       propertyPath: ability
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 79339729, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 59
+      objectReference: {fileID: 0}
     - target: {fileID: 79339731, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -2579,6 +2583,7 @@ GameObject:
   - component: {fileID: 7829020679166593890}
   - component: {fileID: 5867680201981164524}
   - component: {fileID: 1437766605}
+  - component: {fileID: 433627671404025759}
   m_Layer: 10
   m_Name: Player1
   m_TagString: Player
@@ -2620,6 +2625,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCarStats: {fileID: 11400000, guid: f89ac7622f3105546af5d3d4f892645e, type: 2}
   carStats: {fileID: 0}
+--- !u!114 &433627671404025759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433627671404025756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2ec25ce33e9b8428a1fc8999d5cd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedText: {fileID: 1153229212}
+  damageText: {fileID: 649261362}
 --- !u!54 &433627671404025761
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2651,8 +2670,6 @@ MonoBehaviour:
   ability: {fileID: 1663917247}
   abilityUIImage: {fileID: 1663917246}
   controllerSetup: {fileID: 0}
-  speedText: {fileID: 1153229212}
-  damageText: {fileID: 649261362}
   centerMass: {fileID: 1116799227}
   thisNumber: 0
   triggerCamShake:

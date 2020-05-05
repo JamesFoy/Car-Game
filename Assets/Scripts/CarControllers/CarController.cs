@@ -15,9 +15,6 @@ public class CarController: MonoBehaviour
 
     public ControllerSetup controllerSetup;
 
-    public TMP_Text speedText; //Reference to the HUD text field for the speed 
-    public TMP_Text damageText; //Reference to the HUD text field for the damage 
-
     public Transform centerMass; //Used as the transform position for the center of mass
 
     public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
@@ -69,9 +66,6 @@ public class CarController: MonoBehaviour
     private void Update()
     {
         float clampedSpeed = Mathf.Clamp(carInfo.carStats.speed, 0, carInfo.carStats.maxSpeed);
-        speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
-
-        damageText.text = System.Math.Round(carInfo.carStats.health).ToString();
 
         if (clampedSpeed >= 100f)
         {
