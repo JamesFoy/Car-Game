@@ -252,7 +252,7 @@ public class CarController: MonoBehaviour
     #region Movement Methods
     void ForwardMovement(float forward)
     {
-        if (forward > 0)
+        if (forward > 0 || carInfo.carStats.speed < 151)
         {
             rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
         }

@@ -18,7 +18,7 @@ public class CarUIManager : MonoBehaviour
     {
         float clampedSpeed = Mathf.Clamp(carInfo.carStats.speed, 0, carInfo.carStats.maxSpeed);
 
-        speedText.text = System.Math.Round(clampedSpeed, 1).ToString();
+        speedText.text = System.Math.Round(clampedSpeed, 0).ToString();
         damageText.text = System.Math.Round(carInfo.carStats.health).ToString();
     }
 }

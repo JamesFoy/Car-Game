@@ -975,14 +975,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
-      propertyPath: weaponHolder
-      value: 
-      objectReference: {fileID: 433627671882064203}
-    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3624470827452142623, guid: 2550d87d42836c744be7b41d56fa50ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,6 +1085,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1120391736}
     - target: {fileID: 1663917247, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: weaponHolder
+      value: 
+      objectReference: {fileID: 433627671882064203}
+    - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: ability
       value: 
       objectReference: {fileID: 0}
