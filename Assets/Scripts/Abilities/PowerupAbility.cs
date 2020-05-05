@@ -8,20 +8,19 @@ public class PowerupAbility : Ability
     public GameObject particleEffect;
     public float powerupEffectAmount;
 
-    private PowerupTriggerable launcher;
+    private PowerupTriggerable Launcher;
 
     //script that provides a funciton implementation
     public override void Initialize(GameObject obj)
     {
         //implementation of script
-        launcher = obj.GetComponent<PowerupTriggerable>();
-        launcher.particleEffect = particleEffect;
-        launcher.powerupAmount = powerupEffectAmount;
-    }
+        Launcher = obj.GetComponent<PowerupTriggerable>();
+        Launcher.particleEffect = particleEffect;
+        Launcher.powerupAmount = powerupEffectAmount;
+    } 
 
-    public override void TriggerAbility()
+    public override void TriggerAbility(float abilityNumber)
     {
-        //make the ability activate
-        launcher.Activate(this);
+        Launcher.Activate(this);
     }
 }

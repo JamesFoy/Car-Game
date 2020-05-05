@@ -403,6 +403,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161133031}
   m_CullTransparentMesh: 0
+--- !u!1 &200953358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200953359}
+  m_Layer: 10
+  m_Name: WeaponHolders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200953359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200953358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 412275412}
+  - {fileID: 1261041640}
+  m_Father: {fileID: 1867597231}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231545806
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +554,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 368718112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &412275411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412275412}
+  - component: {fileID: 412275413}
+  m_Layer: 10
+  m_Name: WeaponHolder1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412275412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412275411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 200953359}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412275413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412275411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027c057ffe404d14ebe78d56ef7f66f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 0}
+  particleSpawnPoint: {fileID: 755813610}
+  powerupAmount: 0
 --- !u!1001 &419586812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,6 +1087,14 @@ PrefabInstance:
       propertyPath: ability
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1663917247, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: weaponHolder1
+      value: 
+      objectReference: {fileID: 412275411}
+    - target: {fileID: 1663917247, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: weaponHolder2
+      value: 
+      objectReference: {fileID: 1261041639}
     - target: {fileID: 79339729, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 59
@@ -2023,6 +2109,52 @@ Transform:
   m_Father: {fileID: 1482529537}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1261041639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261041640}
+  - component: {fileID: 1261041641}
+  m_Layer: 10
+  m_Name: WeaponHolder2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1261041640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261041639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 200953359}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1261041641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261041639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027c057ffe404d14ebe78d56ef7f66f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 0}
+  particleSpawnPoint: {fileID: 755813610}
+  powerupAmount: 0
 --- !u!1001 &1298714255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2913,7 +3045,6 @@ GameObject:
   - component: {fileID: 1867597244}
   - component: {fileID: 1867597243}
   - component: {fileID: 1867597242}
-  - component: {fileID: 1867597241}
   - component: {fileID: 1867597240}
   - component: {fileID: 1867597239}
   - component: {fileID: 1867597238}
@@ -2948,6 +3079,7 @@ Transform:
   - {fileID: 231545807}
   - {fileID: 934330578}
   - {fileID: 502083601}
+  - {fileID: 200953359}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 84.51, z: 0}
@@ -3081,21 +3213,6 @@ MonoBehaviour:
   projectile: {fileID: 0}
   projectileSpawn: {fileID: 1204353107}
   projectileForce: 250
---- !u!114 &1867597241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867597230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027c057ffe404d14ebe78d56ef7f66f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleEffect: {fileID: 0}
-  particleSpawnPoint: {fileID: 755813610}
-  powerupAmount: 0
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3159,14 +3276,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isProjecticleAbility: 0
-  projectileAbilities:
-  - {fileID: 11400000, guid: 30bef5f702eb69344a36f4d758d14997, type: 2}
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
-  powerupAbilities:
-  - {fileID: 11400000, guid: 6adba373549d54248825709d2fa600df, type: 2}
-  - {fileID: 11400000, guid: 28d73053f10a9624db355b6fa7f77e5a, type: 2}
-  selectedProjectile: {fileID: 0}
-  selectedPowerUp: {fileID: 0}
+  possibleAbilities:
+  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  abilityChosen: {fileID: 0}
+  powerup1: {fileID: 0}
+  powerup2: {fileID: 0}
   speedEffect: {fileID: 1600254698}
   rayPoint1: {fileID: 1520775728}
   rayPoint2: {fileID: 1240490098}

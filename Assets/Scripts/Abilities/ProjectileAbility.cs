@@ -19,9 +19,8 @@ public class ProjectileAbility : Ability
         launcher.projectile = projectile;
     }
 
-    public override void TriggerAbility()
+    public override void TriggerAbility(float abilityNumber)
     {
-        //make the ability activate
         launcher.Launch();
     }
 }

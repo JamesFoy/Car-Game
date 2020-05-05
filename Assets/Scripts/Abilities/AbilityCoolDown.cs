@@ -8,19 +8,30 @@ public class AbilityCoolDown : MonoBehaviour
 {
     public bool canTriggerAbility = true;
 
-    [SerializeField] private Ability ability;
-    [SerializeField] private GameObject weaponHolder; //is the object that has the ability function script attached
+    [SerializeField] private Ability ability1;
+    [SerializeField] private Ability ability2;
+    public GameObject weaponHolder1; //is the object that has the ability function script attached
+    public GameObject weaponHolder2; //is the object that has the ability function script attached
     private Image myButtonImage;
     private AudioSource abilitySource;
 
-
-    public void Initialize(Ability selectedAbility, GameObject weaponHolder)
+    public void Initialize1(Ability selectedAbility1, GameObject weaponHolder1)
     {
-        ability = selectedAbility;
+        ability1 = selectedAbility1;
         myButtonImage = GetComponent<Image>();
         abilitySource = GetComponent<AudioSource>();
-        myButtonImage.sprite = ability.Sprite;
-        ability.Initialize(weaponHolder);
+        myButtonImage.sprite = ability1.Sprite;
+        ability1.Initialize(weaponHolder1);
+        AbilityReady();
+    }
+
+    public void Initialize2(Ability selectedAbility2, GameObject weaponHolder2)
+    {
+        ability2 = selectedAbility2;
+        myButtonImage = GetComponent<Image>();
+        abilitySource = GetComponent<AudioSource>();
+        myButtonImage.sprite = ability1.Sprite;
+        ability2.Initialize(weaponHolder2);
         AbilityReady();
     }
 
@@ -30,13 +41,25 @@ public class AbilityCoolDown : MonoBehaviour
     }
 
 
-    public void ButtonTriggered()
+    public void ButtonTriggered(float button)
     {
-        abilitySource.clip = ability.Sound;
-        abilitySource.Play();
-        ability.TriggerAbility();
-        myButtonImage.sprite = null;
-        canTriggerAbility = false;
-        this.gameObject.SetActive(false);
+        if (button == 0)
+        {
+            abilitySource.clip = ability1.Sound;
+            abilitySource.Play();
+            ability1.TriggerAbility(0);
+            myButtonImage.sprite = null;
+            canTriggerAbility = false;
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            abilitySource.clip = ability2.Sound;
+            abilitySource.Play();
+            ability2.TriggerAbility(1);
+            myButtonImage.sprite = null;
+            canTriggerAbility = false;
+            this.gameObject.SetActive(false);
+       }
     }
 }
