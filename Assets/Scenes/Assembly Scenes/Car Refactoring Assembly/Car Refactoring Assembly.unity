@@ -2680,8 +2680,6 @@ MonoBehaviour:
   rayPoint2: {fileID: 433627670211980650}
   rayPoint3: {fileID: 433627670663128662}
   rayPoint4: {fileID: 433627671503843119}
-  baseCarData: {fileID: 11400000, guid: f89ac7622f3105546af5d3d4f892645e, type: 2}
-  carData: {fileID: 0}
 --- !u!1 &433627671503843118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817939991462064152, guid: 5b132a8f9a918a84d8db15106f97490c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6817939991462064153, guid: 5b132a8f9a918a84d8db15106f97490c,
         type: 3}

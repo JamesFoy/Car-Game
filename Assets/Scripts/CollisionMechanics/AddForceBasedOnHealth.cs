@@ -18,7 +18,7 @@ public class AddForceBasedOnHealth : MonoBehaviour
     {
         if (car == null)
         {
-            car = GetComponent<CarController>().carData;
+            car = GetComponent<CarInfo>().carStats;
         }
     }
     void FixedUpdate()

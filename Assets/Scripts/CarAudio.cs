@@ -5,20 +5,20 @@ using UnityEngine;
 public class CarAudio : MonoBehaviour
 {
     public AudioSource carSound;
-    CarController carController;
+    CarInfo carInfo;
 
     // Start is called before the first frame update
     void Start()
     {
-        carController = GetComponent<CarController>();
+        carInfo = GetComponent<CarInfo>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        carSound.pitch = Mathf.Lerp(carSound.pitch, carController.carData.speed, 0.015f * Time.deltaTime);
+        carSound.pitch = Mathf.Lerp(carSound.pitch, carInfo.carStats.speed, 0.015f * Time.deltaTime);
 
-        if (carController.carData.speed < 151)
+        if (carInfo.carStats.speed < 151)
         {
             carSound.pitch -= 0.009f;
         }

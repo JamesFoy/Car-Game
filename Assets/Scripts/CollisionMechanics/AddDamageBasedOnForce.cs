@@ -16,7 +16,7 @@ public class AddDamageBasedOnForce : MonoBehaviour
     {
         if (car == null)
         {
-            car = GetComponent<CarController>().carData;
+            car = GetComponent<CarInfo>().carStats;
         }
     }
     private void FixedUpdate()
