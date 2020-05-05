@@ -105,7 +105,7 @@ public class CarController: MonoBehaviour
 
                 float turn = controllerSetup.state1.ThumbSticks.Left.X;
 
-                rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
                 //Activates the ability
                 if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
@@ -134,10 +134,9 @@ public class CarController: MonoBehaviour
                 //If the player provides no input on the vertical input, the current speed gradually reduces
                 IdleMovement(forward);
 
-
                 float turn = Input.GetAxis("Horizontal1"); //Setting turn float to be equal to the horizontal input (A and D)
 
-                rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
                 //Activates the ability
                 if (Input.GetKey(KeyCode.Space))
@@ -177,7 +176,7 @@ public class CarController: MonoBehaviour
 
                 //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
 
-                rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
                 //Activates the ability
                 if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
@@ -208,7 +207,7 @@ public class CarController: MonoBehaviour
 
                 float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
 
-                rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
 
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
@@ -343,6 +342,10 @@ public class CarController: MonoBehaviour
                 carInfo.carStats.speed -= 2f;
             }
         }
+    }
+    void TurningMovement(float turn)
+    {
+        rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn);
     }
     #endregion
 }
