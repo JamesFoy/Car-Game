@@ -88,7 +88,6 @@ public class CarController: MonoBehaviour
             #region Controller
             if (controllerSetup.state1.IsConnected)
             {
-
                 float forward = controllerSetup.state1.Triggers.Right;
                 float backward = controllerSetup.state1.Triggers.Left;
 
@@ -96,10 +95,7 @@ public class CarController: MonoBehaviour
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0 || carInfo.carStats.speed > 0)
-                {
-                    rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
-                }
+                ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
                 if (backward > 0)
@@ -138,10 +134,7 @@ public class CarController: MonoBehaviour
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0 || carInfo.carStats.speed > 0)
-                {
-                    rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
-                }
+                ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
                 if (forward < 0)
@@ -188,10 +181,7 @@ public class CarController: MonoBehaviour
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0 || carInfo.carStats.speed > 0)
-                {
-                    rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
-                }
+                ForwardMovement(forward);
 
                 //Applies a force backwards if the S key is pressed (based on speed)
                 if (backward > 0)
@@ -233,10 +223,8 @@ public class CarController: MonoBehaviour
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
                 //Applies a force forward if the W key is pressed (based on speed)
-                if (forward > 0 || carInfo.carStats.speed > 0)
-                {
-                    rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
-                }
+                ForwardMovement(forward);
+
 
                 //Applies a force backwards if the S key is pressed (based on speed)
                 if (forward < 0)
@@ -365,6 +353,14 @@ public class CarController: MonoBehaviour
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
         selectedAbility = abilityList[UnityEngine.Random.Range(0, abilityList.Count)];
         abilityUIImage.GetComponent<AbilityCoolDown>().Initialize(selectedAbility, this.gameObject);
+    }
+
+    void ForwardMovement(float forward)
+    {
+        if (forward > 0 || carInfo.carStats.speed > 0)
+        {
+            rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
+        }
     }
     #endregion
 }
