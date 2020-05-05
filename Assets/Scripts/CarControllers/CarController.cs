@@ -82,30 +82,26 @@ public class CarController: MonoBehaviour
     {
         #region Player controls
         //player movement controls
+        float forward;
+        float backward;
+        float turn;
         #region Player 1 Controls
         if (thisNumber == PlayerNumber.p1) //This is setup in the editor to be p1
         {
             #region Controller
             if (controllerSetup.state1.IsConnected)
             {
-                float forward = controllerSetup.state1.Triggers.Right;
-                float backward = controllerSetup.state1.Triggers.Left;
+                forward = controllerSetup.state1.Triggers.Right;
+                backward = controllerSetup.state1.Triggers.Left;
+                turn = controllerSetup.state1.ThumbSticks.Left.X;
 
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
-                //Applies a force forward if the W key is pressed (based on speed)
                 ForwardMovement(forward);
-
-                //Applies a force backwards if the S key is pressed (based on speed)
                 BackwardMovement(backward);
-
-                //If the player provides no input on the vertical input, the current speed gradually reduces
                 IdleMovement(forward);
-
-                float turn = controllerSetup.state1.ThumbSticks.Left.X;
-
-                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn);
 
                 //Activates the ability
                 if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
@@ -120,23 +116,16 @@ public class CarController: MonoBehaviour
             #region Keyboard
             else
             {
-                float forward = Input.GetAxis("Vertical1"); //Setting forward float to be equal to the vertical input (W and S)
-                float backward = -Input.GetAxis("Vertical1");
+                forward = Input.GetAxis("Vertical1"); //Setting forward float to be equal to the vertical input (W and S)
+                backward = -Input.GetAxis("Vertical1");
+                turn = Input.GetAxis("Horizontal1");
 
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
-                //Applies a force forward if the W key is pressed (based on speed)
                 ForwardMovement(forward);
-
-                //Applies a force backwards if the S key is pressed (based on speed)
                 BackwardMovement(backward);
-
-                //If the player provides no input on the vertical input, the current speed gradually reduces
                 IdleMovement(forward);
-
-                float turn = Input.GetAxis("Horizontal1"); //Setting turn float to be equal to the horizontal input (A and D)
-
-                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn);
 
                 //Activates the ability
                 if (Input.GetKey(KeyCode.Space))
@@ -156,27 +145,17 @@ public class CarController: MonoBehaviour
             #region Controller
             if (controllerSetup.state2.IsConnected)
             {
-                float forward = controllerSetup.state2.Triggers.Right;
-                float backward = controllerSetup.state2.Triggers.Left;
+                forward = controllerSetup.state2.Triggers.Right;
+                backward = controllerSetup.state2.Triggers.Left;
+                turn = controllerSetup.state2.ThumbSticks.Left.X;
 
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
                 carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, backward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
 
-                //Applies a force forward if the W key is pressed (based on speed)
                 ForwardMovement(forward);
-
-                //Applies a force backwards if the S key is pressed (based on speed)
                 BackwardMovement(backward);
-
-                //If the player provides no input on the vertical input, the current speed gradually reduces
                 IdleMovement(forward);
-
-
-                float turn = controllerSetup.state2.ThumbSticks.Left.X;
-
-                //float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
-
-                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn);
 
                 //Activates the ability
                 if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
@@ -191,23 +170,15 @@ public class CarController: MonoBehaviour
             #region Keyboard
             else
             {
-                float forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
-                float backward = -Input.GetAxis("Vertical1");
+                forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
+                backward = -Input.GetAxis("Vertical1");
+                turn = Input.GetAxis("Horizontal2");
 
-                carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f); //Sets the speed to lerp between 0 and the max speed amount (used for gradual speed increase rather then always moving at max speed)
-
-                //Applies a force forward if the W key is pressed (based on speed)
+                carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f);
                 ForwardMovement(forward);
-
-                //Applies a force backwards if the S key is pressed (based on speed)
                 BackwardMovement(backward);
-
-                //If the player provides no input on the vertical input, the current speed gradually reduces
                 IdleMovement(forward);
-
-                float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
-
-                TurningMovement(turn); //Adding a force to turn the car based on the turnspeed and input provided (torque is used to make sure it is physics based when turning rather then bypassing it with transform rotate etc)
+                TurningMovement(turn);
 
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
@@ -321,9 +292,10 @@ public class CarController: MonoBehaviour
 
     void ForwardMovement(float forward)
     {
-        if (forward > 0 || carInfo.carStats.speed > 0)
+        if (forward > 0)
         {
             rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
+            Debug.Log("forwards");
         }
     }
     void BackwardMovement(float backward)
@@ -331,6 +303,7 @@ public class CarController: MonoBehaviour
         if (backward > 0)
         {
             rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
+            Debug.Log("backwards");
         }
     }
     void IdleMovement(float forward)
@@ -340,6 +313,7 @@ public class CarController: MonoBehaviour
             if (carInfo.carStats.speed > 0)
             {
                 carInfo.carStats.speed -= 2f;
+                Debug.Log("idle");
             }
         }
     }
