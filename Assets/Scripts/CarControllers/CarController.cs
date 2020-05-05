@@ -101,13 +101,7 @@ public class CarController: MonoBehaviour
                 BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
-                if (forward == 0)
-                {
-                    if (carInfo.carStats.speed > 0)
-                    {
-                        carInfo.carStats.speed -= 2f;
-                    }
-                }
+                IdleMovement(forward);
 
                 float turn = controllerSetup.state1.ThumbSticks.Left.X;
 
@@ -138,13 +132,7 @@ public class CarController: MonoBehaviour
                 BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
-                if (forward == 0)
-                {
-                    if (carInfo.carStats.speed > 0)
-                    {
-                        carInfo.carStats.speed -= 2f;
-                    }
-                }
+                IdleMovement(forward);
 
 
                 float turn = Input.GetAxis("Horizontal1"); //Setting turn float to be equal to the horizontal input (A and D)
@@ -182,13 +170,7 @@ public class CarController: MonoBehaviour
                 BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
-                if (forward == 0)
-                {
-                    if (carInfo.carStats.speed > 0)
-                    {
-                        carInfo.carStats.speed -= 2f;
-                    }
-                }
+                IdleMovement(forward);
 
 
                 float turn = controllerSetup.state2.ThumbSticks.Left.X;
@@ -222,13 +204,7 @@ public class CarController: MonoBehaviour
                 BackwardMovement(backward);
 
                 //If the player provides no input on the vertical input, the current speed gradually reduces
-                if (forward == 0)
-                {
-                    if (carInfo.carStats.speed > 0)
-                    {
-                        carInfo.carStats.speed -= 2f;
-                    }
-                }
+                IdleMovement(forward);
 
                 float turn = Input.GetAxis("Horizontal2"); //Setting turn float to be equal to the horizontal input (A and D)
 
@@ -356,6 +332,16 @@ public class CarController: MonoBehaviour
         if (backward > 0)
         {
             rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
+        }
+    }
+    void IdleMovement(float forward)
+    {
+        if (forward == 0)
+        {
+            if (carInfo.carStats.speed > 0)
+            {
+                carInfo.carStats.speed -= 2f;
+            }
         }
     }
     #endregion
