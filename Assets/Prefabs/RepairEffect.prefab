@@ -4877,6 +4877,7 @@ GameObject:
   - component: {fileID: 3162682233945051078}
   - component: {fileID: 3162118972427938348}
   - component: {fileID: -1012247372377452819}
+  - component: {fileID: -8498225146509889959}
   m_Layer: 0
   m_Name: RepairEffect
   m_TagString: Untagged
@@ -9697,5 +9698,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09720b23710127f4bb681dec4a9a6845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8498225146509889959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964206552454866760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc3c66d3f97f6e4d9bf71b12ce98b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

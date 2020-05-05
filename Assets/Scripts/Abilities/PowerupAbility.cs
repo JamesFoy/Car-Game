@@ -22,6 +22,6 @@ public class PowerupAbility : Ability
     public override void TriggerAbility()
     {
         //make the ability activate
-        launcher.Activate();
+        launcher.Activate(this);
     }
 }
