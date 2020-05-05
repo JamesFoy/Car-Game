@@ -137,7 +137,7 @@ public class CarController: MonoBehaviour
             else
             {
                 forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
-                backward = -Input.GetAxis("Vertical1");
+                backward = -Input.GetAxis("Vertical2");
                 turn = Input.GetAxis("Horizontal2");
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
@@ -273,7 +273,7 @@ public class CarController: MonoBehaviour
     #region Movement Methods
     void ForwardMovement(float forward)
     {
-        if (forward > 0 || carInfo.carStats.speed < 151)
+        if (forward > 0)
         {
             rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
         }
