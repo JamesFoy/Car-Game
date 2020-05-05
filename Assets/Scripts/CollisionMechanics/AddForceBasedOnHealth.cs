@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddForceBasedOnHealth : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] CarData car;
+    [SerializeField] CarStats car;
     int frames;
     float lastFrameTimeDeltaTime;
     public Vector3 VelocityOnLastFrame { get; private set; }

@@ -49,10 +49,10 @@ public class CarController : MonoBehaviour
 
     bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
 
-    [SerializeField, Space(10)] CarData baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
+    [SerializeField, Space(10)] CarStats baseCarData; //You should supply a Car Data scriptable object to this, and all values will be copied to the car at runtime
 
     [Header("Car Data Object")]
-    public CarData carData;
+    public CarStats carData;
     #endregion
 
     // Start is called before the first frame update

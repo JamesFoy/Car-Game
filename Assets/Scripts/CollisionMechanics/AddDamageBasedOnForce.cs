@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddDamageBasedOnForce : MonoBehaviour
 {
     Rigidbody rb;
-    CarData car;
+    CarStats car;
     int frames;
     float lastFrameTimeDeltaTime;
     private void Start()
