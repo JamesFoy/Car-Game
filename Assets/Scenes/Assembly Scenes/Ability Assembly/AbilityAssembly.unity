@@ -564,6 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412275412}
   - component: {fileID: 412275413}
+  - component: {fileID: 412275414}
   m_Layer: 10
   m_Name: WeaponHolder1
   m_TagString: Untagged
@@ -600,6 +601,21 @@ MonoBehaviour:
   particleEffect: {fileID: 0}
   particleSpawnPoint: {fileID: 755813610}
   powerupAmount: 0
+--- !u!114 &412275414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412275411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee858e142abcfe24bad702249212f530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  projectileSpawn: {fileID: 1204353107}
+  projectileForce: 250
 --- !u!1001 &419586812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3045,7 +3061,6 @@ GameObject:
   - component: {fileID: 1867597244}
   - component: {fileID: 1867597243}
   - component: {fileID: 1867597242}
-  - component: {fileID: 1867597240}
   - component: {fileID: 1867597239}
   - component: {fileID: 1867597238}
   - component: {fileID: 1867597237}
@@ -3198,21 +3213,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1867597240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867597230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee858e142abcfe24bad702249212f530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  projectileSpawn: {fileID: 1204353107}
-  projectileForce: 250
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3275,12 +3275,13 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isProjecticleAbility: 0
   possibleAbilities:
   - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
-  abilityChosen: {fileID: 0}
+  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
+  abilityTypeChosen: {fileID: 0}
   powerup1: {fileID: 0}
   powerup2: {fileID: 0}
+  projectile1: {fileID: 0}
   speedEffect: {fileID: 1600254698}
   rayPoint1: {fileID: 1520775728}
   rayPoint2: {fileID: 1240490098}

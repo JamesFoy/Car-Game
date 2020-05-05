@@ -5,5 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AbilityHolder : ScriptableObject
 {
-    public List<PowerupAbility> abilities;
+    public string abilityName;
+
+    public List<PowerupAbility> powerupAbilities;
+    public List<ProjectileAbility> projectileAbilities;
 }

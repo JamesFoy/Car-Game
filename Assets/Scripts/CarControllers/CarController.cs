@@ -22,15 +22,11 @@ public class CarController: MonoBehaviour
     public UnityEvent triggerCamShake; //UnityEvent that is setup in editor to raise the camera shake event
 
     //Creating a list of possible abilites/powerups
-    public bool isProjecticleAbility;
     public List<AbilityHolder> possibleAbilities;
-    public AbilityHolder abilityChosen;
+    public AbilityHolder abilityTypeChosen;
     public PowerupAbility powerup1;
     public PowerupAbility powerup2;
-    //public List<ProjectileAbility> projectileAbilities; //Currently only the rocket is in the list
-    //public List<PowerupAbility> powerupAbilities; //Currently only the rocket is in the list
-    //public ProjectileAbility selectedProjectile; //The ability that will be randomly generated, again this will always be the rocket since nothing else is in the list
-    //public PowerupAbility selectedPowerUp; //The ability that will be randomly generated, again this will always be the rocket since nothing else is in the list
+    public ProjectileAbility projectile1;
 
     Rigidbody rb; //Reference to the rigidbody
 
@@ -102,11 +98,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    AbilityTrigger(powerup1);
+                    AbilityTrigger(0);
                 }
                 if (controllerSetup.state1.Buttons.LeftShoulder == ButtonState.Pressed)
                 {
-                    AbilityTrigger(powerup2);
+                    AbilityTrigger(1);
                 }
             }
             #endregion
@@ -255,31 +251,20 @@ public class CarController: MonoBehaviour
     //Method used to pick a random ability from the ability list, currently only the rocket will be chosen (also in the furture can add a timer and play an animation on the ability icon to show a roulette sort of randomising)
     public void RandomPickupGenerator()
     {
-        abilityChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)];
-        powerup1 = abilityChosen.abilities[0];
-        powerup2 = abilityChosen.abilities[1];
-        abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(powerup1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-        abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(powerup2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
+        abilityTypeChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)];
 
-        //if (UnityEngine.Random.Range(0, 2) == 0)
-        //{
-        //    isProjecticleAbility = true;
-        //}
-        //else
-        //{
-        //    isProjecticleAbility = false;
-        //} 
-
-        //if (isProjecticleAbility)
-        //{
-        //    selectedProjectile = projectileAbilities[UnityEngine.Random.Range(0, projectileAbilities.Count)];
-        //    abilityUIImage.GetComponent<AbilityCoolDown>().Initialize(selectedProjectile, this.gameObject);
-        //}
-        //else
-        //{
-        //    selectedPowerUp = powerupAbilities[UnityEngine.Random.Range(0, powerupAbilities.Count)];
-        //    abilityUIImage.GetComponent<AbilityCoolDown>().Initialize(selectedPowerUp, this.gameObject);
-        //} 
+        if (abilityTypeChosen.abilityName == "NanoBotAbilitiy")
+        {
+            powerup1 = abilityTypeChosen.powerupAbilities[0];
+            powerup2 = abilityTypeChosen.powerupAbilities[1];
+            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(powerup1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
+            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(powerup2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
+        }
+        else if (abilityTypeChosen.abilityName == "ExplosiveAbilitiy")
+        {
+            projectile1 = abilityTypeChosen.projectileAbilities[0];
+            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(projectile1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
+        }
 
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
     }
@@ -315,11 +300,11 @@ public class CarController: MonoBehaviour
     }
     #endregion
 
-    void AbilityTrigger(PowerupAbility abilityPower)
+    void AbilityTrigger(float abilityPower)
     {
         if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
         {
-            if (abilityPower == powerup1)
+            if (abilityPower == 0)
             {
                 ability.ButtonTriggered(0); //Trigger ability
             }

@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ff927443533374c8e82d4a81869096, type: 3}
-  m_Name: Player 1 Nanobot Abilities
+  m_Name: Player 1 Explosive Abilities
   m_EditorClassIdentifier: 
-  abilityName: NanoBotAbilitiy
-  powerupAbilities:
-  - {fileID: 11400000, guid: 28d73053f10a9624db355b6fa7f77e5a, type: 2}
-  - {fileID: 11400000, guid: 6adba373549d54248825709d2fa600df, type: 2}
-  projectileAbilities: []
+  abilityName: ExplosiveAbilitiy
+  powerupAbilities: []
+  projectileAbilities:
+  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
