@@ -30,13 +30,16 @@ public class AddDamageBasedOnForce : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (enabled)
         {
-            Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
-            float forceMagnitude = originalForce.magnitude;
-            float damageApplied = forceMagnitude * 0.01f;
-            car.health += damageApplied;
-            Debug.Log("damage applied: " + damageApplied);
+            if (collision.gameObject.tag == "Player")
+            {
+                Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
+                float forceMagnitude = originalForce.magnitude;
+                float damageApplied = forceMagnitude * 0.01f;
+                car.health += damageApplied;
+                Debug.Log("damage applied: " + damageApplied);
+            }
         }
     }
 }

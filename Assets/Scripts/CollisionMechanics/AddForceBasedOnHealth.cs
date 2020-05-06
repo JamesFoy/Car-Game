@@ -33,19 +33,22 @@ public class AddForceBasedOnHealth : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (enabled)
         {
-            Vector3 relativeVelocity = collision.gameObject.GetComponent<AddForceBasedOnHealth>().VelocityOnLastFrame - VelocityOnLastFrame;
-            Debug.Log("relative velocity: " + relativeVelocity);
-
-            Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
-            if (Vector3.Angle(relativeVelocity, originalForce) > 90f)
+            if (collision.gameObject.tag == "Player")
             {
-                originalForce = -originalForce;
+                Vector3 relativeVelocity = collision.gameObject.GetComponent<AddForceBasedOnHealth>().VelocityOnLastFrame - VelocityOnLastFrame;
+                Debug.Log("relative velocity: " + relativeVelocity);
+
+                Vector3 originalForce = collision.impulse / lastFrameTimeDeltaTime;
+                if (Vector3.Angle(relativeVelocity, originalForce) > 90f)
+                {
+                    originalForce = -originalForce;
+                }
+                Vector3 healthScaledForce = originalForce * car.health;
+                rb.AddForce(healthScaledForce);
+                DebugLogForces(collision, relativeVelocity, originalForce);
             }
-            Vector3 healthScaledForce = originalForce * car.health;
-            rb.AddForce(healthScaledForce);
-            DebugLogForces(collision, relativeVelocity, originalForce);
         }
     }
     Vector3 GetVelocity()
