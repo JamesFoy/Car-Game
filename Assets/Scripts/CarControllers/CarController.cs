@@ -114,9 +114,13 @@ public class CarController: MonoBehaviour
                 backward = -Input.GetAxis("Vertical1");
                 turn = Input.GetAxis("Horizontal1");
                 //Activates the ability
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.E))
                 {
-                    //AbilityTrigger();
+                    AbilityTrigger(0);
+                }
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    AbilityTrigger(1);
                 }
             }
             #endregion
