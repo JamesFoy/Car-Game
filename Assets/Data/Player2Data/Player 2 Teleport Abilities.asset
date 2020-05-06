@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ff927443533374c8e82d4a81869096, type: 3}
+  m_Name: Player 2 Teleport Abilities
+  m_EditorClassIdentifier: 
+  abilityName: TeleportAbility
+  powerupAbilities:
+  - {fileID: 11400000, guid: b26e0718e81bb544091052415a87d719, type: 2}
+  - {fileID: 11400000, guid: 850da347a4496d24091b5dd9f211f7b4, type: 2}
+  projectileAbilities: []

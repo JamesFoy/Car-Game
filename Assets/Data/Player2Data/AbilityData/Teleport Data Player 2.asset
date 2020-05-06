@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f52850b8ba3894438f042a7d1addbb4, type: 3}
-  m_Name: Flamethrower Data Player 1
+  m_Name: Teleport Data Player 2
   m_EditorClassIdentifier: 
-  Name: Flamethrower
-  Sprite: {fileID: 21300000, guid: 70c02ddb817840441979321f0f63bbe5, type: 3}
+  Name: Teleport
+  Sprite: {fileID: 21300000, guid: dfaeb2eec45d3784981ccb951608781e, type: 3}
   Sound: {fileID: 0}
-  particleEffect: {fileID: 91295828802343394, guid: 2b3ce7ebf4852ed479bdfce4178fe5cf,
+  particleEffect: {fileID: 7200220635233782213, guid: e3ad0b41d7c6177468c2a94fc4bdf47a,
     type: 3}
-  powerupEffectAmount: 0.1
+  powerupEffectAmount: 0

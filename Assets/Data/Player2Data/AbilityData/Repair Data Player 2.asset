@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f52850b8ba3894438f042a7d1addbb4, type: 3}
-  m_Name: Flamethrower Data Player 1
+  m_Name: Repair Data Player 2
   m_EditorClassIdentifier: 
-  Name: Flamethrower
-  Sprite: {fileID: 21300000, guid: 70c02ddb817840441979321f0f63bbe5, type: 3}
+  Name: Repair
+  Sprite: {fileID: 21300000, guid: ac5ecd2e96bfc7048b53be575fc2251c, type: 3}
   Sound: {fileID: 0}
-  particleEffect: {fileID: 91295828802343394, guid: 2b3ce7ebf4852ed479bdfce4178fe5cf,
+  particleEffect: {fileID: 2964206552454866760, guid: 99bb94cd225866c46bc808670311cc00,
     type: 3}
-  powerupEffectAmount: 0.1
+  powerupEffectAmount: 20

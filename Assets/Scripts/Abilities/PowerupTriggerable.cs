@@ -46,6 +46,7 @@ public class PowerupTriggerable : MonoBehaviour
 
             //Instantiate a copy of the projectile and store it in a new rigidbody variable called clonedProjectile
             GameObject clonedProjectile = Instantiate(particleEffect, exaustParticleSpawnPoint.transform.position, exaustParticleSpawnPoint.rotation, exaustParticleSpawnPoint.transform) as GameObject;
+            clonedProjectile.GetComponent<BoostBehaviour>().boostAmount = powerupAmount;
         }
 
         if (thisAbility.Name == "Flamethrower")
@@ -55,6 +56,7 @@ public class PowerupTriggerable : MonoBehaviour
             //Instantiate a copy of the projectile and store it in a new rigidbody variable called clonedProjectile
             GameObject clonedProjectile = Instantiate(particleEffect, exaustParticleSpawnPoint.transform.position, exaustParticleSpawnPoint.rotation, exaustParticleSpawnPoint.transform) as GameObject;
             clonedProjectile.transform.Rotate(0, 90, 90); //Setting the correct rotation for the repair effect
+            clonedProjectile.GetComponentInChildren<FlamethrowerBehaviour>().damageAmount = powerupAmount;
         }
     }
 }

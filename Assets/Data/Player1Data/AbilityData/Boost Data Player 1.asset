@@ -17,4 +17,4 @@ MonoBehaviour:
   Sound: {fileID: 0}
   particleEffect: {fileID: 1825668480794484470, guid: 541c1748786d38a46904f3054cec4ba0,
     type: 3}
-  powerupEffectAmount: 2
+  powerupEffectAmount: 200

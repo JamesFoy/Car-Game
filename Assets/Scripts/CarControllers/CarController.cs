@@ -32,6 +32,7 @@ public class CarController: MonoBehaviour
     Rigidbody rb; //Reference to the rigidbody
 
     public GameObject speedEffect;
+    public GameObject exhaustEffect;
 
     //TEXT VARIABLES USED FOR DEBUGING THE COMPRESSION AMOUNTS FOR EACH RAY
     //[SerializeField]
@@ -68,15 +69,6 @@ public class CarController: MonoBehaviour
     private void Update()
     {
         float clampedSpeed = Mathf.Clamp(carInfo.carStats.speed, 0, carInfo.carStats.maxSpeed);
-
-        if (clampedSpeed >= 100f)
-        {
-            speedEffect.SetActive(true);
-        }
-        else
-        {
-            speedEffect.SetActive(false);
-        }
     }
 
     // Fixed Update is needed for all following code due to it being physics based (helps to keep everything smooth)
@@ -136,9 +128,14 @@ public class CarController: MonoBehaviour
                 backward = controllerSetup.state2.Triggers.Left;
                 turn = controllerSetup.state2.ThumbSticks.Left.X;
                 //Activates the ability
+                //Activates the ability
                 if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    //AbilityTrigger();
+                    AbilityTrigger(0);
+                }
+                if (controllerSetup.state2.Buttons.LeftShoulder == ButtonState.Pressed)
+                {
+                    AbilityTrigger(1);
                 }
             }
             #endregion
@@ -151,7 +148,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
                 {
-                    //AbilityTrigger();
+                    AbilityTrigger(0);
+                }
+                if (Input.GetKey(KeyCode.KeypadPeriod))
+                {
+                    AbilityTrigger(1);
                 }
             }
             #endregion
@@ -250,6 +251,20 @@ public class CarController: MonoBehaviour
 
         //Applies a counter force that is slightly lower compression to each point to reduce the effect of compression (HELPS TO MAKE SURE THE CAR DOESN'T BOUCNCE OR PING OFF INTO SPACE)
         rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);
+    }
+
+    public void SpeedDots(bool isActive)
+    {
+        if (isActive)
+        {
+            speedEffect.SetActive(true);
+            exhaustEffect.SetActive(false);
+        }
+        else
+        {
+            speedEffect.SetActive(false);
+            exhaustEffect.SetActive(true);
+        } 
     }
 
     //THIS METHOD IS CALLED USEING THE PICKUP GAME EVENT (EVENT IS RAISED WHENEVER A PLAYER COLLIDES WITH A PICKUP)

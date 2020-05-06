@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1987078273438772208}
   - component: {fileID: 1986379227779097552}
   - component: {fileID: 5959707223934109057}
+  - component: {fileID: -7728039637906460167}
   m_Layer: 0
-  m_Name: BoostFX
+  m_Name: Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4649,4 +4650,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc3c66d3f97f6e4d9bf71b12ce98b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAmount: 2
+  timeAmount: 4
+--- !u!114 &-7728039637906460167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825668480794484470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65525d3ac3c06ed4eadae20b6a083d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostAmount: 0

@@ -16,4 +16,4 @@ MonoBehaviour:
   speed: 0
   suspensionAmount: 6
   turnSpeed: 50
-  maxSpeed: 150
+  maxSpeed: 110

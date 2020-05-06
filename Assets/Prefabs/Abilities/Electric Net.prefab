@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8649092696874328933}
   - component: {fileID: 1530212305}
   - component: {fileID: 1530212304}
+  - component: {fileID: 6835695656390676944}
   m_Layer: 0
   m_Name: Electric Net
   m_TagString: Untagged
@@ -61,11 +62,25 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8649092696874328934}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.27
   m_Center: {x: 0, y: 1.3, z: 0}
+--- !u!114 &6835695656390676944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649092696874328934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aaca5375a30f640a1d4ea7b79b6bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  electricEffect: {fileID: 326670029630046693, guid: 19d40854fce32494483201c6cb7cc7da,
+    type: 3}
 --- !u!1001 &5902226294449879079
 PrefabInstance:
   m_ObjectHideFlags: 0
