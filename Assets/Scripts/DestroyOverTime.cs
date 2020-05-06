@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DestroyOverTime : MonoBehaviour
 {
+    public float timeAmount;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Destroy());
+        StartCoroutine(Destroy(timeAmount));
     }
 
-    IEnumerator Destroy()
+    IEnumerator Destroy(float time)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(time);
         Destroy(this.gameObject);
     }
 }
