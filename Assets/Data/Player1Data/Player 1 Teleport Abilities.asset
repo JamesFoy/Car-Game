@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ff927443533374c8e82d4a81869096, type: 3}
-  m_Name: Player 1 Explosive Abilities
+  m_Name: Player 1 Teleport Abilities
   m_EditorClassIdentifier: 
-  abilityName: ExplosiveAbility
-  powerupAbilities: []
-  projectileAbilities:
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
-  - {fileID: 11400000, guid: 011bd3f8833bd4c4791008dbfe105616, type: 2}
+  abilityName: TeleportAbility
+  powerupAbilities:
+  - {fileID: 11400000, guid: 5a810080c87686548a4d16bd083975e8, type: 2}
+  - {fileID: 11400000, guid: a41414e8e86e1ca4487dfc31ef4fae22, type: 2}
+  projectileAbilities: []

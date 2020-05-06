@@ -30,7 +30,7 @@ public class AbilityCoolDown : MonoBehaviour
         ability2 = selectedAbility2;
         myButtonImage = GetComponent<Image>();
         abilitySource = GetComponent<AudioSource>();
-        myButtonImage.sprite = ability1.Sprite;
+        myButtonImage.sprite = ability2.Sprite;
         ability2.Initialize(weaponHolder2);
         AbilityReady();
     }
@@ -52,7 +52,7 @@ public class AbilityCoolDown : MonoBehaviour
             canTriggerAbility = false;
             this.gameObject.SetActive(false);
         }
-        else
+        else if (button == 1)
         {
             abilitySource.clip = ability2.Sound;
             abilitySource.Play();

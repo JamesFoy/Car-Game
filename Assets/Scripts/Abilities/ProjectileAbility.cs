@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Scriptable Objects/Abilities/Projectile Ability")]
 public class ProjectileAbility : Ability
 {
+    public bool useGravity;
     public float projectileForce = 1;
     public Rigidbody projectile;
 
@@ -17,6 +18,7 @@ public class ProjectileAbility : Ability
         launcher = obj.GetComponent<ProjectileShootTriggerable>();
         launcher.projectileForce = projectileForce;
         launcher.projectile = projectile;
+        launcher.projectile.useGravity = useGravity;
     }
 
     public override void TriggerAbility(float abilityNumber)
