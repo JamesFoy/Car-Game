@@ -19,21 +19,24 @@ public class Checkpoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        CheckpointManager.Instance.RemoveThisCarFromAllCheckpoints(other.gameObject);
-        AddCarToThisCheckpoint(other.gameObject);
+        if (!CurrentCars.Contains(other.gameObject))
+        {
+            CheckpointManager.Instance.RemoveThisGameObjectFromAllCheckpoints(other.gameObject);
+            AddGameObjectToThisCheckpoint(other.gameObject);
+        }
     }
-    void AddCarToThisCheckpoint(GameObject car)
+    void AddGameObjectToThisCheckpoint(GameObject a)
     {
-        CurrentCars.Add(car);
-        Debug.Log(car.name + " added to " + gameObject.name);
+        CurrentCars.Add(a);
+        Debug.Log(a.name + " added to " + gameObject.name);
     }
     /// <summary>
     /// Removes provided GameObject from this checkpoint
     /// </summary>
-    /// <param name="car"></param>
-    public void RemoveCarFromThisCheckpoint(GameObject car)
+    /// <param name="a"></param>
+    public void RemoveGameObjectFromThisCheckpoint(GameObject a)
     {
-        CurrentCars.Remove(car);
-        Debug.Log(car.name + " removed from checkpoint " + gameObject.name);
+        CurrentCars.Remove(a);
+        Debug.Log(a.name + " removed from checkpoint " + gameObject.name);
     }
 }

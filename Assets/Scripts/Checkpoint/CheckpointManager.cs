@@ -31,15 +31,24 @@ public class CheckpointManager : MonoBehaviour
     /// <summary>
     /// Removes the given GameObject from all checkpoints
     /// </summary>
-    /// <param name="car"></param>
-    public void RemoveThisCarFromAllCheckpoints(GameObject car)
+    /// <param name="a"></param>
+    public void RemoveThisGameObjectFromAllCheckpoints(GameObject a)
     {
-        foreach (Checkpoint a in checkpoints)
+        Checkpoint c = FindCheckpointThatContainsThisGameObject(a);
+        if (c != null)
         {
-            if (a.CurrentCars.Contains(car))
+            c.RemoveGameObjectFromThisCheckpoint(a);
+        }
+    }
+    public Checkpoint FindCheckpointThatContainsThisGameObject(GameObject a)
+    {
+        foreach (Checkpoint c in checkpoints)
+        {
+            if (c.CurrentCars.Contains(a))
             {
-                a.RemoveCarFromThisCheckpoint(car);
+                return c;
             }
         }
+        return null;
     }
 }
