@@ -9645,7 +9645,7 @@ GameObject:
   - component: {fileID: 3744066371529856584}
   - component: {fileID: 3630515936230727738}
   - component: {fileID: 3630515936230727739}
-  - component: {fileID: 7430790138439062075}
+  - component: {fileID: 6131104133393519961}
   m_Layer: 0
   m_Name: LightningMissle
   m_TagString: Untagged
@@ -14492,7 +14492,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7430790138439062075
+--- !u!114 &6131104133393519961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14501,7 +14501,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3631632997347513142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971e7264dbcff3142aa684e84149e914, type: 3}
+  m_Script: {fileID: 11500000, guid: 6040eeb644a45754baf75be9c51ff6bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1153689192050712, guid: 2b881798883cca7428d49471d484e5c9, type: 3}
