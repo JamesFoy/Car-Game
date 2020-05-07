@@ -25,26 +25,21 @@ public class AbilityCoolDown : MonoBehaviour
     ProjectileAbility projectileAttack;
     ProjectileAbility projectileDefense;
 
-    //Method for initializing the the first ability (Takes in the first selected ability and weapon holder gameobject to assing the ability too)
-    public void Initialize1(Ability selectedAbility1, GameObject weaponHolder1)
+    public void InitializeStyle(Ability selectedAbility, GameObject weaponHolder, AbilityDeployModes.DeployStyle style)
     {
-        ability1 = selectedAbility1; //Sets the ability 1 varabile to the selected ability passed into the method when called
-        myButtonImage = GetComponent<Image>(); //Gets the reference to the UI image component on the UI (This can probaly be done at start etc)
-        abilitySource = GetComponent<AudioSource>(); //Gets the reference to the audioSource component on the UI (This can probaly be done at start etc)
-        myButtonImage.sprite = ability1.Sprite; //Sets the image to the ability.Sprite reference (This is taken from the passed ability.. NOTE: initialize 2 also does this however it doesnt matter which ability is chosen as they have the same icon!!!!)
-        ability1.Initialize(weaponHolder1); //This will Initialize the ability to use the correct weaponHolder script attached to the passed weapon holder GameObject (This will set the abilities variables like prefabs to spawn etc. to the Triggerable scripts!!)
-        AbilityReady(); //Sets the bool of canTriggerAbility to true, meaning that the player is now able use use the ability since setup it complete
-    }
-
-    //Method for initializing the the second ability (Takes in the second selected ability and weapon holder gameobject to assing the ability too)
-    public void Initialize2(Ability selectedAbility2, GameObject weaponHolder2)
-    {
-        ability2 = selectedAbility2; //Sets the ability 2 varabile to the selected ability passed into the method when called
-        myButtonImage = GetComponent<Image>(); //Gets the reference to the UI image component on the UI (This can probaly be done at start etc)
-        abilitySource = GetComponent<AudioSource>(); //Gets the reference to the audioSource component on the UI (This can probaly be done at start etc)
-        myButtonImage.sprite = ability2.Sprite; //Sets the image to the ability.Sprite reference (This is taken from the passed ability.. NOTE: initialize 1 also does this however it doesnt matter which ability is chosen as they have the same icon!!!!)
-        ability2.Initialize(weaponHolder2); //This will Initialize the ability to use the correct weaponHolder script attached to the passed weapon holder GameObject (This will set the abilities variables like prefabs to spawn etc. to the Triggerable scripts!!)
-        AbilityReady(); //Sets the bool of canTriggerAbility to true, meaning that the player is now able use use the ability since setup it complete
+        myButtonImage = GetComponent<Image>();
+        abilitySource = GetComponent<AudioSource>();
+        myButtonImage.sprite = selectedAbility.Sprite;
+        selectedAbility.Initialize(weaponHolder);
+        if (style == AbilityDeployModes.DeployStyle.Attack)
+        {
+            ability1 = selectedAbility;
+        }
+        else if (style == AbilityDeployModes.DeployStyle.Defense)
+        {
+            ability2 = selectedAbility;
+        }
+        AbilityReady();
     }
 
     public void InitializeAbility(AbilityHolder abilityTypeChosen)
@@ -56,15 +51,15 @@ public class AbilityCoolDown : MonoBehaviour
         {
             powerupAttack = abilityTypeChosen.powerupAbilities[0]; //Sets powerup 1 to the first ability from the ability holder chosen 
             powerupDefense = abilityTypeChosen.powerupAbilities[1]; //Sets powerup 2 to the second ability from the ability holder chosen
-            Initialize1(powerupAttack, weaponHolder1); //Initalize the powerup and set its weapon holder
-            Initialize2(powerupDefense, weaponHolder2); //Initalize the powerup and set its weapon holder
+            InitializeStyle(powerupAttack, weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(powerupDefense, weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
         else if (projectileAbilities.Contains(abilityTypeChosen.abilityName))
         {
             projectileAttack = abilityTypeChosen.projectileAbilities[0]; //Sets projectile 1 to the first ability from the ability holder chosen 
             projectileDefense = abilityTypeChosen.projectileAbilities[1]; //Sets projectile 2 to the second ability from the ability holder chosen 
-            Initialize1(projectileAttack, weaponHolder1); //Initalize the powerup and set its weapon holder
-            Initialize2(projectileDefense, weaponHolder2); //Initalize the powerup and set its weapon holder
+            InitializeStyle(projectileAttack, weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(projectileDefense, weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
 
     }

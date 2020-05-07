@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 412275413}
   - component: {fileID: 412275414}
   m_Layer: 10
-  m_Name: WeaponHolder1
+  m_Name: WeaponHolderAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 1261041641}
   - component: {fileID: 1261041642}
   m_Layer: 10
-  m_Name: WeaponHolder2
+  m_Name: WeaponHolderDefense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5009,10 +5009,10 @@ MonoBehaviour:
   abilityUIImage: {fileID: 839674075}
   possibleAbilities: []
   abilityTypeChosen: {fileID: 0}
-  powerup1: {fileID: 0}
-  powerup2: {fileID: 0}
-  projectile1: {fileID: 0}
-  projectile2: {fileID: 0}
+  powerupAttack: {fileID: 0}
+  powerupDefense: {fileID: 0}
+  projectileAttack: {fileID: 0}
+  projectileDefense: {fileID: 0}
 --- !u!1 &1867597230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,10 +5198,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
   - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
   abilityTypeChosen: {fileID: 0}
-  powerup1: {fileID: 0}
-  powerup2: {fileID: 0}
-  projectile1: {fileID: 0}
-  projectile2: {fileID: 0}
+  powerupAttack: {fileID: 0}
+  powerupDefense: {fileID: 0}
+  projectileAttack: {fileID: 0}
+  projectileDefense: {fileID: 0}
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
