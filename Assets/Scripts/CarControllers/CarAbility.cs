@@ -14,6 +14,7 @@ public class CarAbility : MonoBehaviour
     public PowerupAbility powerup2;
     public ProjectileAbility projectile1;
     public ProjectileAbility projectile2;
+    AbilityCoolDown abilityCoolDown;
 
 
     private void Start()
@@ -26,7 +27,7 @@ public class CarAbility : MonoBehaviour
     public void RandomPickupGenerator()
     {
         abilityTypeChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)];
-        AbilityCoolDown abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>();
+        abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>();
 
         List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" };
         List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };
@@ -54,11 +55,11 @@ public class CarAbility : MonoBehaviour
         {
             if (abilityPower == 0)
             {
-                ability.ButtonTriggered(0); //Trigger ability
+                ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Attack); //Trigger ability
             }
             else
             {
-                ability.ButtonTriggered(1); //Trigger ability
+                ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Defense); //Trigger ability
             }
         }
     }

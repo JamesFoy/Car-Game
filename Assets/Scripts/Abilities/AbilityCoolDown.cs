@@ -41,9 +41,9 @@ public class AbilityCoolDown : MonoBehaviour
     }
 
 
-    public void ButtonTriggered(float button)
+    public void ButtonTriggered(AbilityDeployModes.DeployStyle triggerType)
     {
-        if (button == 0)
+        if (triggerType == AbilityDeployModes.DeployStyle.Attack)
         {
             abilitySource.clip = ability1.Sound;
             abilitySource.Play();
@@ -52,7 +52,7 @@ public class AbilityCoolDown : MonoBehaviour
             canTriggerAbility = false;
             this.gameObject.SetActive(false);
         }
-        else if (button == 1)
+        else if (triggerType == AbilityDeployModes.DeployStyle.Defense)
         {
             abilitySource.clip = ability2.Sound;
             abilitySource.Play();
