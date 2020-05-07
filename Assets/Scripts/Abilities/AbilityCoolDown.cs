@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//Script that is used as the central point for the ability system (Script is used for UI setup, initalizing each ability and checking if it is ready to be triggered etc)
 public class AbilityCoolDown : MonoBehaviour
 {
-    public bool canTriggerAbility = true;
+    public bool canTriggerAbility = true; //Bool for checking if the ability can be used (Can add in a cooldown setup with this if we want multiple ability uses in the future etc)
 
     [SerializeField] private Ability ability1;
     [SerializeField] private Ability ability2;
+
     public GameObject weaponHolder1; //is the object that has the ability function script attached
     public GameObject weaponHolder2; //is the object that has the ability function script attached
+
     private Image myButtonImage;
     private AudioSource abilitySource;
 
