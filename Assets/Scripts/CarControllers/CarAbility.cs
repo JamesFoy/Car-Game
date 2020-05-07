@@ -26,41 +26,24 @@ public class CarAbility : MonoBehaviour
     public void RandomPickupGenerator()
     {
         abilityTypeChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)];
+        AbilityCoolDown abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>();
 
-        if (abilityTypeChosen.abilityName == "NanoBotAbility")
+        List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" };
+        List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };
+
+        if (powerupAbilities.Contains(abilityTypeChosen.abilityName))
         {
             powerup1 = abilityTypeChosen.powerupAbilities[0];
             powerup2 = abilityTypeChosen.powerupAbilities[1];
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(powerup1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(powerup2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
+            abilityCoolDown.Initialize1(powerup1, abilityCoolDown.weaponHolder1);
+            abilityCoolDown.Initialize2(powerup2, abilityCoolDown.weaponHolder2);
         }
-        else if (abilityTypeChosen.abilityName == "ExplosiveAbility")
+        else if (projectileAbilities.Contains(abilityTypeChosen.abilityName))
         {
             projectile1 = abilityTypeChosen.projectileAbilities[0];
             projectile2 = abilityTypeChosen.projectileAbilities[1];
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(projectile1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(projectile2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
-        }
-        else if (abilityTypeChosen.abilityName == "ElectricAbility")
-        {
-            projectile1 = abilityTypeChosen.projectileAbilities[0];
-            projectile2 = abilityTypeChosen.projectileAbilities[1];
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(projectile1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(projectile2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
-        }
-        else if (abilityTypeChosen.abilityName == "ChargeAbility")
-        {
-            powerup1 = abilityTypeChosen.powerupAbilities[0];
-            powerup2 = abilityTypeChosen.powerupAbilities[1];
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(powerup1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(powerup2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
-        }
-        else if (abilityTypeChosen.abilityName == "TeleportAbility")
-        {
-            powerup1 = abilityTypeChosen.powerupAbilities[0];
-            powerup2 = abilityTypeChosen.powerupAbilities[1];
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize1(powerup1, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder1);
-            abilityUIImage.GetComponent<AbilityCoolDown>().Initialize2(powerup2, abilityUIImage.GetComponent<AbilityCoolDown>().weaponHolder2);
+            abilityCoolDown.Initialize1(projectile1, abilityCoolDown.weaponHolder1);
+            abilityCoolDown.Initialize2(projectile2, abilityCoolDown.weaponHolder2);
         }
 
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
