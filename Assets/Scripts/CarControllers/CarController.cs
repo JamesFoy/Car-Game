@@ -15,12 +15,6 @@ public class CarController: MonoBehaviour
 
     public Transform centerMass; //Used as the transform position for the center of mass
 
-    public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
-    public PlayerNumber thisNumber;
-
-    [SerializeField, Space(10)]
-    public UnityEvent triggerCamShake; //UnityEvent that is setup in editor to raise the camera shake event
-
     //Creating a list of possible abilites/powerups
     public List<AbilityHolder> possibleAbilities;
     public AbilityHolder abilityTypeChosen;
@@ -28,6 +22,12 @@ public class CarController: MonoBehaviour
     public PowerupAbility powerup2;
     public ProjectileAbility projectile1;
     public ProjectileAbility projectile2;
+
+    public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
+    public PlayerNumber thisNumber;
+
+    [SerializeField, Space(10)]
+    public UnityEvent triggerCamShake; //UnityEvent that is setup in editor to raise the camera shake event
 
     Rigidbody rb; //Reference to the rigidbody
 
