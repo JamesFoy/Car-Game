@@ -19,7 +19,7 @@ public class PowerupAbility : Ability
         Launcher.powerupAmount = powerupEffectAmount;
     } 
 
-    public override void TriggerAbility(float abilityNumber)
+    public override void TriggerAbility(AbilityDeployModes.DeployStyle style)
     {
         Launcher.Activate(this);
     }

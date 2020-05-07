@@ -41,22 +41,22 @@ public class AbilityCoolDown : MonoBehaviour
     }
 
 
-    public void ButtonTriggered(AbilityDeployModes.DeployStyle triggerType)
+    public void ButtonTriggered(AbilityDeployModes.DeployStyle deployStyle)
     {
-        if (triggerType == AbilityDeployModes.DeployStyle.Attack)
+        if (deployStyle == AbilityDeployModes.DeployStyle.Attack)
         {
             abilitySource.clip = ability1.Sound;
             abilitySource.Play();
-            ability1.TriggerAbility(0);
+            ability1.TriggerAbility(deployStyle);
             myButtonImage.sprite = null;
             canTriggerAbility = false;
             this.gameObject.SetActive(false);
         }
-        else if (triggerType == AbilityDeployModes.DeployStyle.Defense)
+        else if (deployStyle == AbilityDeployModes.DeployStyle.Defense)
         {
             abilitySource.clip = ability2.Sound;
             abilitySource.Play();
-            ability2.TriggerAbility(1);
+            ability2.TriggerAbility(deployStyle);
             myButtonImage.sprite = null;
             canTriggerAbility = false;
             this.gameObject.SetActive(false);

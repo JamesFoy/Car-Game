@@ -21,7 +21,7 @@ public class ProjectileAbility : Ability
         launcher.projectile.useGravity = useGravity;
     }
 
-    public override void TriggerAbility(float abilityNumber)
+    public override void TriggerAbility(AbilityDeployModes.DeployStyle style)
     {
         launcher.Launch();
     }

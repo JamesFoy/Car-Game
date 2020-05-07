@@ -9,5 +9,5 @@ public abstract class Ability : ScriptableObject
     public AudioClip Sound;
 
     public abstract void Initialize(GameObject obj);
-    public abstract void TriggerAbility(float abilityNumber);
+    public abstract void TriggerAbility(AbilityDeployModes.DeployStyle style);
 }
