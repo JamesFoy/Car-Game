@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class AbilityHolder : ScriptableObject
+public class AbilitySet : ScriptableObject
 {
     public string abilityName;
 

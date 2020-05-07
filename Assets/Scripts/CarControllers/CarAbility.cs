@@ -8,8 +8,8 @@ public class CarAbility : MonoBehaviour
     public AbilityCoolDown ability; //Reference to the UI ability (needs to be called when a button is pressed)
     public GameObject abilityUIImage; //Reference to the game object that contains the ability UI (makes sure that it only works when activated, activation when picking up powerup occurs etc)
 
-    public List<AbilityHolder> possibleAbilities; //Creating a list of possible abilites/powerups
-    public AbilityHolder abilityTypeChosen; //Varibale that will hold the ability chosen from the list above
+    public List<AbilitySet> possibleAbilitySets; //Creating a list of possible abilites/powerups
+    public AbilitySet chosenAbilitySet; //Varibale that will hold the ability chosen from the list above
 
     //Variables containing the powerup abilities
     public PowerupAbility powerupAttack;
@@ -30,10 +30,10 @@ public class CarAbility : MonoBehaviour
     //Method used to pick a random ability from the ability list (also in the furture can add a timer and play an animation on the ability icon to show a roulette sort of randomising)
     public void RandomPickupGenerator()
     {
-        abilityTypeChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)]; //Sets the ability chosen to a random choice of ability holders
+        chosenAbilitySet = possibleAbilitySets[Random.Range(0, possibleAbilitySets.Count)]; //chooses a random ability set from a list of all ability sets available
         abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>(); //Sets the location of the ability cooldown script so that abilities can be setup
 
-        abilityCoolDown.InitializeAbility(abilityTypeChosen);
+        abilityCoolDown.InitializeAbility(chosenAbilitySet);
 
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
     }

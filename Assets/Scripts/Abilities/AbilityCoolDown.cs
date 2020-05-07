@@ -19,12 +19,6 @@ public class AbilityCoolDown : MonoBehaviour
 
     private AudioSource abilitySource; //Reference to the audioSource on the UI gameObject (This is used to play an abilities sound effect when using it)
 
-    PowerupAbility powerupAttack;
-    PowerupAbility powerupDefense;
-
-    ProjectileAbility projectileAttack;
-    ProjectileAbility projectileDefense;
-
     public void InitializeStyle(Ability selectedAbility, GameObject weaponHolder, AbilityDeployModes.DeployStyle style)
     {
         myButtonImage = GetComponent<Image>();
@@ -42,24 +36,20 @@ public class AbilityCoolDown : MonoBehaviour
         AbilityReady();
     }
 
-    public void InitializeAbility(AbilityHolder abilityTypeChosen)
+    public void InitializeAbility(AbilitySet abilitySet)
     {
         List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" }; //Creates a list of names that powerup abilities use
         List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };//Creates a list of names that projectile abilities use
 
-        if (powerupAbilities.Contains(abilityTypeChosen.abilityName))
+        if (powerupAbilities.Contains(abilitySet.abilityName))
         {
-            powerupAttack = abilityTypeChosen.powerupAbilities[0]; //Sets powerup 1 to the first ability from the ability holder chosen 
-            powerupDefense = abilityTypeChosen.powerupAbilities[1]; //Sets powerup 2 to the second ability from the ability holder chosen
-            InitializeStyle(powerupAttack, weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
-            InitializeStyle(powerupDefense, weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.powerupAbilities[0], weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.powerupAbilities[1], weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
-        else if (projectileAbilities.Contains(abilityTypeChosen.abilityName))
+        else if (projectileAbilities.Contains(abilitySet.abilityName))
         {
-            projectileAttack = abilityTypeChosen.projectileAbilities[0]; //Sets projectile 1 to the first ability from the ability holder chosen 
-            projectileDefense = abilityTypeChosen.projectileAbilities[1]; //Sets projectile 2 to the second ability from the ability holder chosen 
-            InitializeStyle(projectileAttack, weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
-            InitializeStyle(projectileDefense, weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.projectileAbilities[0], weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.projectileAbilities[1], weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
 
     }

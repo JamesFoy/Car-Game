@@ -4354,22 +4354,22 @@ PrefabInstance:
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293203
+      value: 0.061293207
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6841391
+      value: 0.684139
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05788135
+      value: -0.057881348
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72446305
+      value: 0.7244631
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -4394,22 +4394,22 @@ PrefabInstance:
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293203
+      value: 0.061293207
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6841391
+      value: 0.684139
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05788135
+      value: -0.057881348
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72446305
+      value: 0.7244631
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -4979,7 +4979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851588350}
   m_LocalRotation: {x: -0, y: 0.7401555, z: -0, w: -0.6724358}
-  m_LocalPosition: {x: 24.55, y: 1.87, z: -31.469503}
+  m_LocalPosition: {x: 24.55, y: 1.87, z: -29.67}
   m_LocalScale: {x: 1, y: 0.55095, z: 1}
   m_Children:
   - {fileID: 1642485143}
@@ -5007,8 +5007,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 839674077}
   abilityUIImage: {fileID: 839674075}
-  possibleAbilities: []
-  abilityTypeChosen: {fileID: 0}
+  possibleAbilitySets: []
+  chosenAbilitySet: {fileID: 0}
   powerupAttack: {fileID: 0}
   powerupDefense: {fileID: 0}
   projectileAttack: {fileID: 0}
@@ -5192,12 +5192,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 556913132}
   abilityUIImage: {fileID: 556913131}
-  possibleAbilities:
-  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
+  possibleAbilitySets:
   - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
+  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
   - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
   - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
-  abilityTypeChosen: {fileID: 0}
+  chosenAbilitySet: {fileID: 0}
   powerupAttack: {fileID: 0}
   powerupDefense: {fileID: 0}
   projectileAttack: {fileID: 0}
