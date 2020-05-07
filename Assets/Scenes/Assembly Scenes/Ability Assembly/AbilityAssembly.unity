@@ -4759,6 +4759,7 @@ GameObject:
   - component: {fileID: 1851588362}
   - component: {fileID: 1851588361}
   - component: {fileID: 1851588360}
+  - component: {fileID: 1851588363}
   - component: {fileID: 1851588359}
   - component: {fileID: 1851588358}
   - component: {fileID: 1851588357}
@@ -4931,8 +4932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3807d20e2400ad4885a3f85ffec7667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 839674077}
-  abilityUIImage: {fileID: 839674075}
   controllerSetup: {fileID: 0}
   centerMass: {fileID: 365073064}
   thisNumber: 1
@@ -4952,16 +4951,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  possibleAbilities:
-  - {fileID: 11400000, guid: 67da6cf5956d1144d8016ae504921e66, type: 2}
-  - {fileID: 11400000, guid: 2020fa160d4063746ac349fefd5fadea, type: 2}
-  - {fileID: 11400000, guid: 362768129eec4414c8f7a48a8ebda9be, type: 2}
-  - {fileID: 11400000, guid: 349f5bf004ddf0f4d9a13d2bdbd7e645, type: 2}
-  abilityTypeChosen: {fileID: 0}
-  powerup1: {fileID: 0}
-  powerup2: {fileID: 0}
-  projectile1: {fileID: 0}
-  projectile2: {fileID: 0}
   speedEffect: {fileID: 1600254698}
   exhaustEffect: {fileID: 0}
   rayPoint1: {fileID: 1456616721}
@@ -5004,6 +4993,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -455.489, z: 0}
+--- !u!114 &1851588363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851588350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 839674077}
+  abilityUIImage: {fileID: 839674075}
+  possibleAbilities: []
+  abilityTypeChosen: {fileID: 0}
+  powerup1: {fileID: 0}
+  powerup2: {fileID: 0}
+  projectile1: {fileID: 0}
+  projectile2: {fileID: 0}
 --- !u!1 &1867597230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,6 +5024,7 @@ GameObject:
   - component: {fileID: 1867597231}
   - component: {fileID: 1867597244}
   - component: {fileID: 1867597243}
+  - component: {fileID: 1867597240}
   - component: {fileID: 1867597242}
   - component: {fileID: 1867597239}
   - component: {fileID: 1867597238}
@@ -5168,6 +5178,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1867597240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867597230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 556913132}
+  abilityUIImage: {fileID: 556913131}
+  possibleAbilities:
+  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
+  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
+  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
+  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  abilityTypeChosen: {fileID: 0}
+  powerup1: {fileID: 0}
+  powerup2: {fileID: 0}
+  projectile1: {fileID: 0}
+  projectile2: {fileID: 0}
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5184,7 +5218,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867597243}
+      - m_Target: {fileID: 1867597240}
         m_MethodName: RandomPickupGenerator
         m_Mode: 1
         m_Arguments:
@@ -5209,8 +5243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3807d20e2400ad4885a3f85ffec7667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 556913132}
-  abilityUIImage: {fileID: 556913131}
   controllerSetup: {fileID: 0}
   centerMass: {fileID: 1524617809}
   thisNumber: 0
@@ -5230,16 +5262,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  possibleAbilities:
-  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
-  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
-  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
-  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
-  abilityTypeChosen: {fileID: 0}
-  powerup1: {fileID: 0}
-  powerup2: {fileID: 0}
-  projectile1: {fileID: 0}
-  projectile2: {fileID: 0}
   speedEffect: {fileID: 1600254698}
   exhaustEffect: {fileID: 5610450}
   rayPoint1: {fileID: 1520775728}
