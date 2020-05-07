@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3448277682689287290}
-  - component: {fileID: 5801295452618523342}
   - component: {fileID: 5801295452618523341}
+  - component: {fileID: 4850529032876077322}
   m_Layer: 0
   m_Name: ElectricEffect
   m_TagString: Untagged
@@ -37,18 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5801295452618523342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326670029630046693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff792a738edcf024a9ea760cceddda7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5801295452618523341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +50,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAmount: 4
+--- !u!114 &4850529032876077322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326670029630046693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d92357cd0ca40d428a181fd57f1b74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2797730050976880914
 PrefabInstance:
   m_ObjectHideFlags: 0
