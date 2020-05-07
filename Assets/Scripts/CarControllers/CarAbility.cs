@@ -49,18 +49,25 @@ public class CarAbility : MonoBehaviour
 
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
     }
-    public void AbilityTrigger(float abilityPower)
+    //public void AbilityTrigger(float abilityPower)
+    //{
+    //    if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+    //    {
+    //        if (abilityPower == 0)
+    //        {
+    //            ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Attack); //Trigger ability
+    //        }
+    //        else
+    //        {
+    //            ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Defense); //Trigger ability
+    //        }
+    //    }
+    //}
+    public void AbilityTrigger(AbilityDeployModes.DeployStyle style)
     {
         if (ability.canTriggerAbility && abilityUIImage.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
         {
-            if (abilityPower == 0)
-            {
-                ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Attack); //Trigger ability
-            }
-            else
-            {
-                ability.ButtonTriggered(AbilityDeployModes.DeployStyle.Defense); //Trigger ability
-            }
+            ability.ButtonTriggered(style); //Trigger ability
         }
     }
 }
