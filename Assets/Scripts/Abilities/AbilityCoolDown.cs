@@ -19,6 +19,12 @@ public class AbilityCoolDown : MonoBehaviour
 
     private AudioSource abilitySource; //Reference to the audioSource on the UI gameObject (This is used to play an abilities sound effect when using it)
 
+    PowerupAbility powerupAttack;
+    PowerupAbility powerupDefense;
+
+    ProjectileAbility projectileAttack;
+    ProjectileAbility projectileDefense;
+
     //Method for initializing the the first ability (Takes in the first selected ability and weapon holder gameobject to assing the ability too)
     public void Initialize1(Ability selectedAbility1, GameObject weaponHolder1)
     {
@@ -41,6 +47,27 @@ public class AbilityCoolDown : MonoBehaviour
         AbilityReady(); //Sets the bool of canTriggerAbility to true, meaning that the player is now able use use the ability since setup it complete
     }
 
+    public void InitializeAbility(AbilityHolder abilityTypeChosen)
+    {
+        List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" }; //Creates a list of names that powerup abilities use
+        List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };//Creates a list of names that projectile abilities use
+
+        if (powerupAbilities.Contains(abilityTypeChosen.abilityName))
+        {
+            powerupAttack = abilityTypeChosen.powerupAbilities[0]; //Sets powerup 1 to the first ability from the ability holder chosen 
+            powerupDefense = abilityTypeChosen.powerupAbilities[1]; //Sets powerup 2 to the second ability from the ability holder chosen
+            Initialize1(powerupAttack, weaponHolder1); //Initalize the powerup and set its weapon holder
+            Initialize2(powerupDefense, weaponHolder2); //Initalize the powerup and set its weapon holder
+        }
+        else if (projectileAbilities.Contains(abilityTypeChosen.abilityName))
+        {
+            projectileAttack = abilityTypeChosen.projectileAbilities[0]; //Sets projectile 1 to the first ability from the ability holder chosen 
+            projectileDefense = abilityTypeChosen.projectileAbilities[1]; //Sets projectile 2 to the second ability from the ability holder chosen 
+            Initialize1(projectileAttack, weaponHolder1); //Initalize the powerup and set its weapon holder
+            Initialize2(projectileDefense, weaponHolder2); //Initalize the powerup and set its weapon holder
+        }
+
+    }
     //Method for setting the bool of canTriggerAbility to true (used once Initialize is done)
     private void AbilityReady()
     {

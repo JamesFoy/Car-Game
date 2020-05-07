@@ -12,12 +12,12 @@ public class CarAbility : MonoBehaviour
     public AbilityHolder abilityTypeChosen; //Varibale that will hold the ability chosen from the list above
 
     //Variables containing the powerup abilities
-    public PowerupAbility powerup1;
-    public PowerupAbility powerup2;
+    public PowerupAbility powerupAttack;
+    public PowerupAbility powerupDefense;
 
     //Variables containing the projectile abilities
-    public ProjectileAbility projectile1;
-    public ProjectileAbility projectile2;
+    public ProjectileAbility projectileAttack;
+    public ProjectileAbility projectileDefense;
 
     AbilityCoolDown abilityCoolDown; //Reference to the AbilityCoolDown script
 
@@ -33,25 +33,7 @@ public class CarAbility : MonoBehaviour
         abilityTypeChosen = possibleAbilities[UnityEngine.Random.Range(0, possibleAbilities.Count)]; //Sets the ability chosen to a random choice of ability holders
         abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>(); //Sets the location of the ability cooldown script so that abilities can be setup
 
-        List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" }; //Creates a list of names that powerup abilities use
-        List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };//Creates a list of names that projectile abilities use
-
-        //Checks if the random ability holder contains a powerup ability with the name from the list created above
-        if (powerupAbilities.Contains(abilityTypeChosen.abilityName))
-        {
-            powerup1 = abilityTypeChosen.powerupAbilities[0]; //Sets powerup 1 to the first ability from the ability holder chosen 
-            powerup2 = abilityTypeChosen.powerupAbilities[1]; //Sets powerup 2 to the second ability from the ability holder chosen
-            abilityCoolDown.Initialize1(powerup1, abilityCoolDown.weaponHolder1); //Initalize the powerup and set its weapon holder
-            abilityCoolDown.Initialize2(powerup2, abilityCoolDown.weaponHolder2); //Initalize the powerup and set its weapon holder
-        }
-        //Checks if the random ability holder contains a projectile ability with the name from the list created above
-        else if (projectileAbilities.Contains(abilityTypeChosen.abilityName))
-        {
-            projectile1 = abilityTypeChosen.projectileAbilities[0]; //Sets projectile 1 to the first ability from the ability holder chosen 
-            projectile2 = abilityTypeChosen.projectileAbilities[1]; //Sets projectile 2 to the second ability from the ability holder chosen 
-            abilityCoolDown.Initialize1(projectile1, abilityCoolDown.weaponHolder1); //Initalize the powerup and set its weapon holder
-            abilityCoolDown.Initialize2(projectile2, abilityCoolDown.weaponHolder2); //Initalize the powerup and set its weapon holder
-        }
+        abilityCoolDown.InitializeAbility(abilityTypeChosen);
 
         abilityUIImage.SetActive(true); //Sets the ability HUD game object to active so the ability can be used
     }
