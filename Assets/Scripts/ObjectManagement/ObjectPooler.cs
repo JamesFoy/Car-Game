@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class ObjectPooler<T> : MonoBehaviour where T : MonoBehaviour
 {
+    public static ObjectPooler<T> Instance;
     public T prefabToPool;
     public List<T> poolOfAvailableInstances = new List<T>();
     public List<T> poolOfUsedInstances = new List<T>();
-
+    protected void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void ExpandPool()
     {
         T newObject = Instantiate(prefabToPool);
