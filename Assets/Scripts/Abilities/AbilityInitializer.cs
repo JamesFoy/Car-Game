@@ -8,11 +8,11 @@ public class AbilityInitializer : MonoBehaviour
 {
     public bool canTriggerAbility = true; //Bool for checking if the ability can be used (Can add in a cooldown setup with this if we want multiple ability uses in the future etc)
 
-    [SerializeField] private Ability ability1; //Variable holding the first ability
-    [SerializeField] private Ability ability2; //Variable holding the second ability
+    [SerializeField] private Ability abilityAttack; //Variable holding the first ability
+    [SerializeField] private Ability abilityDefense; //Variable holding the second ability
 
-    public GameObject weaponHolder1; //is the object that has the ability function script attached
-    public GameObject weaponHolder2; //is the object that has the ability function script attached
+    public GameObject weaponHolderAttack; //is the object that has the ability function script attached
+    public GameObject weaponHolderDefense; //is the object that has the ability function script attached
 
     public AbilityUI abilityUI; // This is the UI object for this instance
 
@@ -23,13 +23,13 @@ public class AbilityInitializer : MonoBehaviour
 
         if (powerupAbilities.Contains(abilitySet.abilityName))
         {
-            InitializeStyle(abilitySet.powerupAbilities[0], weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
-            InitializeStyle(abilitySet.powerupAbilities[1], weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.powerupAbilities[0], weaponHolderAttack, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.powerupAbilities[1], weaponHolderDefense, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
         else if (projectileAbilities.Contains(abilitySet.abilityName))
         {
-            InitializeStyle(abilitySet.projectileAbilities[0], weaponHolder1, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
-            InitializeStyle(abilitySet.projectileAbilities[1], weaponHolder2, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.projectileAbilities[0], weaponHolderAttack, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
+            InitializeStyle(abilitySet.projectileAbilities[1], weaponHolderDefense, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
         }
 
     }
@@ -39,11 +39,11 @@ public class AbilityInitializer : MonoBehaviour
         selectedAbility.Initialize(weaponHolder);
         if (style == AbilityDeployModes.DeployStyle.Attack)
         {
-            ability1 = selectedAbility;
+            abilityAttack = selectedAbility;
         }
         else if (style == AbilityDeployModes.DeployStyle.Defense)
         {
-            ability2 = selectedAbility;
+            abilityDefense = selectedAbility;
         }
         AbilityReady();
     }
@@ -58,12 +58,12 @@ public class AbilityInitializer : MonoBehaviour
         //if the attack style is pressed
         if (deployStyle == AbilityDeployModes.DeployStyle.Attack)
         {
-            TriggerAbilitySequence(ability1, deployStyle);
+            TriggerAbilitySequence(abilityAttack, deployStyle);
         }
         //if the defense style is pressed
         else if (deployStyle == AbilityDeployModes.DeployStyle.Defense)
         {
-            TriggerAbilitySequence(ability2, deployStyle);
+            TriggerAbilitySequence(abilityDefense, deployStyle);
         }
     }
     private void TriggerAbilitySequence(Ability ability, AbilityDeployModes.DeployStyle deployStyle)
@@ -72,6 +72,6 @@ public class AbilityInitializer : MonoBehaviour
         ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
         abilityUI.AssignSprite(null); //removes the icon from the UI image
         canTriggerAbility = false; //Sets the canTriggerAbility to false
-        gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+        abilityUI.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
     }
 }
