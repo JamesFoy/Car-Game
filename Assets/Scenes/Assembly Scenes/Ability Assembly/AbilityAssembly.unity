@@ -2651,12 +2651,6 @@ Transform:
   m_Father: {fileID: 1158429347}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 4.188, y: 182.95699, z: -92.84901}
---- !u!1 &839674075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 79339728, guid: 2550d87d42836c744be7b41d56fa50ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 556913129}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886087776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4752,7 +4746,6 @@ GameObject:
   - component: {fileID: 1851588362}
   - component: {fileID: 1851588361}
   - component: {fileID: 1851588360}
-  - component: {fileID: 1851588363}
   - component: {fileID: 1851588359}
   - component: {fileID: 1851588358}
   - component: {fileID: 1851588357}
@@ -4986,20 +4979,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -455.489, z: 0}
---- !u!114 &1851588363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851588350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityInitializer: {fileID: 0}
-  abilityUIImage: {fileID: 839674075}
 --- !u!1 &1867597230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,7 +4990,6 @@ GameObject:
   - component: {fileID: 1867597231}
   - component: {fileID: 1867597244}
   - component: {fileID: 1867597243}
-  - component: {fileID: 1867597240}
   - component: {fileID: 1867597241}
   - component: {fileID: 1867597242}
   - component: {fileID: 1867597239}
@@ -5166,20 +5144,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1867597240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867597230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityInitializer: {fileID: 0}
-  abilityUIImage: {fileID: 556913131}
 --- !u!114 &1867597241
 MonoBehaviour:
   m_ObjectHideFlags: 0

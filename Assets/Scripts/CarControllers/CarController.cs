@@ -79,11 +79,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Attack);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Attack);
                 }
                 if (controllerSetup.state1.Buttons.LeftShoulder == ButtonState.Pressed)
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Defense);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Defense);
                 }
             }
             #endregion
@@ -96,11 +96,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (Input.GetKey(KeyCode.E))
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Attack);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Attack);
                 }
                 if (Input.GetKey(KeyCode.Q))
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Defense);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Defense);
                 }
             }
             #endregion
@@ -119,11 +119,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Attack);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Attack);
                 }
                 if (controllerSetup.state2.Buttons.LeftShoulder == ButtonState.Pressed)
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Defense);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Defense);
                 }
             }
             #endregion
@@ -136,11 +136,11 @@ public class CarController: MonoBehaviour
                 //Activates the ability
                 if (Input.GetKey(KeyCode.KeypadEnter))
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Attack);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Attack);
                 }
                 if (Input.GetKey(KeyCode.KeypadPeriod))
                 {
-                    GetComponent<AbilityInitializer>().AbilityTrigger(AbilityDeployModes.DeployStyle.Defense);
+                    GetComponent<AbilityInitializer>().TriggerAbility(AbilityDeployModes.DeployStyle.Defense);
                 }
             }
             #endregion
