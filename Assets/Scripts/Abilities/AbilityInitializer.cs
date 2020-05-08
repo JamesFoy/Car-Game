@@ -16,6 +16,15 @@ public class AbilityInitializer : MonoBehaviour
 
     public AbilityUI abilityUI; // This is the UI object for this instance
 
+    public List<AbilitySet> possibleAbilitySets; //manually add the list of possible powerups to choose from
+    private AbilitySet chosenAbilitySet;
+
+    public void RandomPickupSelector()
+    {
+        chosenAbilitySet = possibleAbilitySets[Random.Range(0, possibleAbilitySets.Count)]; //chooses a random ability set from a list of all ability sets available
+        InitializeAbility(chosenAbilitySet);
+        abilityUI.gameObject.SetActive(true);
+    }
     public void InitializeAbility(AbilitySet abilitySet)
     {
         List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" }; //Creates a list of names that powerup abilities use

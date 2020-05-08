@@ -2657,18 +2657,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 556913129}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &839674077 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 556913129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839674075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02192f14a8a464498f15a8f43d89ea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &886087776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,22 +4347,22 @@ PrefabInstance:
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293203
+      value: 0.061293207
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6841391
+      value: 0.684139
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05788135
+      value: -0.057881348
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72446305
+      value: 0.7244631
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -4399,22 +4387,22 @@ PrefabInstance:
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293203
+      value: 0.061293207
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6841391
+      value: 0.684139
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05788135
+      value: -0.057881348
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.72446305
+      value: 0.7244631
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -5010,7 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 839674077}
+  abilityInitializer: {fileID: 0}
   abilityUIImage: {fileID: 839674075}
   possibleAbilitySets: []
   chosenAbilitySet: {fileID: 0}
@@ -5192,7 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4401410ab18da7541ba4f2097ea9df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
+  abilityInitializer: {fileID: 0}
   abilityUIImage: {fileID: 556913131}
   possibleAbilitySets:
   - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
@@ -5214,10 +5202,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTriggerAbility: 1
   abilityAttack: {fileID: 0}
-  abulityDefense: {fileID: 0}
+  abilityDefense: {fileID: 0}
   weaponHolderAttack: {fileID: 412275411}
   weaponHolderDefense: {fileID: 1261041639}
   abilityUI: {fileID: 556913139}
+  possibleAbilitySets: []
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5234,8 +5223,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867597240}
-        m_MethodName: RandomPickupGenerator
+      - m_Target: {fileID: 1867597241}
+        m_MethodName: RandomPickupSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
