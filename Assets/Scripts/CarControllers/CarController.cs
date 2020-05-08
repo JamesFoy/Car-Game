@@ -169,9 +169,6 @@ public class CarController: MonoBehaviour
         Debug.DrawRay(rayPoint3.position, rayPoint3.forward * 0.5f, Color.red);
         Debug.DrawRay(rayPoint4.position, rayPoint4.forward * 0.5f, Color.red);
 
-        //Debug raycast for checking collision with floor
-        Debug.DrawRay(transform.position, -transform.up * 0.5f, Color.blue);
-
         RaycastHit hit; //Defualt hit variable for raycasting
 
         // Does the ray intersect any objects (this could be changed in the futre to have layer masking however currently isnt needed)
@@ -191,17 +188,6 @@ public class CarController: MonoBehaviour
         if (Physics.Raycast(rayPoint4.position, rayPoint4.forward * 0.6f, out hit))
         {
             CalculateCompression(hit, rayPoint4);
-        }
-        if (Physics.Raycast(transform.position, -transform.up * 0.6f, out hit))
-        {
-            if (hit.collider.CompareTag("Track"))
-            {
-                SetRigidbodyValues(false);
-            }
-            else
-            {
-                SetRigidbodyValues(true);
-            }
         }
         #endregion
     }
@@ -241,12 +227,10 @@ public class CarController: MonoBehaviour
 
     #region In Air Checks & Landing Setup
     //This is used to check if the car is currently in the air (if compression = 0 it means nothing is below the car so IN AIR!!)
-    void SetRigidbodyValues(bool inAir)
+    public void SetRigidbodyValues(bool inAir)
     {
         if (!inAir)
         {
-            Debug.Log("On Track");
-
             //Reseting the rigidbody values for when the car lands 
             rb.mass = 1.28f;
             rb.drag = 4;
@@ -261,8 +245,6 @@ public class CarController: MonoBehaviour
         }
         else if (inAir)
         {
-            Debug.Log("Not on Track");
-
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
