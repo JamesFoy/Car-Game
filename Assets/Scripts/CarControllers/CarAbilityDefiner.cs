@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Script for setting up and controlling ability behaviour on the player
-public class CarAbility : MonoBehaviour
+public class CarAbilityDefiner : MonoBehaviour
 {
-    public AbilityCoolDown ability; //Reference to the UI ability (needs to be called when a button is pressed)
+    public AbilityInitializer ability; //Reference to the UI ability (needs to be called when a button is pressed)
     public GameObject abilityUIImage; //Reference to the game object that contains the ability UI (makes sure that it only works when activated, activation when picking up powerup occurs etc)
 
     public List<AbilitySet> possibleAbilitySets; //Creating a list of possible abilites/powerups
     public AbilitySet chosenAbilitySet; //Varibale that will hold the ability chosen from the list above
 
-    AbilityCoolDown abilityCoolDown; //Reference to the AbilityCoolDown script
+    AbilityInitializer abilityCoolDown; //Reference to the AbilityCoolDown script
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class CarAbility : MonoBehaviour
     public void RandomPickupGenerator()
     {
         chosenAbilitySet = possibleAbilitySets[Random.Range(0, possibleAbilitySets.Count)]; //chooses a random ability set from a list of all ability sets available
-        abilityCoolDown = abilityUIImage.GetComponent<AbilityCoolDown>(); //Sets the location of the ability cooldown script so that abilities can be setup
+        abilityCoolDown = abilityUIImage.GetComponent<AbilityInitializer>(); //Sets the location of the ability cooldown script so that abilities can be setup
 
         abilityCoolDown.InitializeAbility(chosenAbilitySet);
 
