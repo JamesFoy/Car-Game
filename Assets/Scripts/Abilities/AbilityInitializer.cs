@@ -30,6 +30,7 @@ public class AbilityInitializer : MonoBehaviour
     {
         List<string> powerupAbilities = new List<string> { "NanoBotAbility", "ChargeAbility", "TeleportAbility" }; //Creates a list of names that powerup abilities use
         List<string> projectileAbilities = new List<string> { "ExplosiveAbility", "ElectricAbility" };//Creates a list of names that projectile abilities use
+        List<string> teleportAbilities = new List<string> { "TeleportAbility" };
 
         if (powerupAbilities.Contains(abilitySet.abilityName))
         {
@@ -40,6 +41,11 @@ public class AbilityInitializer : MonoBehaviour
         {
             InitialiseAbility(abilitySet.projectileAbilities[0], weaponHolderAttack, AbilityDeployModes.DeployStyle.Attack); //Initalize the powerup and set its weapon holder
             InitialiseAbility(abilitySet.projectileAbilities[1], weaponHolderDefense, AbilityDeployModes.DeployStyle.Defense); //Initalize the powerup and set its weapon holder
+        }
+        else if (teleportAbilities.Contains(abilitySet.abilityName))
+        {
+            //InitialiseAbility(abilitySet.teleportAbilities[0], weaponHolderAttack, AbilityDeployModes.DeployStyle.Attack);
+            //InitialiseAbility(abilitySet.teleportAbilities[0], weaponHolderDefense, AbilityDeployModes.DeployStyle.Defense);
         }
     }
     private void InitialiseAbility(Ability selectedAbility, GameObject weaponHolder, AbilityDeployModes.DeployStyle style)

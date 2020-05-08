@@ -9,4 +9,5 @@ public class AbilitySet : ScriptableObject
 
     public List<PowerupAbility> powerupAbilities;
     public List<ProjectileAbility> projectileAbilities;
+    //public List<TeleportAbility> teleportAbilities;
 }
