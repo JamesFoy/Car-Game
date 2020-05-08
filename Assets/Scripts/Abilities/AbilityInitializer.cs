@@ -59,8 +59,11 @@ public class AbilityInitializer : MonoBehaviour
         {
             abilityDefense = selectedAbility;
         }
-        abilityUI.AssignSprite(selectedAbility.Sprite);
-        abilityUI.gameObject.SetActive(true);
+        if (abilityUI != null && abilityUI.gameObject.activeInHierarchy)
+        {
+            abilityUI.AssignSprite(selectedAbility.Sprite);
+            abilityUI.gameObject.SetActive(true);
+        }
         // mark this ability as initialized and ready to deploy
         canTriggerAbility = true;
     }
@@ -86,9 +89,12 @@ public class AbilityInitializer : MonoBehaviour
     {
         ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
 
-        abilityUI.PlaySoundEffect(ability.Sound);
-        abilityUI.AssignSprite(null); //removes the icon from the UI image
-        abilityUI.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+        if (abilityUI != null && abilityUI.gameObject.activeInHierarchy)
+        {
+            abilityUI.PlaySoundEffect(ability.Sound);
+            abilityUI.AssignSprite(null); //removes the icon from the UI image
+            abilityUI.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+        }
 
         //mark the ability as used, and stop more triggering events in TriggerAbilitySequence
         canTriggerAbility = false;
