@@ -1894,7 +1894,7 @@ PrefabInstance:
     - target: {fileID: 3624470827452142619, guid: 2550d87d42836c744be7b41d56fa50ea,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 79339730, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: weaponHolder
