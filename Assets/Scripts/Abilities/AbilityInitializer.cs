@@ -53,11 +53,7 @@ public class AbilityInitializer : MonoBehaviour
         {
             abilityDefense = selectedAbility;
         }
-        AbilityReady();
-    }
-    //Method for setting the bool of canTriggerAbility to true (used once Initialize is done)
-    private void AbilityReady()
-    {
+        // mark this ability as initialized and ready to deploy
         canTriggerAbility = true;
     }
     public void TriggerAbility(AbilityDeployModes.DeployStyle style)
