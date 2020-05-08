@@ -6,15 +6,15 @@ using UnityEngine.UI;
 //Script that is used as the central point for the ability system (Script is used for UI setup, initalizing each ability and checking if it is ready to be triggered etc)
 public class AbilityInitializer : MonoBehaviour
 {
-    public bool canTriggerAbility = true; //Bool for checking if the ability can be used (Can add in a cooldown setup with this if we want multiple ability uses in the future etc)
+    [SerializeField] bool canTriggerAbility = true; //Bool for checking if the ability can be used (Can add in a cooldown setup with this if we want multiple ability uses in the future etc)
 
     [SerializeField] private Ability abilityAttack; //Variable holding the first ability
     [SerializeField] private Ability abilityDefense; //Variable holding the second ability
 
-    public GameObject weaponHolderAttack; //is the object that has the ability function script attached
-    public GameObject weaponHolderDefense; //is the object that has the ability function script attached
+    [SerializeField] GameObject weaponHolderAttack; //is the object that has the ability function script attached
+    [SerializeField] GameObject weaponHolderDefense; //is the object that has the ability function script attached
 
-    public AbilityUI abilityUI; // This is the UI object for this instance
+    [SerializeField] AbilityUI abilityUI; // This is the UI object for this instance
 
     public List<AbilitySet> possibleAbilitySets; //manually add the list of possible powerups to choose from
     private AbilitySet chosenAbilitySet;
@@ -82,5 +82,12 @@ public class AbilityInitializer : MonoBehaviour
         abilityUI.AssignSprite(null); //removes the icon from the UI image
         canTriggerAbility = false; //Sets the canTriggerAbility to false
         abilityUI.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+    }
+    public void AbilityTrigger(AbilityDeployModes.DeployStyle style)
+    {
+        if (canTriggerAbility && abilityUI.gameObject.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+        {
+            ButtonTriggered(style); //Trigger ability
+        }
     }
 }
