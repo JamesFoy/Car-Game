@@ -11,14 +11,6 @@ public class CarAbility : MonoBehaviour
     public List<AbilitySet> possibleAbilitySets; //Creating a list of possible abilites/powerups
     public AbilitySet chosenAbilitySet; //Varibale that will hold the ability chosen from the list above
 
-    //Variables containing the powerup abilities
-    public PowerupAbility powerupAttack;
-    public PowerupAbility powerupDefense;
-
-    //Variables containing the projectile abilities
-    public ProjectileAbility projectileAttack;
-    public ProjectileAbility projectileDefense;
-
     AbilityCoolDown abilityCoolDown; //Reference to the AbilityCoolDown script
 
     private void Start()
