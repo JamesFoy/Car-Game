@@ -2108,6 +2108,10 @@ PrefabInstance:
       propertyPath: weaponHolder2
       value: 
       objectReference: {fileID: 1261041639}
+    - target: {fileID: 1663917247, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
+      propertyPath: abilityUI
+      value: 
+      objectReference: {fileID: 556913139}
     - target: {fileID: 79339729, guid: 2550d87d42836c744be7b41d56fa50ea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 59
@@ -2302,6 +2306,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &556913139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556913131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc3e6d7708955d4c886a2b041ac1557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &610541679
@@ -4354,22 +4370,22 @@ PrefabInstance:
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293207
+      value: 0.061293203
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.684139
+      value: 0.6841391
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.057881348
+      value: -0.05788135
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7244631
+      value: 0.72446305
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790406, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -4394,22 +4410,22 @@ PrefabInstance:
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061293207
+      value: 0.061293203
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.684139
+      value: 0.6841391
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.057881348
+      value: -0.05788135
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7244631
+      value: 0.72446305
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400434, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -5009,10 +5025,6 @@ MonoBehaviour:
   abilityUIImage: {fileID: 839674075}
   possibleAbilitySets: []
   chosenAbilitySet: {fileID: 0}
-  powerupAttack: {fileID: 0}
-  powerupDefense: {fileID: 0}
-  projectileAttack: {fileID: 0}
-  projectileDefense: {fileID: 0}
 --- !u!1 &1867597230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,10 +5210,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
   - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
   chosenAbilitySet: {fileID: 0}
-  powerupAttack: {fileID: 0}
-  powerupDefense: {fileID: 0}
-  projectileAttack: {fileID: 0}
-  projectileDefense: {fileID: 0}
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0

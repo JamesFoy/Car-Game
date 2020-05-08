@@ -14,9 +14,7 @@ public class AbilityInitializer : MonoBehaviour
     public GameObject weaponHolder1; //is the object that has the ability function script attached
     public GameObject weaponHolder2; //is the object that has the ability function script attached
 
-    private Image myButtonImage; //Reference to the image object that will be used to display the correct icon for each ability
-
-    private AudioSource abilitySource; //Reference to the audioSource on the UI gameObject (This is used to play an abilities sound effect when using it)
+    public AbilityUI abilityUI; // This is the UI object for this instance
 
     public void InitializeAbility(AbilitySet abilitySet)
     {
@@ -37,9 +35,7 @@ public class AbilityInitializer : MonoBehaviour
     }
     private void InitializeStyle(Ability selectedAbility, GameObject weaponHolder, AbilityDeployModes.DeployStyle style)
     {
-        myButtonImage = GetComponent<Image>();
-        abilitySource = GetComponent<AudioSource>();
-        myButtonImage.sprite = selectedAbility.Sprite;
+        abilityUI.AssignSprite(selectedAbility.Sprite);
         selectedAbility.Initialize(weaponHolder);
         if (style == AbilityDeployModes.DeployStyle.Attack)
         {
@@ -72,10 +68,9 @@ public class AbilityInitializer : MonoBehaviour
     }
     private void TriggerAbilitySequence(Ability ability, AbilityDeployModes.DeployStyle deployStyle)
     {
-        abilitySource.clip = ability.Sound; //Sets the audio clip to play to the abilities sound effect (This can be null)
-        abilitySource.Play(); //Plays the audioClip set to the UI audio Source
+        abilityUI.PlaySoundEffect(ability.Sound);
         ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
-        myButtonImage.sprite = null; //removes the icon from the UI image
+        abilityUI.AssignSprite(null); //removes the icon from the UI image
         canTriggerAbility = false; //Sets the canTriggerAbility to false
         gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
     }
