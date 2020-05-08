@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Assembly Scenes/CarMovement Assebly/CarMovement_Assembly.unity
     guid: 633847844fb9b564b835a10604a28b38
+  - enabled: 1
+    path: Assets/Scenes/Assembly Scenes/Ability Assembly/AbilityAssembly.unity
+    guid: 7f7b2e614a00a9648aa2f0521617387c
   m_configObjects: {}

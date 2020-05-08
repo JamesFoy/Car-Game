@@ -169,6 +169,9 @@ public class CarController: MonoBehaviour
         Debug.DrawRay(rayPoint3.position, rayPoint3.forward * 0.5f, Color.red);
         Debug.DrawRay(rayPoint4.position, rayPoint4.forward * 0.5f, Color.red);
 
+        //Debug raycast for checking collision with floor
+        Debug.DrawRay(transform.position, -transform.up * 0.5f, Color.blue);
+
         RaycastHit hit; //Defualt hit variable for raycasting
 
         // Does the ray intersect any objects (this could be changed in the futre to have layer masking however currently isnt needed)
@@ -189,35 +192,16 @@ public class CarController: MonoBehaviour
         {
             CalculateCompression(hit, rayPoint4);
         }
-        #endregion
-
-        #region In Air Checks & Landing Setup
-        //This is used to check if the car is currently in the air (if compression = 0 it means nothing is below the car so IN AIR!!)
-        if (compressionRatio == 0)
+        if (Physics.Raycast(transform.position, -transform.up * 0.6f, out hit))
         {
-            onLand = false;
-
-            //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
-            carInfo.carStats.speed = 10;
-
-            //Setting the correct rigidbody settings for when the car is in the air, makes sure gravity has more effect etc (can be tweaked to get different resultss)
-            rb.mass = 4f;
-            rb.drag = 1;
-            rb.angularDrag = 5;
-        }
-        else
-        {
-            //Check if the player lands and if so invoke the unityevent that shakes the camera
-            if (!onLand)
+            if (hit.collider.CompareTag("Track"))
             {
-                onLand = true;
-                triggerCamShake.Invoke();
+                SetRigidbodyValues(false);
             }
-
-            //Reseting the rigidbody values for when the car lands 
-            rb.mass = 1.28f;
-            rb.drag = 4;
-            rb.angularDrag = 10;
+            else
+            {
+                SetRigidbodyValues(true);
+            }
         }
         #endregion
     }
@@ -255,7 +239,42 @@ public class CarController: MonoBehaviour
         } 
     }
 
-    
+    #region In Air Checks & Landing Setup
+    //This is used to check if the car is currently in the air (if compression = 0 it means nothing is below the car so IN AIR!!)
+    void SetRigidbodyValues(bool inAir)
+    {
+        if (!inAir)
+        {
+            Debug.Log("On Track");
+
+            //Reseting the rigidbody values for when the car lands 
+            rb.mass = 1.28f;
+            rb.drag = 4;
+            rb.angularDrag = 10;
+
+            //Check if the player lands and if so invoke the unityevent that shakes the camera
+            if (!onLand)
+            {
+                onLand = true;
+                triggerCamShake.Invoke();
+            }
+        }
+        else if (inAir)
+        {
+            Debug.Log("Not on Track");
+
+            onLand = false;
+
+            //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
+            carInfo.carStats.speed = 10;
+
+            //Setting the correct rigidbody settings for when the car is in the air, makes sure gravity has more effect etc (can be tweaked to get different resultss)
+            rb.mass = 4f;
+            rb.drag = 1;
+            rb.angularDrag = 5;
+        }
+    }
+    #endregion
 
     #region Movement Methods
     void ForwardMovement(float forward)
