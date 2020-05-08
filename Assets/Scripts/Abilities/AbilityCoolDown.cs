@@ -58,30 +58,27 @@ public class AbilityCoolDown : MonoBehaviour
     {
         canTriggerAbility = true;
     }
-
     //Method used to check which button is being used and perform certain actions when pressed
     public void ButtonTriggered(AbilityDeployModes.DeployStyle deployStyle)
     {
         //if the attack style is pressed
         if (deployStyle == AbilityDeployModes.DeployStyle.Attack)
         {
-            abilitySource.clip = ability1.Sound; //Sets the audio clip to play to the abilities sound effect (This can be null)
-            abilitySource.Play(); //Plays the audioClip set to the UI audio Source
-            ability1.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
-            myButtonImage.sprite = null; //removes the icon from the UI image
-            canTriggerAbility = false; //Sets the canTriggerAbility to false
-            this.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+            TriggerAbilitySequence(ability1, deployStyle);
         }
-
         //if the defense style is pressed
         else if (deployStyle == AbilityDeployModes.DeployStyle.Defense)
         {
-            abilitySource.clip = ability2.Sound; //Sets the audio clip to play to the abilities sound effect (This can be null)
-            abilitySource.Play(); //Plays the audioClip set to the UI audio Source
-            ability2.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
-            myButtonImage.sprite = null; //removes the icon from the UI image
-            canTriggerAbility = false; //Sets the canTriggerAbility to false
-            this.gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
+            TriggerAbilitySequence(ability2, deployStyle);
         }
+    }
+    private void TriggerAbilitySequence(Ability ability, AbilityDeployModes.DeployStyle deployStyle)
+    {
+        abilitySource.clip = ability.Sound; //Sets the audio clip to play to the abilities sound effect (This can be null)
+        abilitySource.Play(); //Plays the audioClip set to the UI audio Source
+        ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
+        myButtonImage.sprite = null; //removes the icon from the UI image
+        canTriggerAbility = false; //Sets the canTriggerAbility to false
+        gameObject.SetActive(false); //makes the active state of the gameObject attached to this script to false (Removes blank UI image and also helps make sure nothing can be activated)
     }
 }
