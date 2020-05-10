@@ -32,6 +32,8 @@ public class CarController: MonoBehaviour
     [SerializeField] Transform rayPoint3;
     [SerializeField] Transform rayPoint4; //References to each transform to cast each ray from
 
+    public LayerMask layerMask;
+
     float dis, actualDistance; //Variables used in compression calculation
 
     float compressionRatio; //Varibale that contains the exact amount of compression being applied (is clamped between 0 and 1 later in script)
@@ -164,30 +166,44 @@ public class CarController: MonoBehaviour
 
         #region Raycast Setups
         //Debug raycasts for each ray so that you can see them in the editor (had to be .1 less the actual amount to correctly represent length or rays)
-        Debug.DrawRay(rayPoint1.position, rayPoint1.forward * 0.5f, Color.red);
-        Debug.DrawRay(rayPoint2.position, rayPoint2.forward * 0.5f, Color.red);
-        Debug.DrawRay(rayPoint3.position, rayPoint3.forward * 0.5f, Color.red);
-        Debug.DrawRay(rayPoint4.position, rayPoint4.forward * 0.5f, Color.red);
+        Debug.DrawRay(rayPoint1.position, rayPoint1.TransformDirection(Vector3.forward) * 0.6f, Color.red);
+        Debug.DrawRay(rayPoint2.position, rayPoint2.TransformDirection(Vector3.forward) * 0.6f, Color.red);
+        Debug.DrawRay(rayPoint3.position, rayPoint3.TransformDirection(Vector3.forward) * 0.6f, Color.red);
+        Debug.DrawRay(rayPoint4.position, rayPoint4.TransformDirection(Vector3.forward) * 0.6f, Color.red);
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1f, Color.red);
 
         RaycastHit hit; //Defualt hit variable for raycasting
 
         // Does the ray intersect any objects (this could be changed in the futre to have layer masking however currently isnt needed)
         // Each ray is shot from a raycast point
-        if (Physics.Raycast(rayPoint1.position, rayPoint1.forward * 0.6f, out hit))
+        if (Physics.Raycast(rayPoint1.position, rayPoint1.TransformDirection(Vector3.forward), out hit, 0.6f, layerMask))
         {
             CalculateCompression(hit, rayPoint1);
         }
-        if (Physics.Raycast(rayPoint2.position, rayPoint2.forward * 0.6f, out hit))
+        if (Physics.Raycast(rayPoint2.position, rayPoint2.TransformDirection(Vector3.forward), out hit, 0.6f, layerMask))
         {
             CalculateCompression(hit, rayPoint2);
         }
-        if (Physics.Raycast(rayPoint3.position, rayPoint3.forward * 0.6f, out hit))
+        if (Physics.Raycast(rayPoint3.position, rayPoint3.TransformDirection(Vector3.forward), out hit, 0.6f, layerMask))
         {
             CalculateCompression(hit, rayPoint3);
         }
-        if (Physics.Raycast(rayPoint4.position, rayPoint4.forward * 0.6f, out hit))
+        if (Physics.Raycast(rayPoint4.position, rayPoint4.TransformDirection(Vector3.forward), out hit, 0.6f, layerMask))
         {
             CalculateCompression(hit, rayPoint4);
+        }
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f, layerMask))
+        {
+            if (hit.collider.CompareTag("Track"))
+            {
+                Debug.Log("On Track");
+                SetRigidbodyValues(false);
+            }
+        }
+        else
+        {
+            SetRigidbodyValues(true);
         }
         #endregion
     }
@@ -232,7 +248,7 @@ public class CarController: MonoBehaviour
         if (!inAir)
         {
             //Reseting the rigidbody values for when the car lands 
-            rb.mass = 1.5f;
+            rb.mass = 1.28f;
             rb.drag = 4;
             rb.angularDrag = 10;
             carInfo.carStats.maxSpeed = 110;

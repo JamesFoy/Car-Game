@@ -26,7 +26,7 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && other.gameObject.GetComponent<CarController>().thisNumber == CarController.PlayerNumber.p1)
+        if (other.CompareTag("Player") && other.gameObject.GetComponentInParent<CarController>().thisNumber == CarController.PlayerNumber.p1)
         {
             StartCoroutine(Player1Pickup());
             Debug.Log("This is a PickUp!");
