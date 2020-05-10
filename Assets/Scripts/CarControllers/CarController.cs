@@ -232,7 +232,7 @@ public class CarController: MonoBehaviour
         if (!inAir)
         {
             //Reseting the rigidbody values for when the car lands 
-            rb.mass = 1.28f;
+            rb.mass = 1.5f;
             rb.drag = 4;
             rb.angularDrag = 10;
             carInfo.carStats.maxSpeed = 110;
@@ -250,8 +250,8 @@ public class CarController: MonoBehaviour
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
-            carInfo.carStats.maxSpeed = 10;
-            carInfo.carStats.speed = 10;
+            carInfo.carStats.maxSpeed = 20;
+            carInfo.carStats.speed = 20;
 
             //Setting the correct rigidbody settings for when the car is in the air, makes sure gravity has more effect etc (can be tweaked to get different resultss)
             rb.mass = 6.5f;
