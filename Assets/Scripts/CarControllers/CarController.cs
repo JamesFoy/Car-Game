@@ -235,6 +235,8 @@ public class CarController: MonoBehaviour
             rb.mass = 1.28f;
             rb.drag = 4;
             rb.angularDrag = 10;
+            carInfo.carStats.maxSpeed = 110;
+
 
             //Check if the player lands and if so invoke the unityevent that shakes the camera
             if (!onLand)
@@ -248,10 +250,11 @@ public class CarController: MonoBehaviour
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
+            carInfo.carStats.maxSpeed = 10;
             carInfo.carStats.speed = 10;
 
             //Setting the correct rigidbody settings for when the car is in the air, makes sure gravity has more effect etc (can be tweaked to get different resultss)
-            rb.mass = 4f;
+            rb.mass = 6.5f;
             rb.drag = 1;
             rb.angularDrag = 5;
         }
