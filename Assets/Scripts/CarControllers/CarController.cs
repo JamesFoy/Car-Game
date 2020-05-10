@@ -11,6 +11,7 @@ public class CarController: MonoBehaviour
     public ControllerSetup controllerSetup;
 
     public Transform centerMass; //Used as the transform position for the center of mass
+    public Transform rampCOM; //Used as the transform position for the center of mass
 
     public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
     public PlayerNumber thisNumber;
@@ -37,6 +38,7 @@ public class CarController: MonoBehaviour
     float dis, actualDistance; //Variables used in compression calculation
 
     float compressionRatio; //Varibale that contains the exact amount of compression being applied (is clamped between 0 and 1 later in script)
+    float pullAmount; //Variable for pulling the car down while in the air (acts on the front of the car)
 
     bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
 
@@ -50,8 +52,8 @@ public class CarController: MonoBehaviour
         rb = GetComponent<Rigidbody>();
         carInfo = GetComponent<CarInfo>();
 
-        //Setting a center mass removes colliders from calulation of mass (MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
-        rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
+        ////Setting a center mass removes colliders from calulation of mass(MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
+        //rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
     }
 
     #region Update Calls
@@ -65,8 +67,8 @@ public class CarController: MonoBehaviour
     void FixedUpdate()
     {
         #region Player controls and movement
-        //player movement controls
-        float forward = 0;
+    //player movement controls
+    float forward = 0;
         float backward = 0;
         float turn = 0;
         #region Player 1 Controls
@@ -172,6 +174,7 @@ public class CarController: MonoBehaviour
         Debug.DrawRay(rayPoint4.position, rayPoint4.TransformDirection(Vector3.forward) * 0.6f, Color.red);
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1f, Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 7f, Color.red);
 
         RaycastHit hit; //Defualt hit variable for raycasting
 
@@ -193,17 +196,30 @@ public class CarController: MonoBehaviour
         {
             CalculateCompression(hit, rayPoint4);
         }
+
+
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f, layerMask))
         {
             if (hit.collider.CompareTag("Track"))
             {
                 Debug.Log("On Track");
                 SetRigidbodyValues(false);
+                SetCOM(true);
             }
         }
         else
         {
             SetRigidbodyValues(true);
+            SetCOM(false);
+        }
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 7f, layerMask))
+        {
+            SetCOM(true);
+            pullAmount = 0;
+        }
+        else
+        {
+            pullAmount = 40;
         }
         #endregion
     }
@@ -253,7 +269,7 @@ public class CarController: MonoBehaviour
             rb.angularDrag = 10;
             carInfo.carStats.maxSpeed = 110;
 
-
+           
             //Check if the player lands and if so invoke the unityevent that shakes the camera
             if (!onLand)
             {
@@ -263,6 +279,7 @@ public class CarController: MonoBehaviour
         }
         else if (inAir)
         {
+           
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
@@ -273,6 +290,19 @@ public class CarController: MonoBehaviour
             rb.mass = 6.5f;
             rb.drag = 1;
             rb.angularDrag = 5;
+        }
+    }
+
+    public void SetCOM(bool center)
+    {
+        if (center)
+        {
+            //Setting a center mass removes colliders from calulation of mass (MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
+            rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
+        }
+        else
+        {
+            rb.AddTorque(transform.right * pullAmount);
         }
     }
     #endregion
