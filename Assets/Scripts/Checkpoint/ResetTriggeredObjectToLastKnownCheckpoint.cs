@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ResetTriggeredObjectToLastKnownCheckpoint : MonoBehaviour
 {
+    public delegate void CarHasEnteredResetZone();
+    public static event CarHasEnteredResetZone announceCarReset;
     private void Start()
     {
         if (CheckpointManager.Instance != null)
@@ -29,6 +31,11 @@ public class ResetTriggeredObjectToLastKnownCheckpoint : MonoBehaviour
             {
                 other.transform.position = c.transform.position;
                 other.transform.rotation = c.transform.rotation;
+            }
+            if (other.GetComponent<CarStockCounter>())
+            {
+                other.GetComponent<CarStockCounter>().ReduceThisCarStockByOne();
+                announceCarReset();
             }
         }
     }
