@@ -23,8 +23,8 @@ public class ControllerSetup : MonoBehaviour
     {
         // SetVibration should be sent in a slower rate.
         // Set vibration according to triggers
-        GamePad.SetVibration(player1Index, state1.Triggers.Left, state1.Triggers.Right);
-        GamePad.SetVibration(player2Index, state2.Triggers.Left, state2.Triggers.Right);
+        GamePad.SetVibration(player1Index, state1.Triggers.Left * 0.25f, state1.Triggers.Right * 0.25f);
+        GamePad.SetVibration(player2Index, state2.Triggers.Left * 0.25f, state2.Triggers.Right * 0.25f);
     }
 
     // Update is called once per frame
