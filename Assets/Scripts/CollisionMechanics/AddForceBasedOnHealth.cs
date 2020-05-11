@@ -45,11 +45,18 @@ public class AddForceBasedOnHealth : MonoBehaviour
                 {
                     originalForce = -originalForce;
                 }
-                Vector3 healthScaledForce = originalForce * car.health;
-                rb.AddForce(healthScaledForce);
-                DebugLogForces(collision, relativeVelocity, originalForce);
+                ApplyForceToRigidbody(originalForce);
             }
         }
+    }
+    public void ApplyNonCollisionForceVector(Vector3 forceVector)
+    {
+        ApplyForceToRigidbody(forceVector);
+    }
+    private void ApplyForceToRigidbody(Vector3 forceToApply)
+    {
+        Vector3 healthScaledForce = forceToApply * car.health;
+        rb.AddForce(healthScaledForce);
     }
     Vector3 GetVelocity()
     {
