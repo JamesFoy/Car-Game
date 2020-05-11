@@ -52,8 +52,8 @@ public class CarController: MonoBehaviour
         rb = GetComponent<Rigidbody>();
         carInfo = GetComponent<CarInfo>();
 
-        ////Setting a center mass removes colliders from calulation of mass(MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
-        //rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
+        //Setting a center mass removes colliders from calulation of mass(MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
+        rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
     }
 
     #region Update Calls
@@ -65,10 +65,10 @@ public class CarController: MonoBehaviour
 
     // Fixed Update is needed for all following code due to it being physics based (helps to keep everything smooth)
     void FixedUpdate()
-    {
+    { 
         #region Player controls and movement
-    //player movement controls
-    float forward = 0;
+        //player movement controls
+        float forward = 0;
         float backward = 0;
         float turn = 0;
         #region Player 1 Controls
@@ -177,6 +177,8 @@ public class CarController: MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1f, Color.red);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 7f, Color.red);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 3f, Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 3f, Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * 3f, Color.red);
 
         RaycastHit hit; //Defualt hit variable for raycasting
 
@@ -231,11 +233,14 @@ public class CarController: MonoBehaviour
             pullAmount = 40;
         }
 
+        //Raycast for checking if the car is flipped
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 3f, layerMask))
         {
             if (hit.collider.CompareTag("Track"))
             {
                 Debug.Log("Car is upsidedown");
+
+                //Pushes car upwards allowing for the rotation to take effect
                 rb.AddForce(transform.TransformDirection(Vector3.down) * 20, ForceMode.VelocityChange);
             }
         }
@@ -314,12 +319,7 @@ public class CarController: MonoBehaviour
     //Method for setting centre of mass
     public void SetCOM(bool center)
     {
-        if (center)
-        {
-            //Setting a center mass removes colliders from calulation of mass (MEANING WE CAN SET COLLIDERS FREELY NOW!!!)
-            rb.centerOfMass = new Vector3(centerMass.transform.localPosition.x, centerMass.transform.localPosition.y, centerMass.transform.localPosition.z); //Sets the center of mass for the car based on the local position of the COM transform.
-        }
-        else
+        if (!center)
         {
             //Makes the car fall forward whenever it isnt on the track
             rb.AddTorque(transform.right * pullAmount);
