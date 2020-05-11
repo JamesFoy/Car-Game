@@ -176,6 +176,7 @@ public class CarController: MonoBehaviour
         //Debug raycasts for ground and ramp checking
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1f, Color.red);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 7f, Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 3f, Color.red);
 
         RaycastHit hit; //Defualt hit variable for raycasting
 
@@ -228,6 +229,15 @@ public class CarController: MonoBehaviour
         else
         {
             pullAmount = 40;
+        }
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 3f, layerMask))
+        {
+            if (hit.collider.CompareTag("Track"))
+            {
+                Debug.Log("Car is upsidedown");
+                rb.AddForce(transform.TransformDirection(Vector3.down) * 20, ForceMode.VelocityChange);
+            }
         }
         #endregion
     }
