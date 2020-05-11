@@ -173,6 +173,7 @@ public class CarController: MonoBehaviour
         Debug.DrawRay(rayPoint3.position, rayPoint3.TransformDirection(Vector3.forward) * 0.6f, Color.red);
         Debug.DrawRay(rayPoint4.position, rayPoint4.TransformDirection(Vector3.forward) * 0.6f, Color.red);
 
+        //Debug raycasts for ground and ramp checking
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1f, Color.red);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 7f, Color.red);
 
@@ -197,7 +198,7 @@ public class CarController: MonoBehaviour
             CalculateCompression(hit, rayPoint4);
         }
 
-
+        //Raycasts used for ground checking and ramp mechanics
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1f, layerMask))
         {
             if (hit.collider.CompareTag("Track"))
@@ -212,10 +213,17 @@ public class CarController: MonoBehaviour
             SetRigidbodyValues(true);
             SetCOM(false);
         }
+
+        //Front facing ray which checks if you are falling towards something, if it is the track it will push the car up slightly (this will help to transition better from falling but also help to lift the car when coming up to a ramp)
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 7f, layerMask))
         {
-            SetCOM(true);
-            pullAmount = 0;
+            if (hit.collider.CompareTag("Track"))
+            {
+                rb.AddTorque(-transform.right * 50);
+
+                SetCOM(true);
+                pullAmount = 0;
+            }
         }
         else
         {
@@ -243,6 +251,7 @@ public class CarController: MonoBehaviour
         rb.AddForceAtPosition(-transform.up * (compressionRatio - 1.0f), originPoint.transform.position, ForceMode.Force);
     }
 
+    //Method used for making the speed dots active when using the boost ability
     public void SpeedDots(bool isActive)
     {
         if (isActive)
@@ -278,8 +287,7 @@ public class CarController: MonoBehaviour
             }
         }
         else if (inAir)
-        {
-           
+        {           
             onLand = false;
 
             //Lowering the speed value while the car is in the air as the player shouldnt be able to effect the cars movement well in air
@@ -293,6 +301,7 @@ public class CarController: MonoBehaviour
         }
     }
 
+    //Method for setting centre of mass
     public void SetCOM(bool center)
     {
         if (center)
@@ -302,6 +311,7 @@ public class CarController: MonoBehaviour
         }
         else
         {
+            //Makes the car fall forward whenever it isnt on the track
             rb.AddTorque(transform.right * pullAmount);
         }
     }
