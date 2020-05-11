@@ -12,7 +12,11 @@ public class RocketBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             carInfo = other.gameObject.GetComponent<CarInfo>();
-            carInfo.carStats.health += 10;
+
+            if (!carInfo.carStats.isShieldEnabled)
+            {
+                carInfo.carStats.health += 10;
+            }
         }
 
         GameObject clonedExplosion = Instantiate(explosion, transform.position, transform.rotation);

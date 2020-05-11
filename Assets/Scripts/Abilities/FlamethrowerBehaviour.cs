@@ -12,7 +12,11 @@ public class FlamethrowerBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             carInfo = other.GetComponent<CarInfo>();
-            carInfo.carStats.health -= damageAmount;
+
+            if (!carInfo.carStats.isShieldEnabled)
+            {
+                carInfo.carStats.health -= damageAmount;
+            }
         }
     }
 }

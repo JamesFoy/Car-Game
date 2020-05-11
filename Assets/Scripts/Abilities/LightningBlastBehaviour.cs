@@ -8,12 +8,19 @@ public class LightningBlastBehaviour : MonoBehaviour
     public GameObject electricEffect;
     Vector3 offset = new Vector3(0, 1.6f, 0);
 
+    CarInfo carInfo;
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject clonedEffect = Instantiate(electricEffect, other.transform.position + offset, other.transform.rotation, other.transform);
-            clonedEffect.transform.Rotate(0, 90, 0);
+            carInfo = other.gameObject.GetComponent<CarInfo>();
+
+            if (!carInfo.carStats.isShieldEnabled)
+            {
+                GameObject clonedEffect = Instantiate(electricEffect, other.transform.position + offset, other.transform.rotation, other.transform);
+                clonedEffect.transform.Rotate(0, 90, 0);
+            }
         }
 
         GameObject clonedExplosion = Instantiate(explosion, transform.position, transform.rotation);

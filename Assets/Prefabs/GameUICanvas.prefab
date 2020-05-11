@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 79339733}
   - component: {fileID: 79339732}
   - component: {fileID: 79339731}
-  - component: {fileID: 79339730}
+  - component: {fileID: 141868144948364546}
   m_Layer: 5
   m_Name: BackGroundPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79339729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 845.99994, y: 147}
+  m_AnchoredPosition: {x: 845.99994, y: 59}
   m_SizeDelta: {x: 114, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &79339733
@@ -89,7 +89,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -174,7 +174,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &79339730
+--- !u!114 &141868144948364546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,12 +183,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 79339728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02192f14a8a464498f15a8f43d89ea6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc3e6d7708955d4c886a2b041ac1557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTriggerAbility: 1
-  ability: {fileID: 0}
-  weaponHolder: {fileID: 0}
+--- !u!1 &2024672117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2024672120}
+  - component: {fileID: 2024672119}
+  - component: {fileID: 2024672118}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2024672120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024672117}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -454.98068, z: 0}
+  m_LocalScale: {x: 1.8532819, y: 1.8532819, z: 1.8532819}
+  m_Children: []
+  m_Father: {fileID: 3624470827452142623}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024672119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024672117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &2024672118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024672117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal1
+  m_VerticalAxis: Vertical1
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &3624470826787468795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1613,7 @@ RectTransform:
   m_Children:
   - {fileID: 3624470828233291857}
   - {fileID: 3624470828630070282}
+  - {fileID: 2024672120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2936,14 +3000,14 @@ GameObject:
   - component: {fileID: 3624470827880247346}
   - component: {fileID: 3624470827880247341}
   - component: {fileID: 1663917248}
-  - component: {fileID: 1663917247}
+  - component: {fileID: 556913139}
   m_Layer: 5
   m_Name: BackGroundPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3624470827880247340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2960,7 +3024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 846, y: 366.1}
+  m_AnchoredPosition: {x: 846, y: 333}
   m_SizeDelta: {x: 114, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3624470827880247346
@@ -3013,7 +3077,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3098,7 +3162,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1663917247
+--- !u!114 &556913139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3107,12 +3171,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3624470827880247343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02192f14a8a464498f15a8f43d89ea6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc3e6d7708955d4c886a2b041ac1557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTriggerAbility: 1
-  ability: {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
-  weaponHolder: {fileID: 0}
 --- !u!1 &3624470827982149063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,7 +5267,7 @@ GameObject:
   - component: {fileID: 3624470828711909002}
   - component: {fileID: 3624470828711908997}
   m_Layer: 5
-  m_Name: HealthTextPlayerOne
+  m_Name: HealthTextPlayerTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
