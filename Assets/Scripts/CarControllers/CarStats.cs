@@ -9,6 +9,7 @@ public class CarStats : ScriptableObject
     // Dynamic values, changed by player behaviour
     public float health;
     public float speed;
+    public float stocks;
 
     // Base car properties - Variables that are used for car setup
     [Header("Car Properties - set these"), Tooltip("suspension amount is how high the car is off the ground.... been setup for height of 6, so DONT TOUCH!!")]

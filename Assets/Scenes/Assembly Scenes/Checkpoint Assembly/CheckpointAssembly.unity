@@ -2704,6 +2704,24 @@ Transform:
   m_Father: {fileID: 934330578}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 4.188, y: 182.95699, z: -92.84901}
+--- !u!1 &824751220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2642150089013852110, guid: 5c85f60893f0f994783dc42d87b8a5ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 923148342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &824751224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824751220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a358dc6833946f547b10fb912db79c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837140553
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1867597231}
   - component: {fileID: 1867597244}
+  - component: {fileID: 1867597248}
   - component: {fileID: 1867597243}
   - component: {fileID: 1867597241}
   - component: {fileID: 1867597242}
@@ -5666,6 +5685,18 @@ CapsuleCollider:
   m_Height: 2.46
   m_Direction: 0
   m_Center: {x: 0, y: -0.02, z: -2.43}
+--- !u!114 &1867597248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867597230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099d2a7017b356c4583f627edf8f70e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1885216209 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3624470828711908997, guid: 2550d87d42836c744be7b41d56fa50ea,
