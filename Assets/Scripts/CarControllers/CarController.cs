@@ -66,98 +66,6 @@ public class CarController: MonoBehaviour
     // Fixed Update is needed for all following code due to it being physics based (helps to keep everything smooth)
     void FixedUpdate()
     { 
-        #region Player controls and movement
-        //player movement controls
-        float forward = 0;
-        float backward = 0;
-        float turn = 0;
-        #region Player 1 Controls
-        if (thisNumber == PlayerNumber.p1) //This is setup in the editor to be p1
-        {
-            #region Controller
-            if (controllerSetup.state1.IsConnected)
-            {
-                forward = controllerSetup.state1.Triggers.Right;
-                backward = controllerSetup.state1.Triggers.Left;
-                turn = controllerSetup.state1.ThumbSticks.Left.X;
-                //Activates the ability
-                if (controllerSetup.state1.Buttons.RightShoulder == ButtonState.Pressed)
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Attack);
-                }
-                if (controllerSetup.state1.Buttons.LeftShoulder == ButtonState.Pressed)
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Defense);
-                }
-            }
-            #endregion
-            #region Keyboard
-            else
-            {
-                forward = Input.GetAxis("Vertical1"); //Setting forward float to be equal to the vertical input (W and S)
-                backward = -Input.GetAxis("Vertical1");
-                turn = Input.GetAxis("Horizontal1");
-                //Activates the ability
-                if (Input.GetKey(KeyCode.E))
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Attack);
-                }
-                if (Input.GetKey(KeyCode.Q))
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Defense);
-                }
-            }
-            #endregion
-        }
-        #endregion
-        #region Player 2 Controls
-        else if (thisNumber == PlayerNumber.p2)
-        {
-            #region Controller
-            if (controllerSetup.state2.IsConnected)
-            {
-                forward = controllerSetup.state2.Triggers.Right;
-                backward = controllerSetup.state2.Triggers.Left;
-                turn = controllerSetup.state2.ThumbSticks.Left.X;
-                //Activates the ability
-                //Activates the ability
-                if (controllerSetup.state2.Buttons.RightShoulder == ButtonState.Pressed)
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Attack);
-                }
-                if (controllerSetup.state2.Buttons.LeftShoulder == ButtonState.Pressed)
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Defense);
-                }
-            }
-            #endregion
-            #region Keyboard
-            else
-            {
-                forward = Input.GetAxis("Vertical2"); //Setting forward float to be equal to the vertical input (W and S)
-                backward = -Input.GetAxis("Vertical2");
-                turn = Input.GetAxis("Horizontal2");
-                //Activates the ability
-                if (Input.GetKey(KeyCode.KeypadEnter))
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Attack);
-                }
-                if (Input.GetKey(KeyCode.KeypadPeriod))
-                {
-                    GetComponent<AbilityInitializer>().TriggerAbilitySequence(AbilityDeployModes.DeployStyle.Defense);
-                }
-            }
-            #endregion
-        }
-        #endregion
-        carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, forward * Time.deltaTime / 1f);
-        carInfo.carStats.speed = Mathf.Lerp(carInfo.carStats.speed, carInfo.carStats.maxSpeed, backward * Time.deltaTime / 1f);
-        ForwardMovement(forward);
-        BackwardMovement(backward);
-        IdleMovement(forward);
-        TurningMovement(turn);
-        #endregion 
-
         #region Debug Text Setup For Compression (Currently not being used)
         //DEBUG SETUP TO SEE COMPRESSION AMOUNTS IN EDITOR
         //rayPoint1Text.text = "" + compressionRatio;
@@ -328,21 +236,21 @@ public class CarController: MonoBehaviour
     #endregion
 
     #region Movement Methods
-    void ForwardMovement(float forward)
+    public void ForwardMovement(float forward)
     {
         if (forward > 0)
         {
             rb.AddForce(transform.forward * carInfo.carStats.speed, ForceMode.Acceleration);
         }
     }
-    void BackwardMovement(float backward)
+    public void BackwardMovement(float backward)
     {
         if (backward > 0)
         {
             rb.AddForce(-transform.forward * carInfo.carStats.speed / 2, ForceMode.Acceleration);
         }
     }
-    void IdleMovement(float forward)
+    public void IdleMovement(float forward)
     {
         if (forward == 0)
         {
@@ -352,7 +260,7 @@ public class CarController: MonoBehaviour
             }
         }
     }
-    void TurningMovement(float turn)
+    public void TurningMovement(float turn)
     {
         rb.AddTorque(transform.up * carInfo.carStats.turnSpeed * turn);
     }
