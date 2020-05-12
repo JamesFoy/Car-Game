@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Assembly Scenes/CarMovement Assebly/CarMovement_Assembly.unity
     guid: 633847844fb9b564b835a10604a28b38
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Assembly Scenes/Ability Assembly/AbilityAssembly.unity
     guid: 7f7b2e614a00a9648aa2f0521617387c
+  - enabled: 1
+    path: Assets/Scenes/Assembly Scenes/MainMenu Assembly/MainMenu_Assembly.unity
+    guid: 5c026fadda1213d48bc1b76bbba3143e
+  - enabled: 1
+    path: Assets/Scenes/Assembly Scenes/TrackAssemblies/TrackTestScene.unity
+    guid: 8b2fa76a267522f498a3b3faf560fb77
   m_configObjects: {}
