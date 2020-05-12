@@ -7,6 +7,7 @@ TagManager:
   - Track
   - FirePoint
   - Rocket
+  - Target
   layers:
   - Default
   - TransparentFX

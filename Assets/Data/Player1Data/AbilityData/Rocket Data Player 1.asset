@@ -16,6 +16,6 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 6d6897d96473d4549babdd75ae1bef3d, type: 3}
   Sound: {fileID: 8300000, guid: 9acc11f5bd28e284fb0fb6dde51df504, type: 3}
   useGravity: 1
-  projectileForce: 3000
+  projectileForce: 0
   projectile: {fileID: 3877623184286993170, guid: 21622f144ceec294dac230a25db160e4,
     type: 3}
