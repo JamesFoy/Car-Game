@@ -13,9 +13,6 @@ public class CarController: MonoBehaviour
     public Transform centerMass; //Used as the transform position for the center of mass
     public Transform rampCOM; //Used as the transform position for the center of mass
 
-    public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
-    public PlayerNumber thisNumber;
-
     [SerializeField, Space(10)]
     public UnityEvent triggerCamShake; //UnityEvent that is setup in editor to raise the camera shake event
 

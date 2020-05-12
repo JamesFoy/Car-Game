@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     List<Checkpoint> checkpoints = new List<Checkpoint>();
+
     public static CheckpointManager Instance;
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class CheckpointManager : MonoBehaviour
             checkpoints.Add(checkpoint);
         }
     }
+
     /// <summary>
     /// Removes the given GameObject from all checkpoints
     /// </summary>

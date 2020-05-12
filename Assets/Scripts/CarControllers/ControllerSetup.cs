@@ -3,7 +3,7 @@ using XInputDotNetPure; // Required in C#
 
 public class ControllerSetup : MonoBehaviour
 {
-    CarController carController;
+    InputManager inputManager;
 
     public bool playerIndexSet = false;
     public PlayerIndex player1Index;
@@ -16,7 +16,7 @@ public class ControllerSetup : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        carController = GetComponent<CarController>();
+        inputManager = GetComponent<InputManager>();
     }
 
     void FixedUpdate()
@@ -34,7 +34,7 @@ public class ControllerSetup : MonoBehaviour
         // Will find the first controller that is connected ans use it
         if (!playerIndexSet || !prevState1.IsConnected || !prevState2.IsConnected)
         {
-            if (carController.thisNumber == CarController.PlayerNumber.p1)
+            if (inputManager.thisNumber == InputManager.PlayerNumber.p1)
             {
                 PlayerIndex players1Index = PlayerIndex.One;
                 GamePadState state1 = GamePad.GetState(players1Index);
@@ -46,7 +46,7 @@ public class ControllerSetup : MonoBehaviour
                     playerIndexSet = true;
                 }
             }
-            else if (carController.thisNumber == CarController.PlayerNumber.p2)
+            else if (inputManager.thisNumber == InputManager.PlayerNumber.p2)
             {
                 PlayerIndex players2Index = PlayerIndex.Two;
                 GamePadState state2 = GamePad.GetState(players2Index);
