@@ -24,6 +24,7 @@ public class CarStockCounter : MonoBehaviour
         if (GetComponent<CarInfo>() && !hasThisCarBeenRecentlyReset)
         {
             GetComponent<CarInfo>().carStats.stocks--;
+            GetComponent<CarInfo>().carStats.health = 0;
             hasThisCarBeenRecentlyReset = true;
             StartCoroutine(carResetCheckTimer());
             CheckForZeroStocks();
