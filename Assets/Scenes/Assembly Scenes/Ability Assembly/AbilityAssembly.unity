@@ -5354,7 +5354,10 @@ MonoBehaviour:
   weaponHolderDefense: {fileID: 1261041639}
   abilityUI: {fileID: 556913139}
   possibleAbilitySets:
+  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
   - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
+  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
 --- !u!114 &1867597242
 MonoBehaviour:
   m_ObjectHideFlags: 0

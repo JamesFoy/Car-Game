@@ -28,12 +28,11 @@ public class RocketBehaviour : MonoBehaviour
     //Method that will find the closest target and assign it to the target transform
     private void Fire()
     {
-
-
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
         {
-            cars.Add(go);  
+            cars.Add(go); //adds every object with the tag of player to the list
 
+            //finds the closest object to the current position and assigns it to closest target varibale
             float diff = (go.transform.position - transform.position).sqrMagnitude;
 
             if (diff < distanceClosestCar)
@@ -41,12 +40,13 @@ public class RocketBehaviour : MonoBehaviour
                 distanceClosestCar = diff;
 
                 closestTarget = go;
-
             }
         }
 
+        //Method for removing the closest target
         RemoveClosestCar(closestTarget);
 
+        //goes through the new list of cars (with the car that shot the ability being removed from the list) and assigns the target for the missle to the closest one
         foreach (GameObject car in cars)
         {
             float diffCars = (car.transform.position - transform.position).sqrMagnitude;
@@ -60,11 +60,13 @@ public class RocketBehaviour : MonoBehaviour
         }
     }
 
+    //Method for removing the closest target
     private void RemoveClosestCar(GameObject closestCar)
     {
         cars.Remove(closestTarget);
     }
 
+    //Fires the rocket if it has a target assigned
     private void FixedUpdate()
     {
         if (target == null)
@@ -72,13 +74,17 @@ public class RocketBehaviour : MonoBehaviour
             return;
         }
 
+        //moves the missile forward
         rb.velocity = transform.forward * missileVelocity;
 
+        //Finds the targetRotation for the missile
         Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
 
+        //Assigns the targetRotation of the missile to it (makes the missle turn towards the target while travelling)
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turn));
     }
 
+    //Method for when the missile collides with the player or other object
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -91,6 +97,7 @@ public class RocketBehaviour : MonoBehaviour
             }
         }
 
+        //Destorys the missile and spawns the explosion effect
         GameObject clonedExplosion = Instantiate(explosion, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
