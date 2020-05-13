@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public List<GameObject> CurrentCars { get; } = new List<GameObject>();
+    public int lapProgress;
 
     private void Start()
     {
@@ -23,6 +24,10 @@ public class Checkpoint : MonoBehaviour
         {
             CheckpointManager.Instance.RemoveThisGameObjectFromAllCheckpoints(other.gameObject);
             AddGameObjectToThisCheckpoint(other.gameObject);
+            if (other.GetComponent<CarInfo>())
+            {
+                other.GetComponent<CarInfo>().carStats.lapProgress = lapProgress;
+            }
         }
     }
     void AddGameObjectToThisCheckpoint(GameObject a)

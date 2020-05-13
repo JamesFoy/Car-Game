@@ -11,10 +11,18 @@ public class CarStats : ScriptableObject
     public float speed;
     public float stocks;
     public bool isShieldEnabled;
+    public int lapCount;
+    public int lapProgress;
 
     // Base car properties - Variables that are used for car setup
     [Header("Car Properties - set these"), Tooltip("suspension amount is how high the car is off the ground.... been setup for height of 6, so DONT TOUCH!!")]
     public float suspensionAmount;
     public float turnSpeed;
     public float maxSpeed;
+
+    private void OnEnable()
+    {
+        lapCount = 0;
+        lapProgress = 0;
+    }
 }
