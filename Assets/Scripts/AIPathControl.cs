@@ -20,6 +20,7 @@ public class AIPathControl : MonoBehaviour
     CarInfo carInfo;
     CarController carController;
 
+    bool isFalling;
     float angleTarget;
     float turn;
 
@@ -49,7 +50,7 @@ public class AIPathControl : MonoBehaviour
         {
             return;
         }
-    }
+    } 
 
     // Update is called once per frame
     void FixedUpdate()
@@ -58,6 +59,7 @@ public class AIPathControl : MonoBehaviour
         CheckWaypointLength();
         ApplyRotation();
     }
+
 
     private void ApplyMovement()
     {
