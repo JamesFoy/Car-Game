@@ -37,7 +37,7 @@ public class CarController: MonoBehaviour
     float compressionRatio; //Varibale that contains the exact amount of compression being applied (is clamped between 0 and 1 later in script)
     float pullAmount; //Variable for pulling the car down while in the air (acts on the front of the car)
 
-    bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
+    public bool onLand; //Bool used to check if landing (currently used to play the camera shake anytime the car lands after being in the air)
 
     CarInfo carInfo;
     #endregion
