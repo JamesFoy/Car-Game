@@ -10,4 +10,9 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene("TrackTestScene");
     }
+
+    public void OnArenaButton()
+    {
+        SceneManager.LoadScene("ArenaTestScene");
+    }
 }

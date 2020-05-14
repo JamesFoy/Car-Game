@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Assembly Scenes/TrackAssemblies/TrackTestScene.unity
     guid: 8b2fa76a267522f498a3b3faf560fb77
+  - enabled: 1
+    path: Assets/Scenes/Assembly Scenes/TrackAssemblies/ArenaTestScene.unity
+    guid: 530126706a484964da4f775e8c7b1003
   m_configObjects: {}
