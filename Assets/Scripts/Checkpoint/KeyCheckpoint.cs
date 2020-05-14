@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class KeyCheckpoint : MonoBehaviour
+public class KeyCheckpoint : Checkpoint
 {
     bool carPassedCheckpoint = false;
     TMP_Text checkpointText;
+    float repairBonus = 20f;
 
     private void Start()
     {
@@ -15,19 +16,26 @@ public class KeyCheckpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !carPassedCheckpoint)
+        if (other.GetComponent<CarInfo>())
         {
-            Debug.Log(other.gameObject.name + " has passed reached a key checkpoint " + this.name);
+            CheckpointTriggered(other);
+            KeyCheckpointTriggered(other);
+        }
+    }
 
+    private void KeyCheckpointTriggered (Collider other)
+    {
+        if (!carPassedCheckpoint)
+        {
+            Debug.Log(other.gameObject.name + " has reached a key checkpoint first: " + this.name);
             carPassedCheckpoint = true;
 
-            if (other.gameObject.GetComponent<CarInfo>().carStats.health > 0)
+            if (other.GetComponent<CarInfo>().carStats.health > repairBonus)
             {
-                other.gameObject.GetComponent<CarInfo>().carStats.health -= 20;
+                // adjusted to prevent negative repair values
+                other.GetComponent<CarInfo>().carStats.health -= repairBonus;
             }
-
             checkpointText.gameObject.SetActive(false);
-
             StartCoroutine(DelayCheckPoint(60f));
         }
     }

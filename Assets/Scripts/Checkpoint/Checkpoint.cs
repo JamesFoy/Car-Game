@@ -20,6 +20,13 @@ public class Checkpoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<CarInfo>())
+        {
+            CheckpointTriggered(other);
+        }
+    }
+    protected void CheckpointTriggered(Collider other)
+    {
         if (!CurrentCars.Contains(other.gameObject))
         {
             CheckpointManager.Instance.RemoveThisGameObjectFromAllCheckpoints(other.gameObject);
@@ -30,7 +37,7 @@ public class Checkpoint : MonoBehaviour
             }
         }
     }
-    void AddGameObjectToThisCheckpoint(GameObject a)
+    protected void AddGameObjectToThisCheckpoint(GameObject a)
     {
         CurrentCars.Add(a);
         Debug.Log(a.name + " added to " + gameObject.name);
