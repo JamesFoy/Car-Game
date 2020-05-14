@@ -101,7 +101,7 @@ public class AIPathControl : MonoBehaviour
         }
         else if (angleTarget > 50)
         {
-            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 100);
+            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 1000);
         }
 
         //Applies the rotation to the AI car
