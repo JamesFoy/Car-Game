@@ -196,12 +196,11 @@ public class CarController: MonoBehaviour
             rb.mass = 1.28f;
             rb.drag = 4;
             rb.angularDrag = 10;
-            carInfo.carStats.maxSpeed = 110;
-
            
             //Check if the player lands and if so invoke the unityevent that shakes the camera
             if (!onLand)
             {
+                carInfo.carStats.maxSpeed = 110;
                 onLand = true;
                 triggerCamShake.Invoke();
             }

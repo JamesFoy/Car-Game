@@ -20,7 +20,7 @@ public class BoostBehaviour : MonoBehaviour
     {
         carInfo.carStats.maxSpeed = boostAmount;
 
-        if (carInfo.carStats.speed > 100)
+        if (carInfo.carStats.speed > 110)
         {
             carController.SpeedDots(true);
         }
@@ -28,7 +28,7 @@ public class BoostBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        carInfo.carStats.maxSpeed = 100;
+        carInfo.carStats.maxSpeed = 110;
         carController.SpeedDots(false);
     }
 }
