@@ -11,6 +11,14 @@ public class KeyCheckpoint : Checkpoint
 
     private void Start()
     {
+        if (CheckpointManager.Instance != null)
+        {
+            CheckpointManager.Instance.AddThisCheckpointToCheckpointList(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         checkpointText = GetComponentInChildren<TMP_Text>();
     }
 
