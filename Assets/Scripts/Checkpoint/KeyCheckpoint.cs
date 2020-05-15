@@ -11,17 +11,9 @@ public class KeyCheckpoint : Checkpoint
 
     private void Start()
     {
-        if (CheckpointManager.Instance != null)
-        {
-            CheckpointManager.Instance.AddThisCheckpointToCheckpointList(this);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        CheckForExistingCheckpointManager();
         checkpointText = GetComponentInChildren<TMP_Text>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CarInfo>())

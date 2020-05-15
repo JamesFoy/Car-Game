@@ -9,6 +9,10 @@ public class Checkpoint : MonoBehaviour
 
     private void Start()
     {
+        CheckForExistingCheckpointManager();
+    }
+    protected void CheckForExistingCheckpointManager()
+    {
         if (CheckpointManager.Instance != null)
         {
             CheckpointManager.Instance.AddThisCheckpointToCheckpointList(this);
