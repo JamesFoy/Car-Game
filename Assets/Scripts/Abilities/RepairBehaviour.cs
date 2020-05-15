@@ -14,6 +14,13 @@ public class RepairBehaviour : MonoBehaviour
 
     public void RepairDamage(float repairAmount)
     {
-        carInfo.carStats.health -= repairAmount;
+        if (carInfo.carStats.health > 20)
+        {
+            carInfo.carStats.health -= repairAmount;
+        }
+        else
+        {
+            carInfo.carStats.health = 0;
+        }
     }
 }
