@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: PolygonSpace_Planet_Lines_01_A
   m_Shader: {fileID: 4800000, guid: 6c02f021372cf984b95c361a21269d0e, type: 3}
   m_ShaderKeywords: 
@@ -101,7 +102,7 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0.01
     - _BumpScale: 1
-    - _Cloud_Contrast: 1.2
+    - _Cloud_Contrast: 4.43
     - _Cloud_Falloff: 4.24
     - _Cloud_Tiling: -3.3
     - _Contrast: -8.14
@@ -122,10 +123,10 @@ Material:
     - _Normal_Tiling: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlanetSurfaceContrast: -2.92
+    - _PlanetSurfaceContrast: -2.84
     - _PlanetSurfaceFloat: 2
-    - _PlanetSurfaceTiling: 1
-    - _RimPower: 1.61
+    - _PlanetSurfaceTiling: -0.93
+    - _RimPower: 0
     - _Scale: -0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -143,6 +144,6 @@ Material:
     - _Color0: {r: 0, g: 0.7931032, b: 1, a: 0}
     - _Color1: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.3693436, g: 0.27059907, b: 0.4044118, a: 0}
+    - _RimColor: {r: 0.36934358, g: 0.27059904, b: 0.40441176, a: 0.7137255}
     - _Second_Color: {r: 0.31617647, g: 0.25890556, b: 0.22783305, a: 0}
     - _Size: {r: 0, g: 0, b: 0, a: 0}
