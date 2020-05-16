@@ -674,13 +674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3807d20e2400ad4885a3f85ffec7667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
-  abilityUIImage: {fileID: 0}
   controllerSetup: {fileID: 0}
-  speedText: {fileID: 0}
-  damageText: {fileID: 0}
   centerMass: {fileID: 1441022324}
-  thisNumber: 0
+  rampCOM: {fileID: 0}
   triggerCamShake:
     m_PersistentCalls:
       m_Calls:
@@ -697,17 +693,16 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  abilityList:
-  - {fileID: 11400000, guid: d2fbc2babce861a4da7d6aa8c4d887d7, type: 2}
-  - {fileID: 11400000, guid: 30bef5f702eb69344a36f4d758d14997, type: 2}
-  selectedAbility: {fileID: 0}
   speedEffect: {fileID: 0}
+  exhaustEffect: {fileID: 0}
   rayPoint1: {fileID: 433627670623397752}
   rayPoint2: {fileID: 433627670362107109}
   rayPoint3: {fileID: 433627670984697817}
   rayPoint4: {fileID: 433627671217401504}
-  baseCarData: {fileID: 11400000, guid: f89ac7622f3105546af5d3d4f892645e, type: 2}
-  carData: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  onLand: 0
 --- !u!114 &1498597733
 MonoBehaviour:
   m_ObjectHideFlags: 0
