@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AIPathControl : MonoBehaviour
 {
-    [SerializeField]
     Transform path; //variable for the path parent object that contains all the nodes
 
     [SerializeField]
