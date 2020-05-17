@@ -13,6 +13,7 @@ public class CarStats : ScriptableObject
     public bool isShieldEnabled;
     public int lapCount;
     public int lapProgress;
+    public Player playerType;
 
     // Base car properties - Variables that are used for car setup
     [Header("Car Properties - set these"), Tooltip("suspension amount is how high the car is off the ground.... been setup for height of 6, so DONT TOUCH!!")]
