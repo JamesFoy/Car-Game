@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AssignPlayersToCars : MonoBehaviour
 {
-    // example value to demonstrate the method
-    int numberOfHumanPlayers = 1;
+    public int numberOfHumanPlayers = 1;
 
     private void Start()
     {

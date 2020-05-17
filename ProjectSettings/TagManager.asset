@@ -17,11 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player1Cam
-  - Player2Cam
-  - Player
   - PostProcessing
   - 
+  - Car
   - 
   - 
   - 
@@ -32,8 +30,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player1Cam
+  - Player2Cam
+  - Player3Cam
+  - Player4Cam
   - 
   - 
   - 

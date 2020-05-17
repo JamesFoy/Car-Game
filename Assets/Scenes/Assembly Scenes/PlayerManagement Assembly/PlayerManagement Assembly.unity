@@ -2016,12 +2016,12 @@ PrefabInstance:
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.979528
+      value: -22.831932
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.094070435
+      value: -8.205927
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -2046,7 +2046,7 @@ PrefabInstance:
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0140548
+      value: 1.9140553
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742585, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -2066,12 +2066,12 @@ PrefabInstance:
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.979528
+      value: -22.831932
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.094070435
+      value: -8.205927
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -2096,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0140548
+      value: 1.9140553
       objectReference: {fileID: 0}
     - target: {fileID: 7272990913106390313, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
@@ -2137,9 +2137,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1780523814748150, guid: 9b07a079e63a312469b0bae7fe578595, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780525211476488, guid: 9b07a079e63a312469b0bae7fe578595, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7272990912775400432, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272990912775400432, guid: 9b07a079e63a312469b0bae7fe578595,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7272990912883742588, guid: 9b07a079e63a312469b0bae7fe578595,
@@ -2152,6 +2165,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7272990913106390319, guid: 9b07a079e63a312469b0bae7fe578595,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7272990913611790410, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_IsActive
@@ -2160,6 +2178,16 @@ PrefabInstance:
     - target: {fileID: 7272990912883742590, guid: 9b07a079e63a312469b0bae7fe578595,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272990914506045512, guid: 9b07a079e63a312469b0bae7fe578595,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272990914792784920, guid: 9b07a079e63a312469b0bae7fe578595,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -2568,6 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c333349ac002754d82801bc5cfba41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfHumanPlayers: 1
 --- !u!4 &2129450708
 Transform:
   m_ObjectHideFlags: 0
