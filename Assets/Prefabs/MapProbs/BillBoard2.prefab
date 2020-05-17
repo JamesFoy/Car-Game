@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1868637188581906498}
   - component: {fileID: 1839998280161262072}
   - component: {fileID: 1849661371331447996}
+  - component: {fileID: 3128026297909936206}
   m_Layer: 0
   m_Name: BillBoard2
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1871538996020510270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -114.47638, y: 1.79, z: 177.93944}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 24.1285, y: 24.1285, z: 24.1285}
   m_Children:
   - {fileID: 3647639293438153385}
   - {fileID: 4260143147013041948}
@@ -81,6 +82,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &3128026297909936206
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871538996020510270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b1835f592582b141b7a2ecbd5879d2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3643959197737682003
 PrefabInstance:
   m_ObjectHideFlags: 0
