@@ -6,15 +6,11 @@ using XInputDotNetPure;
 
 public class InputManager : MonoBehaviour
 {
-    public enum PlayerNumber { p1, p2 }; //Enum setup for setting players, currently only p1 works
-    public PlayerNumber thisNumber;
-
     ControllerSetup controllerSetup;
     CarController carController;
     CarInfo carInfo;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         controllerSetup = GetComponent<ControllerSetup>();
         carController = GetComponent<CarController>();
@@ -29,7 +25,7 @@ public class InputManager : MonoBehaviour
         float turn = 0;
 
         #region Player 1 Controls
-        if (thisNumber == PlayerNumber.p1)
+        if (carInfo.carStats.playerType.playerNumber == 1)
         {
             #region Controller
             if (controllerSetup.state1.IsConnected)
@@ -71,7 +67,7 @@ public class InputManager : MonoBehaviour
         #endregion
 
         #region Player 2 Controls
-        else if (thisNumber == PlayerNumber.p2)
+        else if (carInfo.carStats.playerType.playerNumber == 2)
         {
             #region Controller
             if (controllerSetup.state2.IsConnected)

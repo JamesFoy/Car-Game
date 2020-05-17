@@ -5,7 +5,7 @@ using UnityEngine;
 public class AssignPlayersToCars : MonoBehaviour
 {
     // example value to demonstrate the method
-    int numberOfHumanPlayers = 2;
+    int numberOfHumanPlayers = 1;
 
     private void Start()
     {
@@ -26,10 +26,15 @@ public class AssignPlayersToCars : MonoBehaviour
             CarInfo carInfo = ValidateThisCar(listOfCars[i]);
 
             HumanPlayer humanPlayerScriptableObject = ScriptableObject.CreateInstance<HumanPlayer>();
-            humanPlayerScriptableObject.playerNumber = i;
+            humanPlayerScriptableObject.playerNumber = (i + 1);
             carInfo.carStats.playerType = humanPlayerScriptableObject;
 
-            Debug.Log("player " + i + " assigned to: " + listOfCars[i].name);
+            carInfo.GetComponent<InputManager>().enabled = true;
+            carInfo.GetComponent<ControllerSetup>().enabled = true;
+
+            listOfCars[i].name = "Player " + (i + 1);
+
+            Debug.Log(listOfCars[i].name + " assigned");
         }
 
         listOfCars.RemoveRange(0, numberOfHumanPlayers);
@@ -39,6 +44,10 @@ public class AssignPlayersToCars : MonoBehaviour
             CarInfo carInfo = ValidateThisCar(listOfCars[i]);
 
             carInfo.carStats.playerType = ScriptableObject.CreateInstance<ComputerPlayer>();
+
+            carInfo.GetComponent<AIPathControl>().enabled = true;
+
+            listOfCars[i].name = "AI " + (i + 1);
 
             Debug.Log("AI assigned to: " + listOfCars[i].name);
         }
