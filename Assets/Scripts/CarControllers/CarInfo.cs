@@ -15,12 +15,12 @@ public class CarInfo : MonoBehaviour
     {
         CheckForValidCarStats();
     }
-    void CheckForValidCarStats()
+    public void CheckForValidCarStats()
     {
         if (carStats == null)
         {
             carStats = Instantiate(baseCarStats);
-            carStats.name = "Current Car Stats";
+            carStats.name = gameObject.name + " Car Stats";
         }
     }
 }

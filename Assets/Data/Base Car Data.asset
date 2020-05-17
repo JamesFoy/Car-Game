@@ -18,6 +18,7 @@ MonoBehaviour:
   isShieldEnabled: 0
   lapCount: 0
   lapProgress: 0
+  playerType: {fileID: 0}
   suspensionAmount: 15
   turnSpeed: 50
   maxSpeed: 110
