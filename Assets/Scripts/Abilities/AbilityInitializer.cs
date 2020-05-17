@@ -60,10 +60,14 @@ public class AbilityInitializer : MonoBehaviour
             abilityDefense = selectedAbility;
         }
 
-        if (abilityUI != null || abilityUI.gameObject.activeInHierarchy)
+        if (abilityUI != null && abilityUI.gameObject.activeInHierarchy)
         {
             abilityUI.AssignSprite(selectedAbility.Sprite);
             abilityUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("UI Not Active");
         }
         // mark this ability as initialized and ready to deploy
         canTriggerAbility = true;
@@ -72,7 +76,7 @@ public class AbilityInitializer : MonoBehaviour
     #region Ability Triggering and Deployment
     public void TriggerAbilitySequence(AbilityDeployModes.DeployStyle style)
     {
-        if (canTriggerAbility && abilityUI.gameObject.activeSelf) //Check if the ability can be fired and if the game object is active in the scene
+        if (canTriggerAbility) //Check if the ability can be fired
         {
             //if the attack style is pressed
             if (style == AbilityDeployModes.DeployStyle.Attack)
