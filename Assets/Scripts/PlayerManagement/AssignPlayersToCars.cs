@@ -1,14 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class AssignPlayersToCars : MonoBehaviour
 {
+    public static AssignPlayersToCars Instance;
     public int numberOfHumanPlayers = 1;
+    public static List<GameObject> ListOfHumanAssignedCars { get; private set; } = new List<GameObject>();
 
+    [SerializeField] GameObject realCamPrefab;
+    [SerializeField] GameObject virtualCamPrefab;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
+
         AssignPlayers(numberOfHumanPlayers);
+        AssignCamerasToPlayers(numberOfHumanPlayers);
     }
     public static void AssignPlayers(int numberOfHumanPlayers)
     {
@@ -32,6 +51,7 @@ public class AssignPlayersToCars : MonoBehaviour
             carInfo.GetComponent<ControllerSetup>().enabled = true;
 
             listOfCars[i].name = "Player " + (i + 1);
+            ListOfHumanAssignedCars.Add(listOfCars[i]);
 
             Debug.Log(listOfCars[i].name + " assigned");
         }
@@ -49,6 +69,17 @@ public class AssignPlayersToCars : MonoBehaviour
             listOfCars[i].name = "AI " + (i + 1);
 
             Debug.Log("AI assigned to: " + listOfCars[i].name);
+        }
+    }
+    private void AssignCamerasToPlayers(int numberOfHumanPlayers)
+    {
+        for (int i = 1; i <= ListOfHumanAssignedCars.Count; i++)
+        {
+            GameObject realCam = Instantiate(realCamPrefab);
+            GameObject virtualCam = Instantiate(virtualCamPrefab);
+            realCam.GetComponent<Camera>().cullingMask |= 1 << (20 + i);
+            virtualCam.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i-1].transform;
+            virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = ListOfHumanAssignedCars[i-1].transform;
         }
     }
     private static CarInfo ValidateThisCar(GameObject car)
