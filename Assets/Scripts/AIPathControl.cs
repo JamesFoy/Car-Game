@@ -92,15 +92,15 @@ public class AIPathControl : MonoBehaviour
         //If statements for changing how sharp/quick the car should rotate towards the current node when passing the previous node (makes the car rotate slowly around nodes... the higher the angle the quicker the car needs to turn)
         if (angleTarget < 10f)
         {
-            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 1000000);
+            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 10);
         }
         else if (angleTarget > 30 && angleTarget < 50)
         {
-            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 1000);
+            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 100);
         }
         else if (angleTarget > 50)
         {
-            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 1000);
+            turn = Mathf.LerpAngle(turn, angleTarget, Time.deltaTime / 100);
         }
 
         //Applies the rotation to the AI car
