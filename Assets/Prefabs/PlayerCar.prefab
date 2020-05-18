@@ -24986,7 +24986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02192f14a8a464498f15a8f43d89ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTriggerAbility: 1
+  canTriggerAbility: 0
   abilityAttack: {fileID: 0}
   abilityDefense: {fileID: 0}
   weaponHolderAttack: {fileID: 3014244276550187054}

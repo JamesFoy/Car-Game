@@ -70,7 +70,14 @@ public class AbilityInitializer : MonoBehaviour
             Debug.Log("UI Not Active");
         }
         // mark this ability as initialized and ready to deploy
-        canTriggerAbility = true;
+        if (selectedAbility != null)
+        {
+            canTriggerAbility = true;
+        }
+        else
+        {
+            canTriggerAbility = false;
+        }
     }
     #endregion
     #region Ability Triggering and Deployment
@@ -86,13 +93,16 @@ public class AbilityInitializer : MonoBehaviour
             //if the defense style is pressed
             else if (style == AbilityDeployModes.DeployStyle.Defense)
             {
-                AbilityDeploy(abilityDefense, style);
+                AbilityDeploy(abilityDefense, style);   
             }
         }
     }
     private void AbilityDeploy(Ability ability, AbilityDeployModes.DeployStyle deployStyle)
     {
-        ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
+        if (ability != null)
+        {
+            ability.TriggerAbility(deployStyle); //Triggers the ability based on the attack style
+        }
 
         if (abilityUI != null && abilityUI.gameObject.activeInHierarchy)
         {
