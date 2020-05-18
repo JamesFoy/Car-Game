@@ -97,6 +97,19 @@ public class AssignPlayersToCars : MonoBehaviour
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.7f, 0.5f);
             realCamList[1].GetComponent<Camera>().rect = new Rect(0.3f, 0, 0.7f, 0.5f);
         }
+        else if (numberOfHumanPlayers == 3)
+        {
+            realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            realCamList[1].GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+            realCamList[2].GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
+        }
+        else if (numberOfHumanPlayers == 4)
+        {
+            realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+            realCamList[1].GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+            realCamList[2].GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
+            realCamList[3].GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+        }
         else
         {
 
