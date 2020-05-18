@@ -24993,7 +24993,7 @@ MonoBehaviour:
   weaponHolderDefense: {fileID: 3014244278244971594}
   abilityUI: {fileID: 0}
   possibleAbilitySets:
-  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
 --- !u!114 &3014244276666042088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25550,13 +25550,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe10f9d93f307413089c9d3a7f0268e8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.179
+  m_Volume: 0.014
   m_Pitch: 0.73
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 155
+  Priority: 215
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
