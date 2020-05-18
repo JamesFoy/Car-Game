@@ -24964,7 +24964,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  speedEffect: {fileID: 0}
+  speedEffect: {fileID: 3013394210733979715}
   exhaustEffect: {fileID: 3013394210733979715}
   rayPoint1: {fileID: 3014244277148505387}
   rayPoint2: {fileID: 3014244277445572886}
@@ -24993,10 +24993,7 @@ MonoBehaviour:
   weaponHolderDefense: {fileID: 3014244278244971594}
   abilityUI: {fileID: 0}
   possibleAbilitySets:
-  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
-  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
   - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
-  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
 --- !u!114 &3014244276666042088
 MonoBehaviour:
   m_ObjectHideFlags: 0
