@@ -23,7 +23,7 @@ public class CarAudio : MonoBehaviour
             carSound.pitch -= 0.009f;
         }
 
-        carSound.pitch = Mathf.Clamp(carSound.pitch, 0.8f, 1.8f);
+        carSound.pitch = Mathf.Clamp(carSound.pitch, 0.8f, 1.5f);
 
     }
 }
