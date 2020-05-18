@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CarAudio : MonoBehaviour
 {
+    public UnityEvent onCollision;
+
     public AudioSource carSound;
     CarInfo carInfo;
 
@@ -25,5 +28,13 @@ public class CarAudio : MonoBehaviour
 
         carSound.pitch = Mathf.Clamp(carSound.pitch, 0.8f, 1.5f);
 
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Track") || other.collider.CompareTag("Player"))
+        {
+            onCollision.Invoke();
+        }
     }
 }
