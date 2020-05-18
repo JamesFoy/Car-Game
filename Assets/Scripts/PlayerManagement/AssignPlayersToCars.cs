@@ -73,13 +73,33 @@ public class AssignPlayersToCars : MonoBehaviour
     }
     private void AssignCamerasToPlayers(int numberOfHumanPlayers)
     {
+        List<GameObject> realCamList = new List<GameObject>();
+        List<GameObject> virtualCamList = new List<GameObject>();
         for (int i = 1; i <= ListOfHumanAssignedCars.Count; i++)
         {
             GameObject realCam = Instantiate(realCamPrefab);
             GameObject virtualCam = Instantiate(virtualCamPrefab);
             realCam.GetComponent<Camera>().cullingMask |= 1 << (20 + i);
+            virtualCam.layer = (20 + i);
             virtualCam.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i-1].transform;
             virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = ListOfHumanAssignedCars[i-1].transform;
+
+            realCamList.Add(realCam);
+            virtualCamList.Add(virtualCam);
+        }
+        // methods to assign cameras relative to UI
+        if (numberOfHumanPlayers == 1)
+        {
+            realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
+        }
+        else if (numberOfHumanPlayers == 2)
+        {
+            realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.7f, 0.5f);
+            realCamList[1].GetComponent<Camera>().rect = new Rect(0.3f, 0, 0.7f, 0.5f);
+        }
+        else
+        {
+
         }
     }
     private static CarInfo ValidateThisCar(GameObject car)
