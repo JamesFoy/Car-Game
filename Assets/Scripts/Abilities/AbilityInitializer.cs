@@ -23,7 +23,7 @@ public class AbilityInitializer : MonoBehaviour
     #region Ability Selection and Initialization
     public void RandomPickupSelector()
     {
-        if (chosenAbilitySet != null)
+        if (possibleAbilitySets != null)
         {
             chosenAbilitySet = possibleAbilitySets[Random.Range(0, possibleAbilitySets.Count)]; //chooses a random ability set from a list of all ability sets available
             VerifyAbilitySetName(chosenAbilitySet);
