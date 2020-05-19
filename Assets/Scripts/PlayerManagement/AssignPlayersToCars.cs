@@ -12,6 +12,9 @@ public class AssignPlayersToCars : MonoBehaviour
     [SerializeField] GameObject realCamPrefab;
     [SerializeField] GameObject virtualCamPrefab;
 
+    [SerializeField] GameObject UICanvas;
+    [SerializeField] GameObject playerUIPrefab;
+
     private void Awake()
     {
         if (Instance != null)
@@ -79,13 +82,20 @@ public class AssignPlayersToCars : MonoBehaviour
         {
             GameObject realCam = Instantiate(realCamPrefab);
             GameObject virtualCam = Instantiate(virtualCamPrefab);
-            realCam.GetComponent<Camera>().cullingMask |= 1 << (20 + i);
-            virtualCam.layer = (20 + i);
-            virtualCam.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i-1].transform;
-            virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = ListOfHumanAssignedCars[i-1].transform;
+            GameObject playerUI = Instantiate(playerUIPrefab);
 
+            realCam.GetComponent<Camera>().cullingMask |= 1 << (20 + i);
             realCamList.Add(realCam);
+
+            virtualCam.layer = (20 + i);
+            virtualCam.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i - 1].transform;
+            virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = ListOfHumanAssignedCars[i - 1].transform;
             virtualCamList.Add(virtualCam);
+
+            playerUI.transform.SetParent(UICanvas.transform, false);
+            playerUI.GetComponentInChildren<SpeedSliderManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
+            playerUI.GetComponentInChildren<DamageDisplayManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
+
         }
         // methods to assign cameras relative to UI
         if (numberOfHumanPlayers == 1)
