@@ -25105,8 +25105,6 @@ MonoBehaviour:
   weaponHolderAttack: {fileID: 3014244276550187054}
   weaponHolderDefense: {fileID: 3014244278244971594}
   abilityUI: {fileID: 0}
-  possibleAbilitySets:
-  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
 --- !u!114 &3014244276666042088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25119,7 +25117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec43c31b69734044fbbac6519350eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 9cd46f32094a9624da043f427d7067d0, type: 2}
+  Event: {fileID: 0}
   Response:
     m_PersistentCalls:
       m_Calls:

@@ -15,12 +15,18 @@ public class GameEventListener : MonoBehaviour
     with the event and when disabled the opposite*/
     private void OnEnable()
     {
-        Event.RegisterListener(this);
+        if (Event != null)
+        {
+            Event.RegisterListener(this);
+        }
     }
 
     private void OnDisable()
     {
-        Event.UnregisterListener(this);
+        if (Event != null)
+        {
+            Event.UnregisterListener(this);
+        }
     }
 
     //When we raise (trigger) the evenet, do our responses
