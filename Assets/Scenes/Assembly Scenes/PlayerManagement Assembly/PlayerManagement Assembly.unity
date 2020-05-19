@@ -2033,6 +2033,16 @@ MonoBehaviour:
   UICanvas: {fileID: 3624470826901620210}
   playerUIPrefab: {fileID: 304653615444338720, guid: 297c5b9f08e65494caada972fa7cc9ed,
     type: 3}
+  player1AbilitySets:
+  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
+  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
+  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
+  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  player2AbilitySets:
+  - {fileID: 11400000, guid: 2020fa160d4063746ac349fefd5fadea, type: 2}
+  - {fileID: 11400000, guid: 362768129eec4414c8f7a48a8ebda9be, type: 2}
+  - {fileID: 11400000, guid: 349f5bf004ddf0f4d9a13d2bdbd7e645, type: 2}
+  - {fileID: 11400000, guid: 67da6cf5956d1144d8016ae504921e66, type: 2}
 --- !u!4 &2129450708
 Transform:
   m_ObjectHideFlags: 0

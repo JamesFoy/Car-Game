@@ -16,7 +16,7 @@ public class AbilityInitializer : MonoBehaviour
 
     [SerializeField] AbilityUI abilityUI; // This is the UI object for this instance
 
-    [SerializeField] List<AbilitySet> possibleAbilitySets; //manually add the list of possible powerups to choose from
+    List<AbilitySet> possibleAbilitySets; //manually add the list of possible powerups to choose from
     private AbilitySet chosenAbilitySet;
     #endregion
 
@@ -118,5 +118,9 @@ public class AbilityInitializer : MonoBehaviour
     public void LinkAbilityUIToACar(AbilityUI abilityUI)
     {
         this.abilityUI = abilityUI;
+    }
+    public void DefineAbilitySets(List<AbilitySet> abilitySets)
+    {
+        possibleAbilitySets = abilitySets;
     }
 }

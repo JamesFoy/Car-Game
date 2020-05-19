@@ -16,6 +16,9 @@ public class AssignPlayersToCars : MonoBehaviour
     [SerializeField] GameObject UICanvas;
     [SerializeField] GameObject playerUIPrefab;
 
+    [SerializeField] List<AbilitySet> player1AbilitySets;
+    [SerializeField] List<AbilitySet> player2AbilitySets;
+
     private void Awake()
     {
         if (Instance != null)
@@ -29,9 +32,8 @@ public class AssignPlayersToCars : MonoBehaviour
     }
     private void Start()
     {
-
         AssignPlayers(numberOfHumanPlayers);
-        AssignCamerasToPlayers(numberOfHumanPlayers);
+        AssignGameObjectsToPlayers(numberOfHumanPlayers);
     }
     public static void AssignPlayers(int numberOfHumanPlayers)
     {
@@ -75,7 +77,7 @@ public class AssignPlayersToCars : MonoBehaviour
             Debug.Log("AI assigned to: " + listOfCars[i].name);
         }
     }
-    private void AssignCamerasToPlayers(int numberOfHumanPlayers)
+    private void AssignGameObjectsToPlayers(int numberOfHumanPlayers)
     {
         List<GameObject> realCamList = new List<GameObject>();
         List<GameObject> virtualCamList = new List<GameObject>();
@@ -98,16 +100,16 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUI.transform.SetParent(UICanvas.transform, false);
             playerUI.GetComponentInChildren<SpeedSliderManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
             playerUI.GetComponentInChildren<DamageDisplayManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
-            ListOfHumanAssignedCars[i - 1].GetComponent<AbilityInitializer>().LinkAbilityUIToACar(playerUI.GetComponentInChildren<AbilityUI>(true));
             playerUI.name = "Player " + i + " UI";
             playerUIList.Add(playerUI.GetComponent<RectTransform>());
 
-
+            ListOfHumanAssignedCars[i - 1].GetComponent<AbilityInitializer>().LinkAbilityUIToACar(playerUI.GetComponentInChildren<AbilityUI>(true));
         }
         // methods to assign cameras relative to UI
         if (numberOfHumanPlayers == 1)
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
+            ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
         }
         else if (numberOfHumanPlayers == 2)
         {
@@ -117,6 +119,8 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUIList[0].offsetMin = new Vector2(0, 1080);
             playerUIList[1].offsetMax = new Vector2(0, -1080);
             playerUIList[1].offsetMin = new Vector2(1152, 0);
+            ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
+            ListOfHumanAssignedCars[1].GetComponent<AbilityInitializer>().DefineAbilitySets(player2AbilitySets);
         }
         else if (numberOfHumanPlayers == 3)
         {
