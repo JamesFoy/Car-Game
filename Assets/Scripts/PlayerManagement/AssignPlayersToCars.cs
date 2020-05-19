@@ -6,9 +6,9 @@ using Cinemachine;
 
 public class AssignPlayersToCars : MonoBehaviour
 {
-    public static AssignPlayersToCars Instance;
+    public AssignPlayersToCars Instance;
     public int numberOfHumanPlayers = 1;
-    public static List<GameObject> ListOfHumanAssignedCars { get; private set; } = new List<GameObject>();
+    public List<GameObject> ListOfHumanAssignedCars { get; private set; } = new List<GameObject>();
 
     [SerializeField] GameObject realCamPrefab;
     [SerializeField] GameObject virtualCamPrefab;
@@ -144,13 +144,13 @@ public class AssignPlayersToCars : MonoBehaviour
 
         }
     }
-    private static CarInfo ValidateThisCar(GameObject car)
+    private CarInfo ValidateThisCar(GameObject car)
     {
         CarInfo carInfo = car.GetComponent<CarInfo>();
         CheckForExistingCarStats(carInfo);
         return carInfo;
     }
-    private static void CheckForExistingCarStats(CarInfo carInfo)
+    private void CheckForExistingCarStats(CarInfo carInfo)
     {
         if (carInfo.carStats == null)
         {

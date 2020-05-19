@@ -14,8 +14,11 @@ public class GameEventListener : MonoBehaviour
     /*When the object is enabled we register as an event listener 
     with the event and when disabled the opposite*/
     private void OnEnable()
-    { 
-        Event.RegisterListener(this);
+    {
+        if (Event != null)
+        {
+            Event.RegisterListener(this);
+        }
     }
 
     private void OnDisable()
