@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c333349ac002754d82801bc5cfba41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfHumanPlayers: 1
+  numberOfHumanPlayers: 2
   realCamPrefab: {fileID: 4554184613222415988, guid: 08e4859084b98d642a23ebd7d7632f96,
     type: 3}
   virtualCamPrefab: {fileID: 6170209216182870181, guid: 9882fd14f5f582d46a3ce158f3f606b6,

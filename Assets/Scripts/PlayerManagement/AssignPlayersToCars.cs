@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 
 public class AssignPlayersToCars : MonoBehaviour
@@ -78,6 +79,8 @@ public class AssignPlayersToCars : MonoBehaviour
     {
         List<GameObject> realCamList = new List<GameObject>();
         List<GameObject> virtualCamList = new List<GameObject>();
+        List<RectTransform> playerUIList = new List<RectTransform>();
+
         for (int i = 1; i <= ListOfHumanAssignedCars.Count; i++)
         {
             GameObject realCam = Instantiate(realCamPrefab);
@@ -95,6 +98,7 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUI.transform.SetParent(UICanvas.transform, false);
             playerUI.GetComponentInChildren<SpeedSliderManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
             playerUI.GetComponentInChildren<DamageDisplayManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
+            playerUIList.Add(playerUI.GetComponent<RectTransform>());
 
         }
         // methods to assign cameras relative to UI
@@ -106,6 +110,10 @@ public class AssignPlayersToCars : MonoBehaviour
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.7f, 0.5f);
             realCamList[1].GetComponent<Camera>().rect = new Rect(0.3f, 0, 0.7f, 0.5f);
+            playerUIList[0].offsetMax = new Vector2(-1152, 0);
+            playerUIList[0].offsetMin = new Vector2(0, 1080);
+            playerUIList[1].offsetMax = new Vector2(0, -1080);
+            playerUIList[1].offsetMin = new Vector2(1152, 0);
         }
         else if (numberOfHumanPlayers == 3)
         {
