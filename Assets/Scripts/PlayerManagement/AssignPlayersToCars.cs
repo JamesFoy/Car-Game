@@ -19,6 +19,9 @@ public class AssignPlayersToCars : MonoBehaviour
     [SerializeField] List<AbilitySet> player1AbilitySets;
     [SerializeField] List<AbilitySet> player2AbilitySets;
 
+    [SerializeField] GameEvent pickupDetectedPlayer1;
+    [SerializeField] GameEvent pickupDetectedPlayer2;
+
     private void Awake()
     {
         if (Instance != null)
@@ -110,6 +113,7 @@ public class AssignPlayersToCars : MonoBehaviour
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
             ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
+            ListOfHumanAssignedCars[0].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer1);
         }
         else if (numberOfHumanPlayers == 2)
         {
@@ -121,6 +125,8 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUIList[1].offsetMin = new Vector2(1152, 0);
             ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
             ListOfHumanAssignedCars[1].GetComponent<AbilityInitializer>().DefineAbilitySets(player2AbilitySets);
+            ListOfHumanAssignedCars[0].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer1);
+            ListOfHumanAssignedCars[1].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer2);
         }
         else if (numberOfHumanPlayers == 3)
         {

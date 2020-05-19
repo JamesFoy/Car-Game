@@ -28,4 +28,10 @@ public class GameEventListener : MonoBehaviour
     {
         Response.Invoke();
     }
+
+    public void OnEventChanged(GameEvent gameEvent)
+    {
+        Event = gameEvent;
+        Event.RegisterListener(this);
+    }
 }

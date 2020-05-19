@@ -1348,12 +1348,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2020fa160d4063746ac349fefd5fadea,
         type: 2}
-    - target: {fileID: 3014244276666042088, guid: 404676309a9f2d540a79612bbebe63f5,
-        type: 3}
-      propertyPath: Event
-      value: 
-      objectReference: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404676309a9f2d540a79612bbebe63f5, type: 3}
 --- !u!1 &1318457188
@@ -1746,12 +1740,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2,
         type: 2}
-    - target: {fileID: 3014244276666042088, guid: 404676309a9f2d540a79612bbebe63f5,
-        type: 3}
-      propertyPath: Event
-      value: 
-      objectReference: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404676309a9f2d540a79612bbebe63f5, type: 3}
 --- !u!1 &1870803481
@@ -2043,6 +2031,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 362768129eec4414c8f7a48a8ebda9be, type: 2}
   - {fileID: 11400000, guid: 349f5bf004ddf0f4d9a13d2bdbd7e645, type: 2}
   - {fileID: 11400000, guid: 67da6cf5956d1144d8016ae504921e66, type: 2}
+  pickupDetectedPlayer1: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265,
+    type: 2}
+  pickupDetectedPlayer2: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c,
+    type: 2}
 --- !u!4 &2129450708
 Transform:
   m_ObjectHideFlags: 0
