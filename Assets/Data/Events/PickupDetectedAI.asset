@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276bc058fd314584aa4aa319af397bff, type: 3}
   m_Name: PickupDetectedAI
   m_EditorClassIdentifier: 
-  listeners: []
+  listeners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

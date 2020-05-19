@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Scriptable Objects/Game Event")]
 public class GameEvent : ScriptableObject
 {
+    bool eventHasBeenRaised;
+
     //When you create a game event create a new empty list of things listening to it
     public List<GameEventListener> listeners = new List<GameEventListener>();
 
@@ -13,11 +15,14 @@ public class GameEvent : ScriptableObject
     {
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            if (listeners[i] != null)
+            if (listeners[i] != null && !eventHasBeenRaised)
             {
+                eventHasBeenRaised = true;
                 listeners[i].OnEventRaised();
             }
         }
+
+        eventHasBeenRaised = false;
     }
 
     //Tell the event "This is listening"
