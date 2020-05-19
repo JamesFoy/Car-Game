@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Assembly Scenes/MainMenu Assembly/MainMenu_Assembly.unity
     guid: 5c026fadda1213d48bc1b76bbba3143e
   - enabled: 1
+    path: Assets/Scenes/Assembly Scenes/TrackAssemblies/TutorialTrackScene.unity
+    guid: 987acd04e4ad6314495acf1bac1453b1
+  - enabled: 1
     path: Assets/Scenes/Assembly Scenes/TrackAssemblies/TrackTestScene.unity
     guid: 8b2fa76a267522f498a3b3faf560fb77
   - enabled: 1
