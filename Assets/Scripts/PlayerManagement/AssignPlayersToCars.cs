@@ -21,6 +21,7 @@ public class AssignPlayersToCars : MonoBehaviour
 
     [SerializeField] GameEvent pickupDetectedPlayer1;
     [SerializeField] GameEvent pickupDetectedPlayer2;
+    [SerializeField] GameEvent pickupDetectedAI;
 
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class AssignPlayersToCars : MonoBehaviour
         AssignPlayers(numberOfHumanPlayers);
         AssignGameObjectsToPlayers(numberOfHumanPlayers);
     }
-    public static void AssignPlayers(int numberOfHumanPlayers)
+    public void AssignPlayers(int numberOfHumanPlayers)
     {
         List<GameObject> listOfCars = new List<GameObject>();
         listOfCars.AddRange(GameObject.FindGameObjectsWithTag("Player"));
@@ -76,6 +77,8 @@ public class AssignPlayersToCars : MonoBehaviour
             carInfo.GetComponent<AIPathControl>().enabled = true;
 
             listOfCars[i].name = "AI " + (i + 1);
+
+            listOfCars[i].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedAI);
 
             Debug.Log("AI assigned to: " + listOfCars[i].name);
         }

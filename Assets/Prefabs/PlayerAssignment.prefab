@@ -65,3 +65,4 @@ MonoBehaviour:
     type: 2}
   pickupDetectedPlayer2: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c,
     type: 2}
+  pickupDetectedAI: {fileID: 11400000, guid: 9cd46f32094a9624da043f427d7067d0, type: 2}
