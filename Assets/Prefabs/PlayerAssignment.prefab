@@ -61,8 +61,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 362768129eec4414c8f7a48a8ebda9be, type: 2}
   - {fileID: 11400000, guid: 349f5bf004ddf0f4d9a13d2bdbd7e645, type: 2}
   - {fileID: 11400000, guid: 67da6cf5956d1144d8016ae504921e66, type: 2}
-  pickupDetectedPlayer1: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265,
+  pickupDetectedPlayer1: {fileID: 11400000, guid: 9cd46f32094a9624da043f427d7067d0,
     type: 2}
-  pickupDetectedPlayer2: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c,
+  pickupDetectedPlayer2: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265,
     type: 2}
-  pickupDetectedAI: {fileID: 11400000, guid: 9cd46f32094a9624da043f427d7067d0, type: 2}
+  pickupDetectedAI: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c, type: 2}
