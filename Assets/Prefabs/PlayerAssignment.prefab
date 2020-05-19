@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2397793312605728186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2397793312605728188}
+  - component: {fileID: 2397793312605728187}
+  m_Layer: 0
+  m_Name: PlayerAssignment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2397793312605728188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397793312605728186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -95.808464, y: -43.57086, z: -463.5527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2397793312605728187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397793312605728186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c333349ac002754d82801bc5cfba41b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfHumanPlayers: 2
+  realCamPrefab: {fileID: 4554184613222415988, guid: 08e4859084b98d642a23ebd7d7632f96,
+    type: 3}
+  virtualCamPrefab: {fileID: 6170209216182870181, guid: 9882fd14f5f582d46a3ce158f3f606b6,
+    type: 3}
+  UICanvas: {fileID: 0}
+  playerUIPrefab: {fileID: 304653615444338720, guid: 297c5b9f08e65494caada972fa7cc9ed,
+    type: 3}
+  player1AbilitySets:
+  - {fileID: 11400000, guid: 38470e49e3a2581418d9a67febd355e4, type: 2}
+  - {fileID: 11400000, guid: f43839693f5c5b14bb30f1f39a6c6ce8, type: 2}
+  - {fileID: 11400000, guid: 7afbd9401abfa7d4e97274eba9cea0db, type: 2}
+  - {fileID: 11400000, guid: c20aa2bff4a20ba40bfbf3f622396ed2, type: 2}
+  player2AbilitySets:
+  - {fileID: 11400000, guid: 2020fa160d4063746ac349fefd5fadea, type: 2}
+  - {fileID: 11400000, guid: 362768129eec4414c8f7a48a8ebda9be, type: 2}
+  - {fileID: 11400000, guid: 349f5bf004ddf0f4d9a13d2bdbd7e645, type: 2}
+  - {fileID: 11400000, guid: 67da6cf5956d1144d8016ae504921e66, type: 2}
+  pickupDetectedPlayer1: {fileID: 11400000, guid: e2f55157df6b58f43a0c3f8dbc62d265,
+    type: 2}
+  pickupDetectedPlayer2: {fileID: 11400000, guid: 95c1c23af87aedd4e8e913a18ba98b7c,
+    type: 2}

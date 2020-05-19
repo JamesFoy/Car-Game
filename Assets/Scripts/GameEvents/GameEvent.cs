@@ -13,7 +13,10 @@ public class GameEvent : ScriptableObject
     {
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            listeners[i].OnEventRaised();
+            if (listeners[i] != null)
+            {
+                listeners[i].OnEventRaised();
+            }
         }
     }
 

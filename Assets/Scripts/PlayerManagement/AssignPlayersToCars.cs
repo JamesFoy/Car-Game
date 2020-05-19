@@ -109,13 +109,13 @@ public class AssignPlayersToCars : MonoBehaviour
             ListOfHumanAssignedCars[i - 1].GetComponent<AbilityInitializer>().LinkAbilityUIToACar(playerUI.GetComponentInChildren<AbilityUI>(true));
         }
         // methods to assign cameras relative to UI
-        if (numberOfHumanPlayers == 1)
+        if (numberOfHumanPlayers >= 1)
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
             ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
             ListOfHumanAssignedCars[0].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer1);
         }
-        else if (numberOfHumanPlayers == 2)
+        if (numberOfHumanPlayers >= 2)
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.7f, 0.5f);
             realCamList[1].GetComponent<Camera>().rect = new Rect(0.3f, 0, 0.7f, 0.5f);
@@ -123,22 +123,17 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUIList[0].offsetMin = new Vector2(0, 1080);
             playerUIList[1].offsetMax = new Vector2(0, -1080);
             playerUIList[1].offsetMin = new Vector2(1152, 0);
-            ListOfHumanAssignedCars[0].GetComponent<AbilityInitializer>().DefineAbilitySets(player1AbilitySets);
             ListOfHumanAssignedCars[1].GetComponent<AbilityInitializer>().DefineAbilitySets(player2AbilitySets);
-            ListOfHumanAssignedCars[0].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer1);
             ListOfHumanAssignedCars[1].GetComponent<GameEventListener>().OnEventChanged(pickupDetectedPlayer2);
         }
-        else if (numberOfHumanPlayers == 3)
+        if (numberOfHumanPlayers >= 3)
         {
             realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
             realCamList[1].GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
             realCamList[2].GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
         }
-        else if (numberOfHumanPlayers == 4)
+        if (numberOfHumanPlayers >= 4)
         {
-            realCamList[0].GetComponent<Camera>().rect = new Rect(0, 0.5f, 0.5f, 0.5f);
-            realCamList[1].GetComponent<Camera>().rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
-            realCamList[2].GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 0.5f);
             realCamList[3].GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 0.5f);
         }
         else
