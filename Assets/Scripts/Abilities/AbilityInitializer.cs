@@ -60,7 +60,7 @@ public class AbilityInitializer : MonoBehaviour
             abilityDefense = selectedAbility;
         }
 
-        if (abilityUI != null && abilityUI.gameObject.activeInHierarchy)
+        if (abilityUI != null)
         {
             abilityUI.AssignSprite(selectedAbility.Sprite);
             abilityUI.gameObject.SetActive(true);
