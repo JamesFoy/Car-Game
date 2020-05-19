@@ -115,4 +115,8 @@ public class AbilityInitializer : MonoBehaviour
         canTriggerAbility = false;
     }
     #endregion
+    public void LinkAbilityUIToACar(AbilityUI abilityUI)
+    {
+        this.abilityUI = abilityUI;
+    }
 }

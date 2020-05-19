@@ -98,7 +98,10 @@ public class AssignPlayersToCars : MonoBehaviour
             playerUI.transform.SetParent(UICanvas.transform, false);
             playerUI.GetComponentInChildren<SpeedSliderManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
             playerUI.GetComponentInChildren<DamageDisplayManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
+            ListOfHumanAssignedCars[i - 1].GetComponent<AbilityInitializer>().LinkAbilityUIToACar(playerUI.GetComponentInChildren<AbilityUI>(true));
+            playerUI.name = "Player " + i + " UI";
             playerUIList.Add(playerUI.GetComponent<RectTransform>());
+
 
         }
         // methods to assign cameras relative to UI
