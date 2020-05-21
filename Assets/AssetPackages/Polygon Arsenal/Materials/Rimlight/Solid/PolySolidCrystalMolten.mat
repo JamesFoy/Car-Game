@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: PolySolidCrystalMolten
   m_Shader: {fileID: 4800000, guid: 86889086497f4f4459550c816ab55e34, type: 3}
   m_ShaderKeywords: _EMISSION
@@ -68,9 +69,9 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimGlow: 5.04
+    - _RimGlow: 1.22
     - _RimPower: 4.01
-    - _RimWidth: 1.86
+    - _RimWidth: 4.82
     - _Shininess: 0.078125
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

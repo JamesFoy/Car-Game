@@ -8,6 +8,7 @@ TagManager:
   - FirePoint
   - Rocket
   - Target
+  - Exhaust
   layers:
   - Default
   - TransparentFX
