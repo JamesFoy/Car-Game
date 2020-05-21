@@ -133,6 +133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2124144906108248687}
     m_Modifications:
+    - target: {fileID: 1879835225941884, guid: 5bbe345b3bde06a46895ec62cdf32566, type: 3}
+      propertyPath: m_Name
+      value: NukeMissileYellow
+      objectReference: {fileID: 0}
     - target: {fileID: 4823925117039506, guid: 5bbe345b3bde06a46895ec62cdf32566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.012433453
@@ -176,10 +180,6 @@ PrefabInstance:
     - target: {fileID: 4823925117039506, guid: 5bbe345b3bde06a46895ec62cdf32566, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879835225941884, guid: 5bbe345b3bde06a46895ec62cdf32566, type: 3}
-      propertyPath: m_Name
-      value: NukeMissileYellow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bbe345b3bde06a46895ec62cdf32566, type: 3}
