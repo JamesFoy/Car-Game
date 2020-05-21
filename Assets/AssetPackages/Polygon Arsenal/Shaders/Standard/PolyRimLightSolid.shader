@@ -6,11 +6,13 @@ Shader "PolygonArsenal/PolyRimLightSolid"
        _RimColor ("Rim Color", Color) = (0.26,0.19,0.16,0.0)
        _RimWidth ("Rim Width", Range(0.2,20.0)) = 3.0
 	   _RimGlow ("Rim Glow Multiplier", Range(0.0,9.0)) = 1.0
+		_Transparency ("Transparency", Range(0.0, 0.5)) = 0.25
      }
      SubShader 
      {
        Tags { "Queue" = "Transparent" "RenderType"="Transparent" }
        
+	   ZWrite Off
        Cull Back
 	   Lighting Off
        Blend SrcAlpha OneMinusSrcAlpha
@@ -27,6 +29,7 @@ Shader "PolygonArsenal/PolyRimLightSolid"
        float4 _RimColor;
        float _RimWidth;
 	   float _RimGlow;
+	   float _Transparency;
        
        void surf (Input IN, inout SurfaceOutput o) 
        {
