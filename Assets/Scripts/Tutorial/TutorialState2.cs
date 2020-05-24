@@ -11,7 +11,7 @@ namespace SpaceRacers.TutorialState
         float deltaAngle = 100;
         private void Awake()
         {
-            initialRot = GameObject.FindGameObjectWithTag("Player").transform.localEulerAngles.y;
+            initialRot = AngleSigning(GameObject.FindGameObjectWithTag("Player").transform.localEulerAngles.y);
         }
         private void Start()
         {
