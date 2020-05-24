@@ -8,22 +8,32 @@ public class DamageEffectBehaviour : MonoBehaviour
 
     CarInfo carInfo;
 
+    float healthLastFrame;
+
     // Start is called before the first frame update
     void Start()
     {
         carInfo = GetComponent<CarInfo>();   
     }
 
+    private void FixedUpdate()
+    {
+        healthLastFrame = carInfo.carStats.health;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (carInfo.carStats.health >= 4)
+        if (carInfo.carStats.health != healthLastFrame)
         {
-            damageEffectShader.SetActive(true);
+            StartCoroutine(DamageFlash());
         }
-        else
-        {
-            damageEffectShader.SetActive(false);
-        }
+    }
+
+    IEnumerator DamageFlash()
+    {
+        damageEffectShader.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        damageEffectShader.SetActive(false);
     }
 }
