@@ -13,7 +13,7 @@ namespace SpaceRacers.TutorialState
             {
                 for (int i = tutorialStates.Count - 1; i >= 0; i--)
                 {
-                    if (tutorialStates[i].IsTutorialConditionSatisfied())
+                    if (tutorialStates[i].IsTutorialConditionSatisfied() && tutorialStates[i].gameObject.activeSelf)
                     {
                         tutorialStates[i].gameObject.SetActive(false);
                         if (i + 1 < tutorialStates.Count)

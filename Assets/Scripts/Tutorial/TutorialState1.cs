@@ -12,7 +12,7 @@ namespace SpaceRacers.TutorialState
         }
         private void Update()
         {
-            if (playerCarInfo.carStats.speed > 20)
+            if (playerCarInfo.carStats.speed > 60)
             {
                 tutorialConditionSatisfied = true;
             }

@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &17255760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13636,6 +13636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialStates:
   - {fileID: 17255761}
+  - {fileID: 1507856085}
 --- !u!1001 &1387407314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15524,7 +15525,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507856083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3252f68d7ab38746b75260220358f8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e56d6e82de3a0f4aa26fc9aea7be7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialConditionSatisfied: 0
