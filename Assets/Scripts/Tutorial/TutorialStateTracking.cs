@@ -13,12 +13,22 @@ namespace SpaceRacers.TutorialState
             {
                 for (int i = tutorialStates.Count - 1; i >= 0; i--)
                 {
-                    if (tutorialStates[i].IsTutorialConditionSatisfied() && tutorialStates[i].gameObject.activeSelf)
+                    if (tutorialStates[i].IsTutorialConditionSatisfied())
                     {
-                        tutorialStates[i].gameObject.SetActive(false);
+                        if (tutorialStates[i].gameObject.activeSelf)
+                        {
+                            tutorialStates[i].gameObject.SetActive(false);
+                        }
                         if (i + 1 < tutorialStates.Count)
                         {
-                            tutorialStates[i + 1].gameObject.SetActive(true);
+                            for (int j = i + 1; j < tutorialStates.Count; j++)
+                            {
+                                if (tutorialStates[j].IsTutorialConditionSatisfied() != true)
+                                {
+                                    tutorialStates[j].gameObject.SetActive(true);
+                                    break;
+                                }
+                            }
                         }
                         tutorialStates.Remove(tutorialStates[i]);
                     }
