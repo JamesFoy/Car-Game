@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpaceRacers.TutorialState
 {
-    public class TutorialState6 : TutorialState
+    public class TutorialState8 : TutorialState
     {
         private void Start()
         {

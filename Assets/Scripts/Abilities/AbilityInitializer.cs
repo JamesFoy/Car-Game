@@ -126,4 +126,9 @@ public class AbilityInitializer : MonoBehaviour
     {
         possibleAbilitySets = abilitySets;
     }
+
+    public bool CanThisCarTriggerAbility()
+    {
+        return canTriggerAbility;
+    }
 }

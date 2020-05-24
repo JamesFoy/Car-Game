@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SpaceRacers.TutorialState
 {
-    public class TutorialState6 : TutorialState
+    public class TutorialState7 : TutorialState
     {
         private void Start()
         {
@@ -12,10 +12,10 @@ namespace SpaceRacers.TutorialState
         }
         private void Update()
         {
-            if (playerCarInfo.GetComponent<AbilityInitializer>().CanThisCarTriggerAbility() == false)
-            {
-                tutorialConditionSatisfied = true;
-            }
+        }
+        public void TutorialStateSatisfied()
+        {
+            tutorialConditionSatisfied = true;
         }
     }
 }
