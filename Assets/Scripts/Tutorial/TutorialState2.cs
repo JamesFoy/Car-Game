@@ -8,7 +8,7 @@ namespace SpaceRacers.TutorialState
     {
         float savedRot;
         float initialRot;
-        float deltaAngle = 30;
+        float deltaAngle = 100;
         private void Awake()
         {
             initialRot = GameObject.FindGameObjectWithTag("Player").transform.localEulerAngles.y;
