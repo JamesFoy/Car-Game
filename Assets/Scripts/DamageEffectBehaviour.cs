@@ -95,11 +95,11 @@ public class DamageEffectBehaviour : MonoBehaviour
     IEnumerator DeathRespawnDelay()
     {
         carEffects.SetActive(false);
-        carMesh.SetActive(false);
 
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
+        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
         mainCollider.enabled = false;
         inputManager.enabled = false;
@@ -114,7 +114,6 @@ public class DamageEffectBehaviour : MonoBehaviour
         CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
 
         carEffects.SetActive(true);
-        carMesh.SetActive(true);
 
         mainCollider.enabled = true;
         inputManager.enabled = true;
@@ -123,6 +122,10 @@ public class DamageEffectBehaviour : MonoBehaviour
         {
             capsuleColliders[i].enabled = true;
         }
+
+        rigidbody.constraints = RigidbodyConstraints.None;
+
+        deathCheck = false;
     }
 
     //Enumerator used to make the damage flash last half a second
