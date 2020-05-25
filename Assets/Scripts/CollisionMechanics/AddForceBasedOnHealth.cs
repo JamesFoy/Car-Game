@@ -55,7 +55,7 @@ public class AddForceBasedOnHealth : MonoBehaviour
     }
     private void ApplyForceToRigidbody(Vector3 forceToApply)
     {
-        Vector3 healthScaledForce = forceToApply * car.health;
+        Vector3 healthScaledForce = forceToApply * car.health * 0.1f;
         rb.AddForce(healthScaledForce);
     }
     Vector3 GetVelocity()
