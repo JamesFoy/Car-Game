@@ -53,4 +53,23 @@ public class CheckpointManager : MonoBehaviour
         }
         return null;
     }
+    public void ResetThisGameObjectToItsLastCheckpoint(GameObject a)
+    {
+        Checkpoint c = FindCheckpointThatContainsThisGameObject(a);
+        if (c != null)
+        {
+            if (a.GetComponent<Rigidbody>())
+            {
+                Rigidbody rb = a.GetComponent<Rigidbody>();
+                rb.position = c.transform.position;
+                rb.rotation = c.transform.rotation;
+                rb.velocity = Vector3.zero;
+            }
+            else
+            {
+                a.transform.position = c.transform.position;
+                a.transform.rotation = c.transform.rotation;
+            }
+        }
+    }
 }
