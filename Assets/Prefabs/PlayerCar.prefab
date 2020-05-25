@@ -26246,6 +26246,8 @@ MonoBehaviour:
   damageEffects10: {fileID: 191022518}
   damageEffects30: {fileID: 210949344}
   damageEffects60: {fileID: 1638673088}
+  deathEffect: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8,
+    type: 3}
 --- !u!114 &4918203261964475705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27855,12 +27857,12 @@ PrefabInstance:
       value: 0.7523764
       objectReference: {fileID: 0}
     - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2559633
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.71343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2559633
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01c30947af547f4db02509b46573b2c, type: 3}
@@ -28072,12 +28074,12 @@ PrefabInstance:
       value: 0.7523764
       objectReference: {fileID: 0}
     - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2559633
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.71343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526646210348848, guid: a01c30947af547f4db02509b46573b2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2559633
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01c30947af547f4db02509b46573b2c, type: 3}

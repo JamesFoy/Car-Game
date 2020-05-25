@@ -9,7 +9,7 @@ public class CarStockCounter : MonoBehaviour
     {
         ResetTriggeredObjectToLastKnownCheckpoint.announceCarReset += CheckForZeroStocks;
     }
-    void CheckForZeroStocks()
+    public void CheckForZeroStocks()
     {
         if (GetComponent<CarInfo>())
         {

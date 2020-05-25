@@ -8,6 +8,11 @@ public class DamageEffectBehaviour : MonoBehaviour
     public GameObject damageEffects10;
     public GameObject damageEffects30;
     public GameObject damageEffects60;
+    public GameObject deathEffect;
+
+    CarStockCounter stockCounter;
+
+    bool deathCheck = false;
 
     CarInfo carInfo;
 
@@ -16,6 +21,7 @@ public class DamageEffectBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stockCounter = GetComponent<CarStockCounter>();
         carInfo = GetComponent<CarInfo>();   
     }
 
@@ -59,6 +65,16 @@ public class DamageEffectBehaviour : MonoBehaviour
         else
         {
             damageEffects60.SetActive(false);
+        }
+
+        if (carInfo.carStats.health >= 100)
+        {
+            if (deathCheck == false)
+            {
+                deathCheck = true;
+                stockCounter.ReduceThisCarStockByOne();
+                GameObject deathEffectClone = Instantiate(deathEffect, transform.position, transform.rotation);
+            }
         }
     }
 
