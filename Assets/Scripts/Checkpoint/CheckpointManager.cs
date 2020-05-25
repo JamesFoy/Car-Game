@@ -42,7 +42,7 @@ public class CheckpointManager : MonoBehaviour
             c.RemoveGameObjectFromThisCheckpoint(a);
         }
     }
-    public Checkpoint FindCheckpointThatContainsThisGameObject(GameObject a)
+    private Checkpoint FindCheckpointThatContainsThisGameObject(GameObject a)
     {
         foreach (Checkpoint c in checkpoints)
         {
@@ -55,20 +55,23 @@ public class CheckpointManager : MonoBehaviour
     }
     public void ResetThisGameObjectToItsLastCheckpoint(GameObject a)
     {
-        Checkpoint c = FindCheckpointThatContainsThisGameObject(a);
-        if (c != null)
+        if (a.GetComponent<CarController>() != null)
         {
-            if (a.GetComponent<Rigidbody>())
+            Checkpoint c = FindCheckpointThatContainsThisGameObject(a);
+            if (c != null)
             {
-                Rigidbody rb = a.GetComponent<Rigidbody>();
-                rb.position = c.transform.position;
-                rb.rotation = c.transform.rotation;
-                rb.velocity = Vector3.zero;
-            }
-            else
-            {
-                a.transform.position = c.transform.position;
-                a.transform.rotation = c.transform.rotation;
+                if (a.GetComponent<Rigidbody>())
+                {
+                    Rigidbody rb = a.GetComponent<Rigidbody>();
+                    rb.position = c.transform.position;
+                    rb.rotation = c.transform.rotation;
+                    rb.velocity = Vector3.zero;
+                }
+                else
+                {
+                    a.transform.position = c.transform.position;
+                    a.transform.rotation = c.transform.rotation;
+                }
             }
         }
     }
