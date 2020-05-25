@@ -72,6 +72,7 @@ public class DamageEffectBehaviour : MonoBehaviour
             if (deathCheck == false)
             {
                 deathCheck = true;
+                CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
                 stockCounter.ReduceThisCarStockByOne();
                 GameObject deathEffectClone = Instantiate(deathEffect, transform.position, transform.rotation);
             }
