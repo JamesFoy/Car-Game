@@ -7,7 +7,7 @@ public class GameStateData : ScriptableObject
 {
     public delegate void OnGameStateChangedEvent(GameState gameState);
     public event OnGameStateChangedEvent onGameStateChanged;
-    public enum GameState { Unknown, Menu, Tutorial, Live, Finished }
+    public enum GameState { Unknown, Menu, Live, Finished }
 
 #if UNITY_EDITOR
     [ReadOnly, SerializeField]

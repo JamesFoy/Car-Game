@@ -12,8 +12,12 @@ public class GameStateManager : MonoBehaviour
             gameStateData.onGameStateChanged += PerformTaskBasedOnGameState;
         }
     }
+    private void Update()
+    {
+    }
     private void PerformTaskBasedOnGameState(GameStateData.GameState gameState)
     {
+        Debug.Log("gamestate changed to");
         throw new System.NotImplementedException();
     }
 }

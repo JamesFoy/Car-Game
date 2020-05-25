@@ -23,6 +23,8 @@ public class AssignPlayersToCars : MonoBehaviour
     [SerializeField] GameEvent pickupDetectedPlayer2;
     [SerializeField] GameEvent pickupDetectedAI;
 
+    [SerializeField] GameObject introCameraPosition;
+
     private void Awake()
     {
         if (Instance != null)
@@ -93,6 +95,8 @@ public class AssignPlayersToCars : MonoBehaviour
         {
             GameObject realCam = Instantiate(realCamPrefab);
             GameObject virtualCam = Instantiate(virtualCamPrefab);
+            GameObject virtualCamForIntro = Instantiate(virtualCamPrefab);
+            //GameObject virtualCamForIntroBlend = Instantiate(virtualCamPrefab);
             GameObject playerUI = Instantiate(playerUIPrefab);
 
             realCam.GetComponent<Camera>().cullingMask |= 1 << (20 + i);
@@ -102,6 +106,14 @@ public class AssignPlayersToCars : MonoBehaviour
             virtualCam.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i - 1].transform;
             virtualCam.GetComponent<CinemachineVirtualCamera>().Follow = ListOfHumanAssignedCars[i - 1].transform;
             virtualCamList.Add(virtualCam);
+
+            virtualCamForIntro.layer = (20 + i);
+            virtualCamForIntro.GetComponent<CinemachineVirtualCamera>().LookAt = ListOfHumanAssignedCars[i - 1].transform;
+            virtualCamForIntro.transform.position = introCameraPosition.transform.position;
+            virtualCamForIntro.transform.parent = introCameraPosition.transform;
+            virtualCamForIntro.gameObject.AddComponent<DeactivateOverTime>();
+            virtualCamForIntro.GetComponent<DeactivateOverTime>().timeAmount = 0.5f;
+            virtualCamList.Add(virtualCamForIntro);
 
             playerUI.transform.SetParent(UICanvas.transform, false);
             playerUI.GetComponentInChildren<SpeedSliderManagement>().carInfo = ListOfHumanAssignedCars[i - 1].GetComponent<CarInfo>();
