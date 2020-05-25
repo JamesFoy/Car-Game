@@ -14,7 +14,9 @@ public class DamageEffectBehaviour : MonoBehaviour
     public GameObject damageEffects10;
     public GameObject damageEffects30;
     public GameObject damageEffects60;
+
     public GameObject deathEffect;
+    public GameObject carWreck;
 
     public GameObject carMesh;
     public GameObject carEffects;
@@ -83,9 +85,6 @@ public class DamageEffectBehaviour : MonoBehaviour
         {
             if (deathCheck == false)
             {
-                deathCheck = true;
-                stockCounter.ReduceThisCarStockByOne();
-                GameObject deathEffectClone = Instantiate(deathEffect, transform.position, transform.rotation);
                 StartCoroutine(DeathRespawnDelay());
             }
         }
@@ -94,6 +93,14 @@ public class DamageEffectBehaviour : MonoBehaviour
     //Enumerator used to make the damage flash last half a second
     IEnumerator DeathRespawnDelay()
     {
+        deathCheck = true;
+
+        carMesh.SetActive(false);
+
+        stockCounter.ReduceThisCarStockByOne();
+        GameObject deathEffectClone = Instantiate(deathEffect, transform.position, transform.rotation);
+        GameObject carWreckClone = Instantiate(carWreck, transform.position, transform.rotation);
+
         carEffects.SetActive(false);
 
         rigidbody.velocity = Vector3.zero;
@@ -111,9 +118,9 @@ public class DamageEffectBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
-
         carEffects.SetActive(true);
+
+        carMesh.SetActive(true);
 
         mainCollider.enabled = true;
         inputManager.enabled = true;
@@ -124,6 +131,8 @@ public class DamageEffectBehaviour : MonoBehaviour
         }
 
         rigidbody.constraints = RigidbodyConstraints.None;
+
+        CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
 
         deathCheck = false;
     }
