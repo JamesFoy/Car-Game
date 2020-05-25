@@ -892,6 +892,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 68952123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &78102367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78102368}
+  m_Layer: 0
+  m_Name: IntroPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78102368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78102367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -66.2, y: -34.61, z: -429.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &83432633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 507636188034712583, guid: cbde6eeb539c1c14682552b444551386,
@@ -9014,7 +9044,7 @@ PrefabInstance:
     - target: {fileID: 3014244276666042085, guid: 404676309a9f2d540a79612bbebe63f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -97.47
+      value: -90.7
       objectReference: {fileID: 0}
     - target: {fileID: 3014244276666042085, guid: 404676309a9f2d540a79612bbebe63f5,
         type: 3}
@@ -19819,7 +19849,7 @@ PrefabInstance:
     - target: {fileID: 3014244276666042085, guid: 404676309a9f2d540a79612bbebe63f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -90.7
+      value: -97.7
       objectReference: {fileID: 0}
     - target: {fileID: 3014244276666042085, guid: 404676309a9f2d540a79612bbebe63f5,
         type: 3}
@@ -21791,5 +21821,10 @@ PrefabInstance:
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 1686382541}
+    - target: {fileID: 2397793312605728187, guid: 4cef17798b35f1e4c91300a36585a214,
+        type: 3}
+      propertyPath: introCameraPosition
+      value: 
+      objectReference: {fileID: 78102367}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cef17798b35f1e4c91300a36585a214, type: 3}

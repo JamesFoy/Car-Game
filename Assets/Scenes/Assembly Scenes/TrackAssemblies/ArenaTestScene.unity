@@ -628,6 +628,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d267862d282b5004caa5f5cd62a6206b, type: 3}
+--- !u!1 &782614979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782614980}
+  m_Layer: 0
+  m_Name: IntroPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782614980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782614979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -274.2084, y: 22.102468, z: 335.11826}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &959828295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -922,6 +952,11 @@ PrefabInstance:
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 959828296}
+    - target: {fileID: 2397793312605728187, guid: 4cef17798b35f1e4c91300a36585a214,
+        type: 3}
+      propertyPath: introCameraPosition
+      value: 
+      objectReference: {fileID: 782614979}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cef17798b35f1e4c91300a36585a214, type: 3}
 --- !u!1001 &1983012713
