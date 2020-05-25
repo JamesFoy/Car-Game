@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class DamageEffectBehaviour : MonoBehaviour
 {
+    BoxCollider mainCollider;
+    public List<CapsuleCollider> capsuleColliders = new List<CapsuleCollider>();
+
+    Rigidbody rigidbody;
+    InputManager inputManager;
+
     public GameObject damageEffectShader;
     public GameObject damageEffects10;
     public GameObject damageEffects30;
     public GameObject damageEffects60;
     public GameObject deathEffect;
+
+    public GameObject carMesh;
+    public GameObject carEffects;
 
     CarStockCounter stockCounter;
 
@@ -21,8 +30,11 @@ public class DamageEffectBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody>();
+        mainCollider = GetComponent<BoxCollider>();
+        inputManager = GetComponent<InputManager>();
         stockCounter = GetComponent<CarStockCounter>();
-        carInfo = GetComponent<CarInfo>();   
+        carInfo = GetComponent<CarInfo>();
     }
 
     //Saves the health value on the previous frame to a variable
@@ -72,10 +84,44 @@ public class DamageEffectBehaviour : MonoBehaviour
             if (deathCheck == false)
             {
                 deathCheck = true;
-                CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
                 stockCounter.ReduceThisCarStockByOne();
                 GameObject deathEffectClone = Instantiate(deathEffect, transform.position, transform.rotation);
+                StartCoroutine(DeathRespawnDelay());
             }
+        }
+    }
+
+    //Enumerator used to make the damage flash last half a second
+    IEnumerator DeathRespawnDelay()
+    {
+        carEffects.SetActive(false);
+        carMesh.SetActive(false);
+
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+
+
+        mainCollider.enabled = false;
+        inputManager.enabled = false;
+
+        for (int i = 0; i < capsuleColliders.Count; i++)
+        {
+            capsuleColliders[i].enabled = false;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        CheckpointManager.Instance.ResetThisGameObjectToItsLastCheckpoint(gameObject);
+
+        carEffects.SetActive(true);
+        carMesh.SetActive(true);
+
+        mainCollider.enabled = true;
+        inputManager.enabled = true;
+
+        for (int i = 0; i < capsuleColliders.Count; i++)
+        {
+            capsuleColliders[i].enabled = true;
         }
     }
 
