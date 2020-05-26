@@ -10,6 +10,7 @@ public class GameStateManager : MonoBehaviour
         if (gameStateData != null)
         {
             gameStateData.onGameStateChanged += PerformTaskBasedOnGameState;
+            gameStateData.CurrentState = GameStateData.GameState.Unknown;
         }
     }
     private void Update()
