@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CarStockCounter : MonoBehaviour
 {
+    public GameEvent carEliminated;
     bool hasThisCarBeenRecentlyReset = false;
     private void OnEnable()
     {
@@ -16,6 +17,7 @@ public class CarStockCounter : MonoBehaviour
             if (GetComponent<CarInfo>().carStats.stocks <= 0)
             {
                 Destroy(gameObject);
+                carEliminated.Raise();
             }
         }
     }

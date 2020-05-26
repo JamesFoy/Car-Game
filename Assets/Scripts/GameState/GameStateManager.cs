@@ -17,7 +17,21 @@ public class GameStateManager : MonoBehaviour
     }
     private void PerformTaskBasedOnGameState(GameStateData.GameState gameState)
     {
-        Debug.Log("gamestate changed to");
-        throw new System.NotImplementedException();
+        Debug.Log("gamestate changed to " + gameState.ToString());
+    }
+    public void CountRemainingCars()
+    {
+        StartCoroutine(DelayedCarCount());
+    }
+    IEnumerator DelayedCarCount()
+    {
+        yield return null;
+        List<GameObject> remainingCars = new List<GameObject>();
+        remainingCars.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+
+        if (remainingCars.Count <= 1)
+        {
+            gameStateData.CurrentState = GameStateData.GameState.Finished;
+        }
     }
 }
