@@ -18,7 +18,7 @@ public class SpeedSliderManagement : MonoBehaviour
                 sliderBars[i].SetActive(false);
             }
 
-            float barValue = carInfo.carStats.maxSpeed / sliderBars.Count;
+            float barValue = 200 / sliderBars.Count;
             int numberOfBarsToEnable = Mathf.FloorToInt(carInfo.carStats.speed / barValue);
 
             if (numberOfBarsToEnable <= sliderBars.Count)

@@ -12,10 +12,11 @@ public class CarStockCounter : MonoBehaviour
     }
     public void CheckForZeroStocks()
     {
-        if (GetComponent<CarInfo>())
+        if (GetComponent<CarInfo>() != null)
         {
             if (GetComponent<CarInfo>().carStats.stocks <= 0)
             {
+                ResetTriggeredObjectToLastKnownCheckpoint.announceCarReset -= CheckForZeroStocks;
                 Destroy(gameObject);
                 carEliminated.Raise();
             }

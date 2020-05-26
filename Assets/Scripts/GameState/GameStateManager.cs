@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    public static GameStateManager Instance;
+
     public GameStateData gameStateData;
+    [SerializeField] GameObject winScreen;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
         if (gameStateData != null)
@@ -19,6 +33,10 @@ public class GameStateManager : MonoBehaviour
     private void PerformTaskBasedOnGameState(GameStateData.GameState gameState)
     {
         Debug.Log("gamestate changed to " + gameState.ToString());
+        if (gameState == GameStateData.GameState.Finished)
+        {
+
+        }
     }
     public void CountRemainingCars()
     {

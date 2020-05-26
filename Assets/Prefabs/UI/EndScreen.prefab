@@ -131,7 +131,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press ESC To Unpause
+  m_text: Return to main menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6128ee56f5629f45b6b9f16bc3ebdd4, type: 2}
   m_sharedMaterial: {fileID: -233201992341199175, guid: a6128ee56f5629f45b6b9f16bc3ebdd4,
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 21.8
+  m_fontSize: 23.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_margin: {x: -45.417534, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 275138305}
-    characterCount: 20
+    characterCount: 19
     spriteCount: 0
     spaceCount: 3
     wordCount: 4
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8835717465301837663}
+      - m_Target: {fileID: 0}
         m_MethodName: OnMainMenuTriggered
         m_Mode: 1
         m_Arguments:
@@ -1071,9 +1071,9 @@ GameObject:
   - component: {fileID: 8835717465301837661}
   - component: {fileID: 8835717465301837660}
   - component: {fileID: 8835717465301837651}
-  - component: {fileID: 8835717465301837663}
+  - component: {fileID: 3848410937036459631}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: EndScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1119,7 +1119,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &8835717465301837660
 MonoBehaviour:
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8835717465301837663
+--- !u!114 &3848410937036459631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1169,10 +1169,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8835717465301837650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7a23a86ee8a6343aa3b4dab2c6acae, type: 3}
+  m_Script: {fileID: 11500000, guid: a076faa034250d5489c3766158142d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseObject: {fileID: 8835717466565878666}
+  finishObject: {fileID: 8835717466565878666}
 --- !u!1 &8835717465541521416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1238,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Paused
+  m_text: Winner!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6128ee56f5629f45b6b9f16bc3ebdd4, type: 2}
   m_sharedMaterial: {fileID: -233201992341199175, guid: a6128ee56f5629f45b6b9f16bc3ebdd4,
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8835717465541521418}
-    characterCount: 6
+    characterCount: 7
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1416,7 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8835717466565878667}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: Finished
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
