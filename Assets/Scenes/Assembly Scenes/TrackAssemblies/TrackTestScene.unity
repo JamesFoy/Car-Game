@@ -19763,6 +19763,10 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1817970154, guid: 13793a8995ecbdb43b78bc5f628e35be, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuTriggered
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8835717465301837663, guid: 13793a8995ecbdb43b78bc5f628e35be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13793a8995ecbdb43b78bc5f628e35be, type: 3}
