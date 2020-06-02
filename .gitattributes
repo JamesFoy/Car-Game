@@ -9,7 +9,7 @@ ProjectVersion.txt eol=lf
 *[tT]errain.asset binary
 *.mat eol=lf
 *.anim eol=lf
-*.unity eol=lf
+*.unity filter=lfs diff=lfs merge=lfs -text
 *.prefab eol=lf
 *.physicsMaterial2D eol=lf
 *.physicsMaterial eol=lf
