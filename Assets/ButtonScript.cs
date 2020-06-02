@@ -15,6 +15,9 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, ISelectHandler
     {
         onHighlight.Invoke();
 
+        if (selectionArrows == null)
+            return;
+
         if (this.gameObject.name == "Track Map Button")
         {
             selectionArrows.transform.position = this.transform.position;
